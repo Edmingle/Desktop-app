@@ -97,4 +97,7 @@ export const NetworkManager = {
   getTodaysClass: ({ date = "0" }) => {
     return axiosInstance.get(`student/classes/period?date=${date}`);
   },
+  joinClass: ({ classId = 0 }) => {
+    return axiosInstance.post(`liveclass/join/${classId}`);
+  },
 };
