@@ -1,35 +1,33 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import { Navigate, Outlet, Route, Routes, HashRouter } from "react-router-dom";
-import { Layout } from "./component/Layout";
-import { Work } from "./pages/Work";
-import { Splash } from "./pages/Splash";
-import { Login } from "./pages/Login";
+import { BaseRoute } from "./routes/BaseRoute";
+import { AppContext, useAppSelector } from "./root";
 
 const App = () => {
-  const [runningAppname, setRunningAppname] = useState<string[]>([]);
-  const [deeplinkData, setDeeplinksData] = useState("");
-  useEffect(() => {
-    const handleAppsUpdate = (data: any) => {
-      console.log("apps name: ", data);
-      const runningApps = data.split(",");
-      setRunningAppname(runningApps);
-    };
-    const deeplinksPayload = (data: any) => {
-      console.log("deeplinksPayload ", data);
-      setDeeplinksData(data);
-    };
+  const { contextData } = useAppSelector();
+  // const [runningAppname, setRunningAppname] = useState<string[]>([]);
+  // const [deeplinkData, setDeeplinksData] = useState("");
 
-    (window as any).api.onRunningAppsUpdate(handleAppsUpdate);
-    (window as any).api.deeplinks(deeplinksPayload);
+  // useEffect(() => {
+  //   const handleAppsUpdate = (data: any) => {
+  //     console.log("apps name: ", data);
+  //     const runningApps = data.split(",");
+  //     setRunningAppname(runningApps);
+  //   };
+  //   const deeplinksPayload = (data: any) => {
+  //     console.log("deeplinksPayload ", data);
+  //     setDeeplinksData(data);
+  //   };
 
-    const intervalId = setInterval(() => {
-      (window as any).api.requestRunningApps();
-    }, 4000);
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  //   (window as any).api.onRunningAppsUpdate(handleAppsUpdate);
+  //   (window as any).api.deeplinks(deeplinksPayload);
+
+  //   const intervalId = setInterval(() => {
+  //     (window as any).api.requestRunningApps();
+  //   }, 4000);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, []);
 
   // if (deeplinkData.length === 0) {
   //   return (
@@ -65,34 +63,11 @@ const App = () => {
   // ) {
   //   return <div>Wola.., let them join the meeting</div>;
   // }
-  const RequireAuth = ({ children }: { children: any }) => {
-    // const ctx = useContext<IContextProps>(AppContext);
-    // const { userMeta = {}, currentOrg, instInfo } = ctx || {};
-    // const user = userMeta.user;
-    // const auth =
-    //   user?.user_id && user?.org_data.length && currentOrg?.role != "student";
-
-    return false ? <Navigate to={"/login"} /> : children;
-    // return !auth ? <Navigate to={"/login"} /> : children;
-  };
 
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="login" element={<Login />} />
-        <Route
-          path="home"
-          element={
-            <RequireAuth>
-              <Layout />
-            </RequireAuth>
-          }
-        >
-          <Route path="dashboard" element={<Work />} />
-        </Route>
-      </Routes>
-    </HashRouter>
+    <AppContext.Provider value={contextData}>
+      <BaseRoute />
+    </AppContext.Provider>
   );
 
   // return (
@@ -139,9 +114,3 @@ const App = () => {
 };
 
 export default App;
-
-// The push operation includes a file which exceeds GitHub's file size restriction of 100MB. Please remove the file from history and try again.
-
-// File causing error:
-
-// node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework (141.60 MB)

@@ -1,13 +1,29 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../root";
 
 export const Splash = () => {
   const navigate = useNavigate();
+  const ctx = useContext(AppContext);
+  const { instInfo = {} } = ctx || {};
   useEffect(() => {
-    setTimeout(() => {
-      navigate("home");
-    }, 2000);
-  }, []);
+    let timeout = null;
+    if (Object.keys(instInfo).length > 0) {
+      timeout = setTimeout(() => {
+        const apikey = localStorage.getItem("apikey");
+        if (apikey) {
+          navigate("/home");
+        } else {
+          navigate("/login");
+        }
+      }, 2000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [ctx]);
+
   return (
     <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <p>Spash screen goes here</p>

@@ -1,0 +1,96 @@
+import axios, { AxiosInstance } from "axios";
+// // import { convertToFormData } from "../utils/appUtils";
+const axiosInstance: AxiosInstance = axios.create({
+  baseURL: "",
+  headers: {
+    APIKEY: "",
+    ORGID: "",
+  },
+});
+
+axiosInstance.interceptors.request.use(async function (config) {
+  /**
+   * More option headers needs to added here
+   * @example config.headers.TOKEN = token;
+   */
+  if (config.method === "post") {
+    config.headers["Content-Type"] = "multipart/form-data";
+  }
+
+  return config;
+});
+
+axiosInstance.interceptors.response.use(
+  (response) => {
+    return new Promise((resolve) => {
+      /**
+       * Global success response can be parsed here
+       * @example resolve(response.data.data);
+       * This will ensure to pass only needs response on the component level
+       */
+      resolve(response);
+    });
+  },
+
+  (error) => {
+    /**
+     * This will ensure any manipulation of
+     * error on the global level and then pass on the component
+     */
+    if (!error.response) {
+      return new Promise((_, reject) => {
+        reject(error);
+      });
+    }
+
+    if (error.response === undefined) {
+      //Session timeout
+    } else if (error.response.status === 401 || error.response.status === 400) {
+      return new Promise((_, reject) => {
+        reject(error.response);
+      });
+    } else {
+      return new Promise((_, reject) => {
+        reject(error.response);
+      });
+    }
+  }
+);
+
+export { axiosInstance };
+
+export const convertToFormData = (payload, name = "JSONString") => {
+  const data = new FormData();
+  data.append(name, JSON.stringify(payload));
+  return data;
+};
+
+export const NetworkManager = {
+  getInstituteProfile: () => {
+    return axios.get(
+      "https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/institute/profile?portal_name=enterpriseplanportal"
+    );
+  },
+  checkIfUserExsist: ({ userName = "", instituteId = 0 }) => {
+    return axios.get(
+      `https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/user/checkifexists?institution_id=${instituteId}&user=${userName}&calling_modal=login`
+    );
+  },
+  verifyOtp: ({ data = {} }) => {
+    const payload = convertToFormData(data);
+    return axios.post(
+      `https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/login`,
+      payload
+    );
+  },
+  getBundleCourses: ({
+    organization_id = 0,
+    page = 1,
+    perPage = 50,
+    // search = "",
+  }) => {
+    return axiosInstance.get(
+      `bundles/list?organization_id=${organization_id}&page=${page}&per_page=${perPage}`
+    );
+  },
+};
