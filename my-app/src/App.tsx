@@ -4,6 +4,8 @@ import { AppContext, useAppSelector } from "./root";
 
 const App = () => {
   const { contextData } = useAppSelector();
+  console.log("contextData is: ", contextData);
+
   // const [runningAppname, setRunningAppname] = useState<string[]>([]);
   // const [deeplinkData, setDeeplinksData] = useState("");
 
@@ -63,6 +65,10 @@ const App = () => {
   // ) {
   //   return <div>Wola.., let them join the meeting</div>;
   // }
+
+  if (contextData.instInfo === null) {
+    return;
+  }
 
   return (
     <AppContext.Provider value={contextData}>

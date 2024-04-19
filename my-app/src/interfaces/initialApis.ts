@@ -1,12 +1,7 @@
 export interface IContextProps {
   instInfo: IInstituteProfile;
-  userMeta: IUser;
-  currentOrg: IOrgData;
-  setCurrentOrg: (option: IOrgData) => void;
-  planPermissions: IObject;
-  webViewsEndPoint: string;
-  institutionAddons?: IObject;
-  apiEndPoint: string;
+  userMeta: IUserObj;
+  setUserMeta: (data: IUserObj) => void;
 }
 
 export interface IObject {
@@ -254,9 +249,6 @@ export interface IInstituteLogoDetail {
   logo_width: string;
   background_color: string;
   style: string;
-}
-export interface IUser {
-  user?: IUserObj;
 }
 export interface IUserObj {
   user_id: number;

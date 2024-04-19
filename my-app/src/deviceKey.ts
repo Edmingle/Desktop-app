@@ -6,7 +6,6 @@ const useFingerprint = async () => {
     const result = await fp.get();
     return result.visitorId;
   } catch (error) {
-    console.error("Error loading FingerprintJS", error);
     return null;
   }
 };

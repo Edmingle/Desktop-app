@@ -1,11 +1,10 @@
 import axios, { AxiosInstance } from "axios";
-// // import { convertToFormData } from "../utils/appUtils";
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: "",
-  headers: {
-    APIKEY: "",
-    ORGID: "",
-  },
+  baseURL: "https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/",
+  // headers: {
+  //   APIKEY: localStorage.getItem("apikey"),
+  //   ORGID: localStorage.getItem("orgid"),
+  // },
 });
 
 axiosInstance.interceptors.request.use(async function (config) {
@@ -80,17 +79,22 @@ export const NetworkManager = {
     const payload = convertToFormData(data);
     return axios.post(
       `https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/login`,
-      payload
+      payload,
+      { headers: { APIKEY: localStorage.getItem("apikey") } }
     );
   },
-  getBundleCourses: ({
-    organization_id = 0,
-    page = 1,
-    perPage = 50,
-    // search = "",
-  }) => {
-    return axiosInstance.get(
-      `bundles/list?organization_id=${organization_id}&page=${page}&per_page=${perPage}`
+  getUserMeta: () => {
+    return axios.get(
+      `https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/user/usermeta`,
+      {
+        headers: {
+          APIKEY: localStorage.getItem("apikey"),
+          ORGID: localStorage.getItem("orgid"),
+        },
+      }
     );
+  },
+  getTodaysClass: ({ date = "0" }) => {
+    return axiosInstance.get(`student/classes/period?date=${date}`);
   },
 };

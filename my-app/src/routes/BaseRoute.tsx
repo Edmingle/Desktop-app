@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes, HashRouter } from "react-router-dom";
 import { Layout } from "../component/Layout";
-import { Work } from "../pages/Work";
 import { Splash } from "../pages/Splash";
 import { Login } from "../pages/Login";
+import { Dashboard } from "../pages/Dashboard";
 
 export const BaseRoute = () => {
   const RequireAuth = ({ children }: { children: any }) => {
@@ -22,7 +22,7 @@ export const BaseRoute = () => {
             </RequireAuth>
           }
         >
-          <Route path="dashboard" element={<Work />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </HashRouter>

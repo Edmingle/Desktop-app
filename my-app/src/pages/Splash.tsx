@@ -6,6 +6,7 @@ export const Splash = () => {
   const navigate = useNavigate();
   const ctx = useContext(AppContext);
   const { instInfo = {} } = ctx || {};
+
   useEffect(() => {
     let timeout = null;
     if (Object.keys(instInfo).length > 0) {
@@ -17,12 +18,14 @@ export const Splash = () => {
           navigate("/login");
         }
       }, 2000);
+    } else {
+      navigate("/login");
     }
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [ctx]);
+  }, []);
 
   return (
     <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
