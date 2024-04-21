@@ -34,8 +34,8 @@ export const Dashboard = () => {
         ZoomMtg.prepareWebSDK();
         document.getElementById("zmmtg-root").style.display = "block";
         ZoomMtg.generateSDKSignature({
-          sdkKey: "ieqM85avTsuKUhIwjLT7dA",
-          sdkSecret: "rFFTO1ojWzxroZwRZnxsTXSLzrVEa7z4",
+          sdkKey: "",
+          sdkSecret: "",
           meetingNumber: response.data.join_id,
           role: "0",
           success: (signature) => joinZoom({ response, signature }),
