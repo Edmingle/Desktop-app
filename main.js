@@ -17,30 +17,6 @@ const createMainWindow = () => {
   });
   mainWindow.setContentProtection(true);
   mainWindow.webContents.openDevTools();
-  // mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
-  // mainWindow.setAlwaysOnTop(true, "screen-saver", 2);
-
-  // app.on("second-instance", (event, commandLine) => {
-  //   if (process.platform == "win32" || process.platform == "linux") {
-  //     // Protocol handler for win32/linux
-  //     // argv[1] is the URL
-  //     console.log("commandLine: ", commandLine[1]);
-  //     handleDeepLink(commandLine[1], mainWindow);
-  //   }
-  // });
-
-  // if (process.platform === "darwin") {
-  //   // Protocol handler for macOS
-  //   app.on("open-url", (event, url) => {
-  //     event.preventDefault();
-  //     handleDeepLink(url, mainWindow);
-  //   });
-  // }
-
-  // const startUrl = url.format({
-  //   pathname: path.join(__dirname, "index.html"),
-  //   protocol: "file",
-  // });
 
   const startUrl = url.format({
     pathname: path.join(__dirname, "./my-app/build/index.html"),
@@ -49,14 +25,6 @@ const createMainWindow = () => {
 
   mainWindow.loadURL(startUrl);
 };
-
-// function handleDeepLink(url, mainWindow) {
-//   // Extract the data from the URL
-//   console.log("Deep link URL:", url);
-//   const data = url.split("//")[1];
-//   console.log("Deep link URL data:", data);
-//   mainWindow.webContents.send("deep-link-data", data);
-// }
 
 const getRunningApps = (win) => {
   exec(

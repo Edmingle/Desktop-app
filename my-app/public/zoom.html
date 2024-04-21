@@ -15,8 +15,6 @@
 <script src="https://source.zoom.us/2.15.2/lib/vendor/redux.min.js"></script>
 <script src="https://source.zoom.us/2.15.2/lib/vendor/redux-thunk.min.js"></script>
 <script src="https://source.zoom.us/2.15.2/lib/vendor/lodash.min.js"></script>
-
-
 <script src="https://source.zoom.us/zoom-meeting-2.15.2.min.js"></script>
 
 <script>
@@ -30,6 +28,7 @@
       window.parent.postMessage(obj, '*');
       IframeMessage()
 			window.addEventListener("message", IframeMessage,false);
+
       function IframeMessage(){
         var userEmail = "vicky@edmingle.com";
         var userName = "Saket";
