@@ -1,4 +1,3 @@
-import "./App.css";
 import { BaseRoute } from "./routes/BaseRoute";
 import { AppContext, useAppSelector } from "./root";
 
@@ -66,7 +65,22 @@ const App = () => {
   // }
 
   if (contextData.instInfo === null) {
-    return;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src="../assets/images/splash.png"
+          alt="splash screen"
+          width={"100%"}
+          height={"100%"}
+        />
+      </div>
+    );
   }
 
   return (

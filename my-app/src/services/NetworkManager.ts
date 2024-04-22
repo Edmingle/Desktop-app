@@ -83,6 +83,7 @@ export const NetworkManager = {
       { headers: { APIKEY: localStorage.getItem("apikey") } }
     );
   },
+
   getUserMeta: () => {
     return axios.get(
       `https://enterpriseplanportal-api.edmingle.com/nuSource/api/v1/user/usermeta`,
@@ -93,6 +94,9 @@ export const NetworkManager = {
         },
       }
     );
+  },
+  getKeys: () => {
+    return axiosInstance.get(`zoom/sdk/keys`);
   },
   getTodaysClass: ({ date = "0" }) => {
     return axiosInstance.get(`student/classes/period?date=${date}`);

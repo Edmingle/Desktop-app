@@ -47,3 +47,16 @@ app.whenReady().then(() => {
 ipcMain.on("request-running-apps", (event) => {
   getRunningApps(event.sender);
 });
+
+// {
+//   "ancestorOrigins": {},
+//   "href": "file:///Users/vickykeshri/Desktop/Electron%20App/my-app/build/index.html#/home/dashboard",
+//   "origin": "file://",
+//   "protocol": "file:",
+//   "host": "",
+//   "hostname": "",
+//   "port": "",
+//   "pathname": "/Users/vickykeshri/Desktop/Electron%20App/my-app/build/index.html",
+//   "search": "",
+//   "hash": "#/home/dashboard"
+// }

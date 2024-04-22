@@ -28,8 +28,19 @@ export const Splash = () => {
   }, []);
 
   return (
-    <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <p>Spash screen goes here</p>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <img
+        src="../assets/images/splash.png"
+        alt="splash screen"
+        width={"100%"}
+        height={"100%"}
+      />
     </div>
   );
 };
