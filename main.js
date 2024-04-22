@@ -28,7 +28,7 @@ const createMainWindow = () => {
 
 const getRunningApps = (win) => {
   exec(
-    `osascript -e 'tell application "System Events" to get name of every process whose background only is false' && osascript -e 'if application "screencaptureui" is running then return "screencaptureui"'`,
+    `osascript -e 'tell application "System Events" to get name of every process whose background only is false' && osascript -e 'if application "screencaptureui" is running then return ",screencaptureui"'`,
     (err, stdout, stderr) => {
       if (err) {
         console.error(`Access denied Error: ${err}`, stderr);

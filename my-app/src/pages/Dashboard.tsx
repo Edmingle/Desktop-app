@@ -1,16 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../root";
+import { useEffect, useState } from "react";
 import { NetworkManager } from "../services/NetworkManager";
 import { currentDate, getClassDate, parseTime } from "../utils/dateTimeUtils";
 import { ZoomMtg } from "@zoom/meetingsdk";
-import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Row, notification } from "antd";
 import SVGComponent from "../component/Svgs";
 import "../css/Login.css";
 
 export const Dashboard = () => {
-  const ctx = useContext(AppContext);
-  const navigate = useNavigate();
   const [classData, setClassData] = useState([]);
   const [zoomSecret, setZoomsecret] = useState("");
   const [runningAppname, setRunningAppname] = useState<string[]>([]);
@@ -46,16 +42,13 @@ export const Dashboard = () => {
       if (response.data.code === 200) {
         setClassData(response.data.payload.classes);
       }
-      console.log("Response is: ", response);
-    } catch (error) {
-      console.log("Error is: ", error);
-    }
+    } catch (error) {}
   };
 
   const checkBackgroundRunningApps = (item) => {
     if (runningAppname.length === 0) {
       openNotification({ isEmpty: true });
-    } else if (runningAppname.length > 1) {
+    } else if (runningAppname.length > 5) {
       openNotification({ isEmpty: false });
     } else {
       joinClass(item);
@@ -85,7 +78,7 @@ export const Dashboard = () => {
 
   const joinZoom = ({ response, signature }) => {
     ZoomMtg.init({
-      leaveUrl: "",
+      leaveUrl: "https://enterpriseplanportal.edmingle.com/home/dashboard",
       patchJsMedia: true,
       success: (success) => {
         ZoomMtg.join({
@@ -97,14 +90,8 @@ export const Dashboard = () => {
           userEmail: "saketh@edmingle.com",
           success: (success) => {
             setIsMeetingRunning(true);
-            // ZoomMtg.inMeetingServiceListener("onUserLeave", (data) => {
-            //   console.log("leave meeting data: ", data);
-            //   // navigate("/login");
-            //   // window.close();
-            // });
           },
           error: (error) => {
-            console.log("join error is: ", error);
             setIsMeetingRunning(false);
           },
         });
@@ -116,13 +103,15 @@ export const Dashboard = () => {
   };
 
   useEffect(() => {
-    // console.log("current url is: ", window.webContents.getURL());
     getZoomKeys();
     getTodaysClass();
   }, []);
 
   useEffect(() => {
-    if (isMeetingRunning && runningAppname.length > 7) {
+    if (
+      isMeetingRunning &&
+      (runningAppname.length > 5 || runningAppname.includes("screencaptureui"))
+    ) {
       ZoomMtg.leaveMeeting({});
     }
   }, [isMeetingRunning, runningAppname]);
@@ -232,10 +221,8 @@ export const Dashboard = () => {
                     borderTopLeftRadius: 10,
                     minWidth: 30,
                   }}
-                  // disabled={btnText === "JOIN NOW" ? false : true}
-                  // color="#b2bbc6"
+                  disabled={btnText === "JOIN NOW" ? false : true}
                   onClick={() => checkBackgroundRunningApps(item)}
-                  // onClick={() => joinClass(item)}
                   type="primary"
                 >
                   {btnText}
@@ -247,9 +234,4 @@ export const Dashboard = () => {
       </Row>
     </div>
   );
-
-  // <button onClick={() => joinClass(item)}>Join now</button>
-  // Refused to frame 'https://enterpriseplanportal.edmingle.com/'
-  //  because an ancestor violates the following
-  //  Content Security Policy directive: "frame-ancestors 'self'".
 };
