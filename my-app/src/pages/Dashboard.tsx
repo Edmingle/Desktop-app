@@ -119,7 +119,7 @@ export const Dashboard = () => {
   }, [isMeetingRunning, runningAppname]);
 
   useEffect(() => {
-    const os = (window as any).api.getOS();
+    const os = (window as any).api.getOs();
     setPlatform(os);
     if (os === "darwin") {
       const handleAppsUpdate = (data: any) => {
