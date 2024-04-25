@@ -1,5 +1,6 @@
 .dashboard_container {
   background-image: url("../../assets/images/image 1.png");
+  height: 100vh;
 }
 .dashboard_top_header {
   display: flex;
@@ -130,4 +131,21 @@
   border: none;
   background-color: #033f8133;
   color: #fff;
+}
+
+.dashboard_no_class_container {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.dashboard_no_class_container span {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  letter-spacing: -0.02em;
+  color: #8c8c8c;
 }
