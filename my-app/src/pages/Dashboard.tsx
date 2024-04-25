@@ -118,25 +118,25 @@ export const Dashboard = () => {
     }
   }, [isMeetingRunning, runningAppname]);
 
-  // useEffect(() => {
-  //   const os = (window as any).api.getOS();
-  //   setPlatform(os);
-  //   if (os === "darwin") {
-  //     const handleAppsUpdate = (data: any) => {
-  //       const runningApps = data.split(",");
-  //       setRunningAppname(runningApps);
-  //     };
+  useEffect(() => {
+    const os = (window as any).api.getOS();
+    setPlatform(os);
+    if (os === "darwin") {
+      const handleAppsUpdate = (data: any) => {
+        const runningApps = data.split(",");
+        setRunningAppname(runningApps);
+      };
 
-  //     (window as any).api.onRunningAppsUpdate(handleAppsUpdate);
+      (window as any).api.onRunningAppsUpdate(handleAppsUpdate);
 
-  //     const intervalId = setInterval(() => {
-  //       (window as any).api.requestRunningApps();
-  //     }, 4000);
-  //     return () => {
-  //       clearInterval(intervalId);
-  //     };
-  //   }
-  // }, []);
+      const intervalId = setInterval(() => {
+        (window as any).api.requestRunningApps();
+      }, 4000);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, []);
 
   // if (classData.length === 0) {
   //   return <div>Loading...!!</div>;
