@@ -1,11 +1,11 @@
+import type { FormProps } from "antd";
+import { App, Button, Form, Input } from "antd";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NetworkManager } from "../services/NetworkManager";
-import { AppContext } from "../root";
-import useFingerprint from "../deviceKey";
 import "../css/Login.css";
-import type { FormProps } from "antd";
-import { Button, Form, Input } from "antd";
+import useFingerprint from "../deviceKey";
+import { AppContext } from "../root";
+import { NetworkManager } from "../services/NetworkManager";
 
 type FieldType = {
   username?: string;
@@ -15,11 +15,13 @@ type FieldType = {
 
 export const Login = () => {
   const navigate = useNavigate();
+  const { message } = App.useApp();
   const [visitorId, setVisitorId] = useState("");
 
   const [userName, setUserName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const ctx = useContext(AppContext);
   const { instInfo } = ctx || {};
@@ -36,6 +38,7 @@ export const Login = () => {
 
   const checkifUserExsist = async () => {
     try {
+      setLoading(true);
       const response = await NetworkManager.checkIfUserExsist({
         userName: userName,
         instituteId: instInfo.institution_id,
@@ -45,15 +48,20 @@ export const Login = () => {
           setShowPassword(true);
         } else {
           setShowPassword(false);
+          message.error("Sorry! User does not exist.");
         }
       }
     } catch (error) {
       console.log("Error is: ", error);
       setShowPassword(false);
+      message.error("Sorry! User does not exist.");
+    } finally {
+      setLoading(false);
     }
   };
   const verifyOtp = async () => {
     try {
+      setLoading(true);
       const data = {
         username: userName,
         password: password,
@@ -66,14 +74,19 @@ export const Login = () => {
         const user = response.data.user;
         const { apikey = "" } = user || {};
         localStorage.setItem("apikey", apikey);
+        message.success("Login successful!");
         navigate("/home");
       }
     } catch (error) {
       console.log("Error is: ", error);
+      message.error(error?.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+    console.log(values);
     showPassword ? verifyOtp() : checkifUserExsist();
   };
 
@@ -84,63 +97,109 @@ export const Login = () => {
   };
 
   return (
-    <div className="background-image">
-      <Form
-        name="basic"
-        style={{ width: 300 }}
-        layout={"vertical"}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item<FieldType>
-          label="Username"
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: "Please input your username!",
-            },
-          ]}
-        >
-          <Input
-            onChange={(e) => setUserName(e.target.value)}
-            disabled={showPassword}
-            value={userName}
+    <div className="background_image_container">
+      <div className="background-image">
+        <div className="login_container">
+          <Form
+            name="basic"
             style={{ width: 300 }}
-            id="error"
-            suffix={
-              showPassword && (
-                <Button
-                  type="text"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  Edit
-                </Button>
-              )
-            }
-          />
-        </Form.Item>
-        {showPassword && (
-          <Form.Item<FieldType>
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            layout={"vertical"}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
           >
-            <Input.Password
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </Form.Item>
-        )}
+            <div>
+              <span className="login_username">Username</span>
+              <Form.Item<FieldType>
+                name="username"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your username!",
+                  },
+                ]}
+              >
+                {/* <ConfigProvider
+                theme={{
+                  token: {
+                    colorBgContainerDisabled: "#e4e9f1",
+                  },
+                }}
+              > */}
+                <Input
+                  onChange={(e) => setUserName(e.target.value)}
+                  disabled={showPassword}
+                  value={userName}
+                  style={{ width: 300, marginTop: "8px" }}
+                  id="error"
+                  placeholder="Enter username"
+                  suffix={
+                    showPassword && (
+                      <Button
+                        className="edit_button"
+                        type="text"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        Edit
+                      </Button>
+                    )
+                  }
+                />
+                {/* </ConfigProvider> */}
+              </Form.Item>
+            </div>
+            {showPassword && (
+              <Form.Item<FieldType>
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: "Please input your password!" },
+                ]}
+              >
+                <Input.Password
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </Form.Item>
+            )}
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit" style={{ width: 300 }}>
-            {showPassword ? "Login" : "Confirm"}
-          </Button>
-        </Form.Item>
-      </Form>
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: 300 }}
+                className="login_button"
+                loading={loading}
+              >
+                {showPassword ? "Login" : "Proceed"}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_8_167)">
+                    <path
+                      d="M4.5 2.25L8.25 6L4.5 9.75"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_8_167">
+                      <rect width="12" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+      </div>
     </div>
   );
 };

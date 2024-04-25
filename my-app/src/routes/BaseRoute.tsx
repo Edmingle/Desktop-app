@@ -1,8 +1,9 @@
-import { Navigate, Route, Routes, HashRouter } from "react-router-dom";
+import { App as AntdApp } from "antd";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../component/Layout";
-import { Splash } from "../pages/Splash";
-import { Login } from "../pages/Login";
 import { Dashboard } from "../pages/Dashboard";
+import { Login } from "../pages/Login";
+import { Splash } from "../pages/Splash";
 
 export const BaseRoute = () => {
   const RequireAuth = ({ children }: { children: any }) => {
@@ -10,21 +11,23 @@ export const BaseRoute = () => {
     return apiKey ? children : <Navigate to={"/login"} />;
   };
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="login" element={<Login />} />
-        <Route
-          path="home"
-          element={
-            <RequireAuth>
-              <Layout />
-            </RequireAuth>
-          }
-        >
-          <Route path="dashboard" element={<Dashboard />} />
-        </Route>
-      </Routes>
-    </HashRouter>
+    <AntdApp>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Splash />} />
+          <Route path="login" element={<Login />} />
+          <Route
+            path="home"
+            element={
+              <RequireAuth>
+                <Layout />
+              </RequireAuth>
+            }
+          >
+            <Route path="dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </HashRouter>
+    </AntdApp>
   );
 };
