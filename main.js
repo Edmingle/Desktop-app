@@ -5,10 +5,11 @@ const { exec } = require("child_process");
 
 const createMainWindow = () => {
   const mainWindow = new BrowserWindow({
-    title: "First App",
+    title: "Aldine CA",
     height: 600,
     width: 1000,
     fullscreen: true,
+    icon: path.join(__dirname, "./my-app/assets/images/splash.png"),
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: true,
@@ -42,21 +43,7 @@ const getRunningApps = (win) => {
 
 app.whenReady().then(() => {
   createMainWindow();
-  app.setAsDefaultProtocolClient("edmingleDesktopPoc");
 });
 ipcMain.on("request-running-apps", (event) => {
   getRunningApps(event.sender);
 });
-
-// {
-//   "ancestorOrigins": {},
-//   "href": "file:///Users/vickykeshri/Desktop/Electron%20App/my-app/build/index.html#/home/dashboard",
-//   "origin": "file://",
-//   "protocol": "file:",
-//   "host": "",
-//   "hostname": "",
-//   "port": "",
-//   "pathname": "/Users/vickykeshri/Desktop/Electron%20App/my-app/build/index.html",
-//   "search": "",
-//   "hash": "#/home/dashboard"
-// }

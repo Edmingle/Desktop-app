@@ -10,6 +10,7 @@ import { currentDate, getClassDate, parseTime } from "../utils/dateTimeUtils";
 export const Dashboard = () => {
   const [classData, setClassData] = useState([]);
   const [zoomSecret, setZoomsecret] = useState("");
+  const [platform, setPlatform] = useState("");
   const [runningAppname, setRunningAppname] = useState<string[]>([]);
   const [api, contextHolder] = notification.useNotification();
   const [isMeetingRunning, setIsMeetingRunning] = useState(false);
@@ -47,9 +48,9 @@ export const Dashboard = () => {
   };
 
   const checkBackgroundRunningApps = (item) => {
-    if (runningAppname.length === 0) {
+    if (platform === "darwin" && runningAppname.length === 0) {
       openNotification({ isEmpty: true });
-    } else if (runningAppname.length > 5) {
+    } else if (platform === "darwin" && runningAppname.length > 5) {
       openNotification({ isEmpty: false });
     } else {
       joinClass(item);
@@ -87,8 +88,8 @@ export const Dashboard = () => {
           sdkKey: response.data.sdk_key,
           meetingNumber: response.data.join_id,
           passWord: response.data.meeting_password,
-          userName: "Vicky Keshri",
-          userEmail: "saketh@edmingle.com",
+          userName: localStorage.getItem("user_name") || "",
+          userEmail: localStorage.getItem("user_email") || "",
           success: (success) => {
             setIsMeetingRunning(true);
           },
@@ -110,6 +111,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     if (
+      platform === "darwin" &&
       isMeetingRunning &&
       (runningAppname.length > 5 || runningAppname.includes("screencaptureui"))
     ) {
@@ -118,20 +120,28 @@ export const Dashboard = () => {
   }, [isMeetingRunning, runningAppname]);
 
   // useEffect(() => {
-  //   const handleAppsUpdate = (data: any) => {
-  //     const runningApps = data.split(",");
-  //     setRunningAppname(runningApps);
-  //   };
+  //   const os = (window as any).api.getOS();
+  //   setPlatform(os);
+  //   if (os === "darwin") {
+  //     const handleAppsUpdate = (data: any) => {
+  //       const runningApps = data.split(",");
+  //       setRunningAppname(runningApps);
+  //     };
 
-  //   (window as any).api.onRunningAppsUpdate(handleAppsUpdate);
+  //     (window as any).api.onRunningAppsUpdate(handleAppsUpdate);
 
-  //   const intervalId = setInterval(() => {
-  //     (window as any).api.requestRunningApps();
-  //   }, 4000);
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
+  //     const intervalId = setInterval(() => {
+  //       (window as any).api.requestRunningApps();
+  //     }, 4000);
+  //     return () => {
+  //       clearInterval(intervalId);
+  //     };
+  //   }
   // }, []);
+
+  // if (classData.length === 0) {
+  //   return <div>Loading...!!</div>;
+  // }
 
   return (
     <>
