@@ -144,7 +144,7 @@ export const Dashboard = () => {
   // }
 
   return (
-    <>
+    <div className="dashboard_container">
       <div className="dashboard_top_header">
         <svg
           width="100"
@@ -218,24 +218,99 @@ export const Dashboard = () => {
           <span className="dashboard_student_name">Hemal Patel</span>
         </div>
       </div>
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+
+      <div className="dashboard_info_div">
+        <div className="dashboard_info_div_left">
+          <div>
+            <svg
+              width="46"
+              height="50"
+              viewBox="0 0 46 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="23" cy="26.1111" r="23" fill="#F1E8FF" />
+              <path
+                d="M8.94434 40.0233H37.0554V11.9122H8.94434V40.0233Z"
+                fill="#8C8C8C"
+              />
+            </svg>
+          </div>
+          <div>
+            <span className="dashboard_info_title">
+              Welcome Rishabh,{" "}
+              {classData.length === 0
+                ? "you do not have any classes today!"
+                : "you have 3 classes today!"}
+            </span>
+            <span className="dashboard_info_subtitle">
+              This app can only be used to join classes. To access more
+              features, please use the mobile application or the website.
+            </span>
+          </div>
+        </div>
+        <div className="dashboard_info_div_right">
+          <Button
+            className="dashboard_refresh_class_btn"
+            type="primary"
+            // onClick={() => setShowPassword(!showPassword)}
+          >
+            <svg
+              width="17"
+              height="18"
+              viewBox="0 0 17 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_10_1179)">
+                <path
+                  d="M11.1562 6.875H14.3438V3.6875"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M14.3438 6.87501L12.4658 4.99704C11.3782 3.9095 9.90573 3.29457 8.36771 3.28562C6.8297 3.27667 5.35016 3.87442 4.25 4.94923"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M5.84375 11.125H2.65625V14.3125"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M2.65625 11.125L4.53422 13.003C5.6218 14.0905 7.09427 14.7054 8.63229 14.7144C10.1703 14.7233 11.6498 14.1256 12.75 13.0508"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_10_1179">
+                  <rect
+                    width="17"
+                    height="17"
+                    fill="white"
+                    transform="translate(0 0.5)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <span>Refresh classes</span>
+          </Button>
+        </div>
+      </div>
+
+      <div>
         {contextHolder}
-        <Row
-          gutter={16}
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            width: "100%",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="dashboard_classes_container">
           {classData.map((item, index) => {
             const clasName = item[10];
             const courseName = item[32] !== null ? item[32] : "";
@@ -263,56 +338,115 @@ export const Dashboard = () => {
             }
 
             return (
-              <Col key={index} span={8}>
-                <Card
-                  title={cardTitle}
-                  bordered={false}
-                  style={{ marginBottom: 20 }}
+              <div className="dashboard_classes_indi">
+                <span className="dashboard_classes_name">{cardTitle}</span>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    columnGap: "20px",
+                  }}
                 >
-                  <div style={{ display: "flex" }}>
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      <SVGComponent src={"calendar"} />
-                      <p style={{ marginLeft: 10 }}>{classDate}</p>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginLeft: 10,
-                      }}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      columnGap: "6px",
+                    }}
+                  >
+                    <svg
+                      width="21"
+                      height="22"
+                      viewBox="0 0 21 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <SVGComponent src={"clock"} />
-                      <p style={{ marginLeft: 10 }}>{classTime}</p>
-                    </div>
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M13.8091 1.70389C14.171 1.70389 14.4648 1.99762 14.4648 2.35953L14.4652 3.10068C15.7416 3.18819 16.8017 3.6254 17.552 4.37725C18.3711 5.19986 18.802 6.38264 18.7977 7.80145V15.7767C18.7977 18.6895 16.9479 20.499 13.9713 20.499H6.57738C3.60076 20.499 1.75098 18.6641 1.75098 15.7102V7.7997C1.75098 5.05229 3.40062 3.28874 6.09105 3.10098L6.09159 2.35953C6.09159 1.99762 6.38532 1.70389 6.74723 1.70389C7.10915 1.70389 7.40287 1.99762 7.40287 2.35953L7.40261 3.08423H13.153L13.1535 2.35953C13.1535 1.99762 13.4472 1.70389 13.8091 1.70389ZM17.4864 9.48767H3.06226V15.7102C3.06226 17.9534 4.3106 19.1878 6.57738 19.1878H13.9713C16.238 19.1878 17.4864 17.9761 17.4864 15.7767L17.4864 9.48767ZM14.1655 14.9883C14.5274 14.9883 14.8212 15.2821 14.8212 15.644C14.8212 16.0059 14.5274 16.2996 14.1655 16.2996C13.8036 16.2996 13.5064 16.0059 13.5064 15.644C13.5064 15.2821 13.7957 14.9883 14.1576 14.9883H14.1655ZM10.2863 14.9883C10.6482 14.9883 10.9419 15.2821 10.9419 15.644C10.9419 16.0059 10.6482 16.2996 10.2863 16.2996C9.92439 16.2996 9.62716 16.0059 9.62716 15.644C9.62716 15.2821 9.91652 14.9883 10.2784 14.9883H10.2863ZM6.39895 14.9883C6.76087 14.9883 7.0546 15.2821 7.0546 15.644C7.0546 16.0059 6.76087 16.2996 6.39895 16.2996C6.03704 16.2996 5.73894 16.0059 5.73894 15.644C5.73894 15.2821 6.02917 14.9883 6.39109 14.9883H6.39895ZM14.1655 11.5906C14.5274 11.5906 14.8212 11.8843 14.8212 12.2463C14.8212 12.6082 14.5274 12.9019 14.1655 12.9019C13.8036 12.9019 13.5064 12.6082 13.5064 12.2463C13.5064 11.8843 13.7957 11.5906 14.1576 11.5906H14.1655ZM10.2863 11.5906C10.6482 11.5906 10.9419 11.8843 10.9419 12.2463C10.9419 12.6082 10.6482 12.9019 10.2863 12.9019C9.92439 12.9019 9.62716 12.6082 9.62716 12.2463C9.62716 11.8843 9.91652 11.5906 10.2784 11.5906H10.2863ZM6.39895 11.5906C6.76087 11.5906 7.0546 11.8843 7.0546 12.2463C7.0546 12.6082 6.76087 12.9019 6.39895 12.9019C6.03704 12.9019 5.73894 12.6082 5.73894 12.2463C5.73894 11.8843 6.02917 11.5906 6.39109 11.5906H6.39895ZM13.153 4.39552H7.40261L7.40287 5.23649C7.40287 5.5984 7.10915 5.89213 6.74723 5.89213C6.38532 5.89213 6.09159 5.5984 6.09159 5.23649L6.09112 4.41536C4.13274 4.57988 3.06226 5.76699 3.06226 7.7997V8.17639H17.4864L17.4864 7.7997C17.4899 6.72007 17.1997 5.88085 16.6236 5.30389C16.1179 4.79669 15.3786 4.49378 14.4655 4.41578L14.4648 5.23649C14.4648 5.5984 14.171 5.89213 13.8091 5.89213C13.4472 5.89213 13.1535 5.5984 13.1535 5.23649L13.153 4.39552Z"
+                        fill="#7B8C9F"
+                      />
+                    </svg>
+                    <span className="dashboard_classes_grey_text">
+                      {classDate}
+                    </span>
                   </div>
 
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <SVGComponent src={"single_user"} />
-                    <p style={{ marginLeft: 10 }}>By {tutorName}</p>
-                  </div>
-                  <Button
+                  <div
                     style={{
-                      position: "absolute",
-                      right: 0,
-                      bottom: 0,
-                      padding: 5,
-                      borderRadius: 0,
-                      borderBottomRightRadius: 10,
-                      borderTopLeftRadius: 10,
-                      minWidth: 30,
+                      display: "flex",
+                      alignItems: "center",
+                      columnGap: "6px",
                     }}
-                    disabled={btnText === "JOIN NOW" ? false : true}
-                    onClick={() => checkBackgroundRunningApps(item)}
-                    type="primary"
                   >
-                    {btnText}
-                  </Button>
-                </Card>
-              </Col>
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.6963 6.07394V11.3191H15.9414"
+                        stroke="#7B8C9F"
+                        strokeWidth="1.31128"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10.6972 20.0605C15.5252 20.0605 19.4391 16.1465 19.4391 11.3186C19.4391 6.49055 15.5252 2.57668 10.6972 2.57668C5.8692 2.57668 1.95532 6.49055 1.95532 11.3186C1.95532 16.1465 5.8692 20.0605 10.6972 20.0605Z"
+                        stroke="#7B8C9F"
+                        strokeWidth="1.31128"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+
+                    <span className="dashboard_classes_grey_text">
+                      {classTime}
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <span className="dashboard_classes_grey_text">
+                    By {tutorName}
+                  </span>
+                </div>
+                {true ? (
+                  <div className="dashboard_live_div">
+                    <svg
+                      width="8"
+                      height="8"
+                      viewBox="0 0 8 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="4.14287"
+                        cy="3.66646"
+                        r="3.42857"
+                        fill="#FF4D4F"
+                      />
+                    </svg>
+                    <span>LIVE</span>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                <Button
+                  className="dashboard_join_class_btn"
+                  disabled={btnText === "JOIN NOW" ? false : true}
+                  onClick={() => checkBackgroundRunningApps(item)}
+                  type="primary"
+                >
+                  {btnText}
+                </Button>
+              </div>
             );
           })}
-        </Row>
+        </div>
       </div>
-    </>
+    </div>
   );
 };

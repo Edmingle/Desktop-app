@@ -1,3 +1,6 @@
+.dashboard_container {
+  background-image: url("../../assets/images/image 1.png");
+}
 .dashboard_top_header {
   display: flex;
   align-items: center;
@@ -11,4 +14,120 @@
   font-weight: 600;
   line-height: 20px;
   color: #262626;
+}
+
+.dashboard_info_div {
+  margin: 40px 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard_refresh_class_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background-color: #033f81;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+  color: #fff;
+}
+
+.dashboard_info_div_left {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 12px;
+}
+
+.dashboard_info_title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.78px;
+  letter-spacing: -0.02em;
+  color: #262626;
+}
+
+.dashboard_info_subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  color: #8d8d8d;
+  display: block;
+  width: 70%;
+}
+
+.dashboard_classes_container {
+  margin: 32px 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+
+.dashboard_classes_indi {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  border-radius: 7.87px;
+  box-shadow: 0px 4px 54px 0px #00000026;
+  position: relative;
+  background-color: white;
+  /* width: 410px; */
+}
+
+.dashboard_classes_name {
+  font-size: 18.36px;
+  font-weight: 400;
+  line-height: 24.91px;
+  letter-spacing: -0.04em;
+  color: #37393e;
+}
+
+.dashboard_classes_grey_text {
+  font-size: 15.74px;
+  font-weight: 400;
+  line-height: 14.42px;
+  letter-spacing: -0.03em;
+  color: #7b8c9f;
+}
+
+.dashboard_live_div {
+  padding: 6.86px 13.71px;
+  gap: 11.43px;
+  border-radius: 34.29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+  background-color: #ff33331a;
+  width: 36px;
+}
+
+.dashboard_live_div span {
+  font-size: 11.43px;
+  font-weight: 600;
+  line-height: 13.83px;
+  color: #ff4d4f;
+}
+
+.dashboard_join_class_btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #033f81;
+  border-radius: 7.87px 0 0 0;
+  font-size: 15.74px;
+  font-weight: 400;
+  line-height: 11.8px;
+  color: #fff;
+}
+
+.dashboard_join_class_btn:disabled {
+  border: none;
+  background-color: #033f8133;
+  color: #fff;
 }
