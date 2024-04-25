@@ -1,7 +1,7 @@
 {
-  "name": "edmingle_1.0.0",
-  "version": "1.0.0",
-  "description": "",
+  "name": "aldine-ca",
+  "version": "0.0.4",
+  "description": "Aldine Ca update",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,13 +14,28 @@
     "reactjs",
     "typescript"
   ],
-  "author": "Vicky",
+  "author": "edmingle",
   "license": "MIT",
   "devDependencies": {
     "electron": "^29.2.0",
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.edmingle.desktopApp"
+    "appId": "com.edmingle.aldineedu",
+    "productName": "Aldine CA",
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "repository": "https://github.com/Edmingle/Desktop-app",
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.8"
   }
 }
