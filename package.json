@@ -1,13 +1,15 @@
 {
   "name": "aldine-ca",
-  "version": "0.0.4",
+  "version": "0.0.2",
   "description": "Aldine Ca update",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "dev:watch": "npx electronmon --trace-warnings .",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "win-cert": "electron-builder create-self-signed-cert -p edmingle",
+    "release-win": "electron-builder -w -p onTagOrDraft"
   },
   "keywords": [
     "electron",
@@ -22,20 +24,27 @@
   },
   "build": {
     "appId": "com.edmingle.aldineedu",
+    "copyright": "Copyright edmingle.com",
     "productName": "Aldine CA",
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    },
     "win": {
-      "target": "nsis"
+      "icon": "./my-app/assets/images/dockLogo.png",
+      "certificateFile": "private/edmingle.pfx",
+      "certificatePassword": "",
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "edmingle"
     },
     "directories": {
       "output": "dist"
     }
   },
   "repository": "https://github.com/Edmingle/Desktop-app",
-  "publish": {
-    "provider": "github",
-    "releaseType": "release"
-  },
+  "homepage": "https://github.com/Edmingle/Desktop-app",
   "dependencies": {
+    "electron-log": "^5.1.2",
     "electron-updater": "^6.1.8"
   }
 }

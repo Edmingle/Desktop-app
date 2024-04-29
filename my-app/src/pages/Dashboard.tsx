@@ -125,12 +125,6 @@ export const Dashboard = () => {
 
   useEffect(() => {
     const os = (window as any).api.getOs();
-    // const updater = (data) => {
-    //   console.log('Inside updater..!!', data);
-      
-    // }
-    // (window as any).api.checkForUpdate();
-    // (window as any).api.updatedMessage(updater);
     
     setPlatform(os);
     if (os === "darwin") {
