@@ -1,4 +1,3 @@
-import { ZoomMtg } from "@zoom/meetingsdk";
 import { Button, notification, Spin } from "antd";
 import { useEffect, useState } from "react";
 import "../css/Login.css";
@@ -10,7 +9,7 @@ export const Dashboard = () => {
   const [classData, setClassData] = useState([]);
   const [zoomSecret, setZoomsecret] = useState("");
   const [platform, setPlatform] = useState("");
-  const [isLoding, setIsLoading] = useState(true)
+  const [isLoding, setIsLoading] = useState(true);
   const [runningAppname, setRunningAppname] = useState<string[]>([]);
   const [api, contextHolder] = notification.useNotification();
   const [isMeetingRunning, setIsMeetingRunning] = useState(false);
@@ -38,74 +37,29 @@ export const Dashboard = () => {
 
   const getTodaysClass = async () => {
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       const response = await NetworkManager.getTodaysClass({
         date: currentDate,
       });
       if (response.data.code === 200) {
         setClassData(response.data.payload.classes);
-        setIsLoading(false)
+        setIsLoading(false);
       }
     } catch (error) {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
   const checkBackgroundRunningApps = (item) => {
-    if (platform === "darwin" && runningAppname.length === 0) {
-      openNotification({ isEmpty: true });
-    } else if (platform === "darwin" && runningAppname.length > 5) {
-      openNotification({ isEmpty: false });
-    } else {
-      joinClass(item);
-    }
+    joinClass(item);
   };
 
   const joinClass = async (item) => {
     try {
       const response = await NetworkManager.joinClass({ classId: item[0] });
       if (response.data.code === 200) {
-        ZoomMtg.preLoadWasm();
-        ZoomMtg.prepareWebSDK();
-        document.getElementById("zmmtg-root").style.display = "block";
-        ZoomMtg.generateSDKSignature({
-          sdkKey: response.data.sdk_key,
-          sdkSecret: zoomSecret,
-          meetingNumber: response.data.join_id,
-          role: "0",
-          success: (signature) => joinZoom({ response, signature }),
-          error: (error) => {
-            console.log(error);
-          },
-        });
       }
     } catch (error) {}
-  };
-
-  const joinZoom = ({ response, signature }) => {
-    ZoomMtg.init({
-      leaveUrl: "https://enterpriseplanportal.edmingle.com/home/dashboard",
-      patchJsMedia: true,
-      success: (success) => {
-        ZoomMtg.join({
-          signature: signature,
-          sdkKey: response.data.sdk_key,
-          meetingNumber: response.data.join_id,
-          passWord: response.data.meeting_password,
-          userName: localStorage.getItem("user_name") || "",
-          userEmail: localStorage.getItem("user_email") || "",
-          success: (success) => {
-            setIsMeetingRunning(true);
-          },
-          error: (error) => {
-            setIsMeetingRunning(false);
-          },
-        });
-      },
-      error: (error) => {
-        setIsMeetingRunning(false);
-      },
-    });
   };
 
   useEffect(() => {
@@ -119,13 +73,12 @@ export const Dashboard = () => {
       isMeetingRunning &&
       (runningAppname.length > 5 || runningAppname.includes("screencaptureui"))
     ) {
-      ZoomMtg.leaveMeeting({});
     }
   }, [isMeetingRunning, runningAppname]);
 
   useEffect(() => {
     const os = (window as any).api.getOs();
-    
+
     setPlatform(os);
     if (os === "darwin") {
       const handleAppsUpdate = (data: any) => {
@@ -144,12 +97,20 @@ export const Dashboard = () => {
     }
   }, []);
 
-
-
   if (isLoding) {
-    return( <div style={{height:'100vh', width:'100vw', display:"flex", justifyContent:'center', alignItems:"center"}}>
-    <Spin size="large" />
-  </div>)
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Spin size="large" />
+      </div>
+    );
   }
 
   return (
@@ -224,7 +185,9 @@ export const Dashboard = () => {
               />
             </defs>
           </svg> */}
-          <span className="dashboard_student_name">{localStorage.getItem('user_name' || "")}</span>
+          <span className="dashboard_student_name">
+            {localStorage.getItem("user_name" || "")}
+          </span>
         </div>
       </div>
 
