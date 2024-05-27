@@ -1,0 +1,4 @@
+framework module zVideoUIBridge {
+  header "zVideoUIBridge-Swift.h"
+  requires objc
+}

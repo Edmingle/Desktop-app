@@ -1,0 +1,2551 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Cocoa",
+        "printedName": "Cocoa",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["RawDocComment"]
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomKit",
+        "printedName": "ZoomKit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZMSipKYCReminderView",
+        "printedName": "ZMSipKYCReminderView",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "commonInit",
+            "printedName": "commonInit()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView(im)commonInit",
+            "mangledName": "$s13ZoomSDKChatUI20ZMSipKYCReminderViewC10commonInityyF",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "objc_name": "commonInit",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "layout",
+            "printedName": "layout()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView(im)layout",
+            "mangledName": "$s13ZoomSDKChatUI20ZMSipKYCReminderViewC6layoutyyF",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "objc_name": "layout",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateUI",
+            "printedName": "updateUI(with:url:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView(im)updateUIWith:url:",
+            "mangledName": "$s13ZoomSDKChatUI20ZMSipKYCReminderViewC06updateC04with3urlySS_SStF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "updateUIWith:url:",
+            "declAttributes": ["Custom", "AccessControl", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(frame:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZMSipKYCReminderView",
+                "printedName": "ZoomSDKChatUI.ZMSipKYCReminderView",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView(im)initWithFrame:",
+            "mangledName": "$s13ZoomSDKChatUI20ZMSipKYCReminderViewC5frameACSo6CGRectV_tcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithFrame:",
+            "declAttributes": ["Dynamic", "ObjC", "Custom", "Override"],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZoomSDKChatUI.ZMSipKYCReminderView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ZMSipKYCReminderView",
+                    "printedName": "ZoomSDKChatUI.ZMSipKYCReminderView",
+                    "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView(im)initWithCoder:",
+            "mangledName": "$s13ZoomSDKChatUI20ZMSipKYCReminderViewC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": ["Dynamic", "ObjC", "Custom", "Required"],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSipKYCReminderView",
+        "mangledName": "$s13ZoomSDKChatUI20ZMSipKYCReminderViewC",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["Custom", "AccessControl", "ObjC"],
+        "superclassUsr": "c:objc(cs)ZMBaseView",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ZoomKit.ZMBaseView",
+          "ZoomKit.ZMAccessibleView",
+          "AppKit.NSView",
+          "AppKit.NSResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Then",
+            "printedName": "Then",
+            "usr": "s:12SwiftZoomKit4ThenP",
+            "mangledName": "$s12SwiftZoomKit4ThenP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ZMConstraintRelatableTarget",
+            "printedName": "ZMConstraintRelatableTarget",
+            "usr": "s:12SwiftZoomKit27ZMConstraintRelatableTargetP",
+            "mangledName": "$s12SwiftZoomKit27ZMConstraintRelatableTargetP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LayoutConstraintItem",
+            "printedName": "LayoutConstraintItem",
+            "usr": "s:5Prism20LayoutConstraintItemP",
+            "mangledName": "$s5Prism20LayoutConstraintItemP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ConstraintRelatableTarget",
+            "printedName": "ConstraintRelatableTarget",
+            "usr": "s:5Prism25ConstraintRelatableTargetP",
+            "mangledName": "$s5Prism25ConstraintRelatableTargetP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["RawDocComment"]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZMLanguageUtil",
+        "printedName": "ZMLanguageUtil",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "syncUpLanguageSetting",
+            "printedName": "syncUpLanguageSetting()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMLanguageUtil(cm)syncUpLanguageSetting",
+            "mangledName": "$s13ZoomSDKChatUI14ZMLanguageUtilC21syncUpLanguageSettingyyFZ",
+            "moduleName": "ZoomSDKChatUI",
+            "static": true,
+            "declAttributes": ["AccessControl", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZMLanguageUtil",
+                "printedName": "ZoomSDKChatUI.ZMLanguageUtil",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMLanguageUtil"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMLanguageUtil(im)init",
+            "mangledName": "$s13ZoomSDKChatUI14ZMLanguageUtilCACycfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": ["Dynamic", "ObjC", "Override"],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMLanguageUtil",
+        "mangledName": "$s13ZoomSDKChatUI14ZMLanguageUtilC",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["AccessControl", "ObjCMembers", "ObjC"],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": ["ObjectiveC.NSObject"],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Then",
+            "printedName": "Then",
+            "usr": "s:12SwiftZoomKit4ThenP",
+            "mangledName": "$s12SwiftZoomKit4ThenP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["RawDocComment"]
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomKit",
+        "printedName": "ZoomKit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomUnit",
+        "printedName": "ZoomUnit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "Import",
+        "name": "zChatComponent",
+        "printedName": "zChatComponent",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "Import",
+        "name": "ChatUISwiftHeader",
+        "printedName": "ChatUISwiftHeader",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "Import",
+        "name": "Carbon",
+        "printedName": "Carbon",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SharedSpaceViewMorePopoverController",
+        "printedName": "SharedSpaceViewMorePopoverController",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "nibName",
+            "printedName": "nibName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(py)nibName",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC7nibNameSSSgvp",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "objc_name": "nibName",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)nibName",
+                "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC7nibNameSSSgvg",
+                "moduleName": "ZoomSDKChatUI",
+                "overriding": true,
+                "objc_name": "nibName",
+                "declAttributes": ["Dynamic", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nibBundle",
+            "printedName": "nibBundle",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(py)nibBundle",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC9nibBundleSo8NSBundleCSgvp",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "objc_name": "nibBundle",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Bundle?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bundle",
+                        "printedName": "Foundation.Bundle",
+                        "usr": "c:objc(cs)NSBundle"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)nibBundle",
+                "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC9nibBundleSo8NSBundleCSgvg",
+                "moduleName": "ZoomSDKChatUI",
+                "overriding": true,
+                "objc_name": "nibBundle",
+                "declAttributes": ["Dynamic", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "showPopover",
+            "printedName": "showPopover(forSpace:inView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ZMSharedSpaceInfo",
+                "printedName": "ChatUISwiftHeader.ZMSharedSpaceInfo",
+                "usr": "c:objc(cs)ZMSharedSpaceInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSView",
+                "printedName": "AppKit.NSView",
+                "usr": "c:objc(cs)NSView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)showPopoverForSpace:inView:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC04showH003forE002inF0ySo08ZMSharedE4InfoC_So6NSViewCtF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "showPopoverForSpace:inView:",
+            "declAttributes": ["Custom", "AccessControl", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SharedSpaceViewMorePopoverController",
+                "printedName": "ZoomSDKChatUI.SharedSpaceViewMorePopoverController",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)init",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerCACycfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": ["Dynamic", "ObjC", "Custom", "AccessControl"],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "tableCell",
+            "printedName": "tableCell(didClick:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableCellView",
+                "printedName": "AppKit.NSTableCellView",
+                "usr": "c:objc(cs)NSTableCellView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableCellWithDidClick:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC9tableCell8didClickySo07NSTablekF0C_tF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "tableCellWithDidClick:",
+            "declAttributes": ["Custom", "AccessControl", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "numberOfRows",
+            "printedName": "numberOfRows(in:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)numberOfRowsInTableView:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC12numberOfRows2inSiSo07NSTableF0C_tF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "numberOfRowsInTableView:",
+            "declAttributes": ["ObjC", "Custom", "AccessControl"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:viewFor:row:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppKit.NSView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSView",
+                    "printedName": "AppKit.NSView",
+                    "usr": "c:objc(cs)NSView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppKit.NSTableColumn?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSTableColumn",
+                    "printedName": "AppKit.NSTableColumn",
+                    "usr": "c:objc(cs)NSTableColumn"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:viewForTableColumn:row:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_7viewFor3rowSo6NSViewCSgSo07NSTableF0C_So0O6ColumnCSgSitF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "tableView:viewForTableColumn:row:",
+            "declAttributes": ["ObjC", "Custom", "AccessControl"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:objectValueFor:row:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppKit.NSTableColumn?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSTableColumn",
+                    "printedName": "AppKit.NSTableColumn",
+                    "usr": "c:objc(cs)NSTableColumn"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:objectValueForTableColumn:row:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_14objectValueFor3rowypSgSo07NSTableF0C_So0O6ColumnCSgSitF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "tableView:objectValueForTableColumn:row:",
+            "declAttributes": ["ObjC", "Custom", "AccessControl"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:rowViewForRow:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppKit.NSTableRowView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSTableRowView",
+                    "printedName": "AppKit.NSTableRowView",
+                    "usr": "c:objc(cs)NSTableRowView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:rowViewForRow:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_03rowF6ForRowSo07NSTablemF0CSgSo0nF0C_SitF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "tableView:rowViewForRow:",
+            "declAttributes": ["ObjC", "Custom", "AccessControl"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:shouldSelectRow:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:shouldSelectRow:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_15shouldSelectRowSbSo07NSTableF0C_SitF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "tableView:shouldSelectRow:",
+            "declAttributes": ["ObjC", "Custom", "AccessControl"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:heightOfRow:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:heightOfRow:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_11heightOfRow12CoreGraphics7CGFloatVSo07NSTableF0C_SitF",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "tableView:heightOfRow:",
+            "declAttributes": ["ObjC", "Custom", "AccessControl"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:unhoverRow:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:unhoverRow:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_10unhoverRowySo07NSTableF0C_So8NSNumberCtF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Custom", "AccessControl", "Dynamic", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tableView",
+            "printedName": "tableView(_:hoverRow:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSTableView",
+                "printedName": "AppKit.NSTableView",
+                "usr": "c:objc(cs)NSTableView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)tableView:hoverRow:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC05tableF0_8hoverRowySo07NSTableF0C_So8NSNumberCtF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Custom", "AccessControl", "Dynamic", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nibName:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SharedSpaceViewMorePopoverController",
+                "printedName": "ZoomSDKChatUI.SharedSpaceViewMorePopoverController",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController(im)initWithNibName:bundle:",
+            "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithNibName:bundle:",
+            "declAttributes": ["Dynamic", "ObjC", "Custom", "Override"],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMSharedSpaceViewMorePopoverController",
+        "mangledName": "$s13ZoomSDKChatUI36SharedSpaceViewMorePopoverControllerC",
+        "moduleName": "ZoomSDKChatUI",
+        "objc_name": "ZMSharedSpaceViewMorePopoverController",
+        "declAttributes": ["Custom", "AccessControl", "ObjC"],
+        "superclassUsr": "c:objc(cs)ZMBaseViewController",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ZoomKit.ZMBaseViewController",
+          "AppKit.NSViewController",
+          "AppKit.NSResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Then",
+            "printedName": "Then",
+            "usr": "s:12SwiftZoomKit4ThenP",
+            "mangledName": "$s12SwiftZoomKit4ThenP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AppKit",
+        "printedName": "AppKit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["Exported", "RawDocComment"]
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomKit",
+        "printedName": "ZoomKit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["Exported"]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftZoomKit",
+        "printedName": "SwiftZoomKit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["Exported"]
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomUnit",
+        "printedName": "ZoomUnit",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["Exported"]
+      },
+      {
+        "kind": "Import",
+        "name": "zChatComponent",
+        "printedName": "zChatComponent",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["Exported"]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NavigateHistoryType",
+        "printedName": "NavigateHistoryType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sessionID",
+            "printedName": "sessionID",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZoomSDKChatUI.NavigateHistoryType.Type) -> ZoomSDKChatUI.NavigateHistoryType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NavigateHistoryType",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                    "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NavigateHistoryType",
+                        "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                        "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType@ZMNavigateHistoryTypeSessionID",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryTypeO9sessionIDyA2CmF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["ObjC"],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "searchKeyword",
+            "printedName": "searchKeyword",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZoomSDKChatUI.NavigateHistoryType.Type) -> ZoomSDKChatUI.NavigateHistoryType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NavigateHistoryType",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                    "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NavigateHistoryType",
+                        "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                        "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType@ZMNavigateHistoryTypeSearchKeyword",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryTypeO13searchKeywordyA2CmF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["ObjC"],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NavigateHistoryType",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                    "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13ZoomSDKChatUI19NavigateHistoryTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13ZoomSDKChatUI19NavigateHistoryTypeO8rawValueSivp",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryTypeO8rawValueSivp",
+            "moduleName": "ZoomSDKChatUI",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13ZoomSDKChatUI19NavigateHistoryTypeO8rawValueSivg",
+                "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryTypeO8rawValueSivg",
+                "moduleName": "ZoomSDKChatUI",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType",
+        "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryTypeO",
+        "moduleName": "ZoomSDKChatUI",
+        "objc_name": "ZMNavigateHistoryType",
+        "declAttributes": ["AccessControl", "ObjC"],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NavigateHistoryItem",
+        "printedName": "NavigateHistoryItem",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NavigateHistoryType",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(py)type",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC4typeAA0dE4TypeOvp",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Final", "HasStorage", "AccessControl", "ObjC"],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NavigateHistoryType",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                    "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)type",
+                "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC4typeAA0dE4TypeOvg",
+                "moduleName": "ZoomSDKChatUI",
+                "implicit": true,
+                "declAttributes": ["Final", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(py)value",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC5valueSSvp",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Final", "HasStorage", "AccessControl", "ObjC"],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)value",
+                "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC5valueSSvg",
+                "moduleName": "ZoomSDKChatUI",
+                "implicit": true,
+                "declAttributes": ["Final", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "modifier",
+            "printedName": "modifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(py)modifier",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC8modifierSSSgvp",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Final", "HasStorage", "AccessControl", "ObjC"],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)modifier",
+                "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC8modifierSSSgvg",
+                "moduleName": "ZoomSDKChatUI",
+                "implicit": true,
+                "declAttributes": ["Final", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "context",
+            "printedName": "context",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(py)context",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC7contextSSSgvp",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Final", "HasStorage", "AccessControl", "ObjC"],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)context",
+                "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC7contextSSSgvg",
+                "moduleName": "ZoomSDKChatUI",
+                "implicit": true,
+                "declAttributes": ["Final", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(type:value:modifier:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NavigateHistoryItem",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryItem",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NavigateHistoryType",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)initWithType:value:modifier:context:",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC4type5value8modifier7contextAcA0dE4TypeO_S2SSgAJtcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "initWithType:value:modifier:context:",
+            "declAttributes": ["AccessControl", "ObjC"],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(type:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NavigateHistoryItem",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryItem",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NavigateHistoryType",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryType",
+                "usr": "c:@M@ZoomSDKChatUI@E@ZMNavigateHistoryType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)initWithType:value:",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC4type5valueAcA0dE4TypeO_SStcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "objc_name": "initWithType:value:",
+            "declAttributes": ["AccessControl", "ObjC"],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(py)description",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC11descriptionSSvp",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "objc_name": "description",
+            "declAttributes": ["Final", "ObjC", "Override", "AccessControl"],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)description",
+                "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC11descriptionSSvg",
+                "moduleName": "ZoomSDKChatUI",
+                "overriding": true,
+                "objc_name": "description",
+                "declAttributes": ["Final", "ObjC"],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isEqualToItem",
+            "printedName": "isEqualToItem(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryItem?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NavigateHistoryItem",
+                    "printedName": "ZoomSDKChatUI.NavigateHistoryItem",
+                    "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)isEqualToItem:",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC09isEqualToF0ySbACSgF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["Final", "AccessControl", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NavigateHistoryItem",
+                "printedName": "ZoomSDKChatUI.NavigateHistoryItem",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem(im)init",
+            "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemCACycfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": ["Dynamic", "ObjC", "Override"],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMNavigateHistoryItem",
+        "mangledName": "$s13ZoomSDKChatUI19NavigateHistoryItemC",
+        "moduleName": "ZoomSDKChatUI",
+        "objc_name": "ZMNavigateHistoryItem",
+        "declAttributes": ["Final", "AccessControl", "ObjC"],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": ["ObjectiveC.NSObject"],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Then",
+            "printedName": "Then",
+            "usr": "s:12SwiftZoomKit4ThenP",
+            "mangledName": "$s12SwiftZoomKit4ThenP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["RawDocComment"]
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomSetting",
+        "printedName": "ZoomSetting",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["RawDocComment"]
+      },
+      {
+        "kind": "Import",
+        "name": "ChatUISwiftHeader",
+        "printedName": "ChatUISwiftHeader",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "Import",
+        "name": "ZoomSetting",
+        "printedName": "ZoomSetting",
+        "declKind": "Import",
+        "moduleName": "ZoomSDKChatUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZMClipsPTMessageMgr",
+        "printedName": "ZMClipsPTMessageMgr",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "process",
+            "printedName": "process(messageStr:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSString?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSString",
+                    "printedName": "Foundation.NSString",
+                    "usr": "c:objc(cs)NSString"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMClipsPTMessageMgr(cm)processWithMessageStr:",
+            "mangledName": "$s13ZoomSDKChatUI19ZMClipsPTMessageMgrC7process10messageStrySo8NSStringCSg_tFZ",
+            "moduleName": "ZoomSDKChatUI",
+            "static": true,
+            "declAttributes": ["AccessControl", "ObjC"],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZMClipsPTMessageMgr",
+                "printedName": "ZoomSDKChatUI.ZMClipsPTMessageMgr",
+                "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMClipsPTMessageMgr"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMClipsPTMessageMgr(im)init",
+            "mangledName": "$s13ZoomSDKChatUI19ZMClipsPTMessageMgrCACycfc",
+            "moduleName": "ZoomSDKChatUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": ["Dynamic", "ObjC", "Override"],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZoomSDKChatUI@objc(cs)ZMClipsPTMessageMgr",
+        "mangledName": "$s13ZoomSDKChatUI19ZMClipsPTMessageMgrC",
+        "moduleName": "ZoomSDKChatUI",
+        "declAttributes": ["AccessControl", "ObjCMembers", "ObjC"],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": ["ObjectiveC.NSObject"],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Then",
+            "printedName": "Then",
+            "usr": "s:12SwiftZoomKit4ThenP",
+            "mangledName": "$s12SwiftZoomKit4ThenP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZMDownloadViewType",
+        "printedName": "ZMDownloadViewType",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZMDownloadViewType",
+                "printedName": "ZoomSetting.ZMDownloadViewType",
+                "usr": "c:@E@ZMDownloadViewType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So18ZMDownloadViewTypeV13ZoomSDKChatUIE4fromABs7Decoder_p_tKcfc",
+            "mangledName": "$sSo18ZMDownloadViewTypeV13ZoomSDKChatUIE4fromABs7Decoder_p_tKcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["AccessControl"],
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So18ZMDownloadViewTypeV13ZoomSDKChatUIE6encode2toys7Encoder_p_tKF",
+            "mangledName": "$sSo18ZMDownloadViewTypeV13ZoomSDKChatUIE6encode2toys7Encoder_p_tKF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["AccessControl"],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@E@ZMDownloadViewType",
+        "moduleName": "ZoomSetting",
+        "objc_name": "ZMDownloadViewType",
+        "declAttributes": [
+          "SynthesizedProtocol",
+          "ObjC",
+          "SynthesizedProtocol",
+          "Sendable",
+          "Dynamic"
+        ],
+        "enumRawTypeName": "UInt",
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt",
+                    "printedName": "Swift.UInt",
+                    "usr": "s:Su"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZMDownloadResult",
+        "printedName": "ZMDownloadResult",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZMDownloadResult",
+                "printedName": "ZoomSetting.ZMDownloadResult",
+                "usr": "c:@E@ZMDownloadResult"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So16ZMDownloadResultV13ZoomSDKChatUIE4fromABs7Decoder_p_tKcfc",
+            "mangledName": "$sSo16ZMDownloadResultV13ZoomSDKChatUIE4fromABs7Decoder_p_tKcfc",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["AccessControl"],
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So16ZMDownloadResultV13ZoomSDKChatUIE6encode2toys7Encoder_p_tKF",
+            "mangledName": "$sSo16ZMDownloadResultV13ZoomSDKChatUIE6encode2toys7Encoder_p_tKF",
+            "moduleName": "ZoomSDKChatUI",
+            "declAttributes": ["AccessControl"],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@E@ZMDownloadResult",
+        "moduleName": "ZoomSetting",
+        "objc_name": "ZMDownloadResult",
+        "declAttributes": [
+          "SynthesizedProtocol",
+          "ObjC",
+          "SynthesizedProtocol",
+          "Sendable",
+          "Dynamic"
+        ],
+        "enumRawTypeName": "UInt",
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt",
+                    "printedName": "Swift.UInt",
+                    "usr": "s:Su"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 311,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 318,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 341,
+      "length": 2,
+      "value": "32"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 367,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 466,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 546,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/sipCall/ZMSipKYCReminderView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 581,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1224,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "FloatLiteral",
+      "offset": 1290,
+      "length": 4,
+      "value": "32.0"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1307,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "FloatLiteral",
+      "offset": 1371,
+      "length": 4,
+      "value": "32.0"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1388,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1433,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1444,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1475,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1745,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1785,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1865,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2037,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2170,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2260,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4753,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4995,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5038,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5081,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "StringLiteral",
+      "offset": 8000,
+      "length": 54,
+      "value": "\"LN_IM_SharedSpace_ViewMore_ChannelsYouCanJoin_678761\""
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8133,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8170,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8209,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8246,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8282,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8324,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8379,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "FloatLiteral",
+      "offset": 8500,
+      "length": 4,
+      "value": "32.0"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "FloatLiteral",
+      "offset": 8530,
+      "length": 5,
+      "value": "224.0"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8664,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8711,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "StringLiteral",
+      "offset": 9137,
+      "length": 33,
+      "value": "\"ViewMorePopoverColumnIdentifier\""
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9546,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9591,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9690,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9816,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9949,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/SideBar/SharedSpaceViewAllPopover.swift",
+      "kind": "StringLiteral",
+      "offset": 4325,
+      "length": 36,
+      "value": "\"ZoomSDKChatUI.SharedSpaceViewMorePopoverController\""
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/NavigateHistoryItem.swift",
+      "kind": "IntegerLiteral",
+      "offset": 378,
+      "length": 13,
+      "value": "1"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/NavigateHistoryItem.swift",
+      "kind": "IntegerLiteral",
+      "offset": 378,
+      "length": 13,
+      "value": "1"
+    },
+    {
+      "filePath": "/Users/zoom/Jenkins/workspace/Client/Client/SDK/Mac/release/mac-client/ChatUI/ChatUI/NewPT/MainWindow/MainTabs/Chats/MainList/NavigateHistoryItem.swift",
+      "kind": "StringLiteral",
+      "offset": 443,
+      "length": 19,
+      "value": "\"ZoomSDKChatUI.NavigateHistoryItem\""
+    }
+  ]
+}

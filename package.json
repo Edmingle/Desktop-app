@@ -2,25 +2,57 @@
   "name": "aldine-ca",
   "version": "0.0.2",
   "description": "Aldine Ca update",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "dev:watch": "npx electronmon --trace-warnings .",
-    "dist": "electron-builder",
-    "win-cert": "electron-builder create-self-signed-cert -p edmingle",
-    "release-win": "electron-builder -w -p onTagOrDraft"
-  },
-  "keywords": [
-    "electron",
-    "reactjs",
-    "typescript"
-  ],
+  "main": "./out/main/index.cjs",
   "author": "edmingle",
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "install": "node scripts/electron_sdk_install.js",
+    "start": "node scripts/electron_sdk_start.js",
+    "build": "node scripts/electron_sdk_build.js",
+    "serve": "node scripts/electron_sdk_serve.js",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "electron-vite build && electron-builder --mac",
+    "build:linux": "electron-vite build && electron-builder --linux"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.0",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@electron/remote": "^2.1.2",
+    "@fingerprintjs/fingerprintjs": "^4.3.0",
+    "antd": "^5.17.3",
+    "axios": "^1.7.2",
+    "find-process": "^1.4.7",
+    "google-protobuf": "^3.21.2",
+    "moment": "^2.30.1",
+    "path": "^0.12.7",
+    "react-router-dom": "^6.23.1"
+  },
   "devDependencies": {
-    "electron": "^29.2.0",
-    "electron-builder": "^24.13.3"
+    "@electron-toolkit/eslint-config-prettier": "^2.0.0",
+    "@electron-toolkit/eslint-config-ts": "^1.0.1",
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@types/node": "^18.19.9",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^26.3.0",
+    "electron-builder": "^24.9.1",
+    "electron-vite": "^2.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
   },
   "build": {
     "appId": "com.edmingle.aldineedu",
@@ -43,8 +75,5 @@
   },
   "repository": "https://github.com/Edmingle/Desktop-app",
   "homepage": "https://github.com/Edmingle/Desktop-app",
-  "dependencies": {
-    "electron-log": "^5.1.2",
-    "electron-updater": "^6.1.8"
-  }
+  "config": {}
 }

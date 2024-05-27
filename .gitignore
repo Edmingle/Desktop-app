@@ -1,1 +1,7 @@
-private/
+node_modules
+dist
+out
+build
+.DS_Store
+*.log*
+node_modules

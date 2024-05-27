@@ -1,0 +1,4 @@
+module ChatUISwiftHeader {
+    header "ChatUISwiftHeader.h"
+    requires objc
+}

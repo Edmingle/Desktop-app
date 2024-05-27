@@ -1,0 +1,531 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name zChatComponent
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AppKit
+import Cocoa
+import CoreText
+import Foundation
+import Swift
+@_exported import SwiftZoomKit
+@_exported import ZoomKit
+@_exported import ZoomUnit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import zChatComponent
+@objc(ZMCommonAppAlertLevel) public enum CommonAppAlertLevel : Swift.Int {
+  case error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(ZMCommonAppAlertItem) public class CommonAppAlertItem : zChatComponent.ZMCommonAppBaseItem {
+  @objc public var level: zChatComponent.CommonAppAlertLevel
+  @objc(closable) public var isClosable: Swift.Bool
+  @objc public var eventID: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMPTCommonAppAlertCell) @preconcurrency @_Concurrency.MainActor(unsafe) public class CommonAppAlertCell : zChatComponent.ZMPTCommonBaseCell {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var title: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var level: zChatComponent.CommonAppAlertLevel
+  @objc(closable) @_Concurrency.MainActor(unsafe) public var isClosable: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var closeHandler: (() -> ())? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var messageTemplateIndex: Swift.Int
+  @objc @_Concurrency.MainActor(unsafe) public var eventID: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public func copyString() -> Swift.String?
+  @objc override nonisolated dynamic public func cellFrame(for textContainer: AppKit.NSTextContainer, proposedLineFragment lineFrag: Foundation.NSRect, glyphPosition position: Foundation.NSPoint, characterIndex charIndex: Swift.Int) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(textCell string: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(imageCell image: AppKit.NSImage?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension zChatComponent.CommonAppAlertCell : zChatComponent.ZMViewAttachmentCellProtocol {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public var imageView: AppKit.NSView {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func cleanUp()
+}
+@_inheritsConvenienceInitializers @objc(ZMPTCommonAppTextLayoutHelper) public class CommonAppTextLayoutHelperReference : ObjectiveC.NSObject {
+  @_hasMissingDesignatedInitializers @objc(ZMPTCommonAppTextLayoutInfo) public class LayoutInfo : ObjectiveC.NSObject {
+    @objc public var numberOfLines: Swift.Int {
+      @objc get
+    }
+    @objc public var boundingRect: CoreFoundation.CGRect {
+      @objc get
+    }
+    @objc(usedRectForLineAtIndex:) public func usedRectForLine(at index: Swift.Int) -> CoreFoundation.CGRect
+    @objc(characterRangeForLineAtIndex:) public func characterRangeForLine(at index: Swift.Int) -> Foundation.NSRange
+    @objc(drawAtPoint:) public func draw(at point: Foundation.NSPoint)
+    @objc deinit
+  }
+  @objc(layoutInfoOfAttributedString:containerSize:) public class func layoutInfo(of attributedString: Foundation.NSAttributedString, containerSize: CoreFoundation.CGSize) -> zChatComponent.CommonAppTextLayoutHelperReference.LayoutInfo
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct CommonAppTextLayoutHelper {
+  public struct TextLine {
+    public let usedRect: CoreFoundation.CGRect
+    public var characterRange: Swift.Range<Swift.String.Index>? {
+      get
+    }
+  }
+  public struct LayoutInfo {
+    public let boundingRect: CoreFoundation.CGRect
+    public let lines: [zChatComponent.CommonAppTextLayoutHelper.TextLine]
+  }
+  public static func layoutInfo(of attributedString: Foundation.NSAttributedString, containerSize: CoreFoundation.CGSize) -> zChatComponent.CommonAppTextLayoutHelper.LayoutInfo
+}
+extension zChatComponent.CommonAppTextLayoutHelper.LayoutInfo {
+  public func draw(at point: Foundation.NSPoint)
+}
+@objc(ZMCommonAppChannelMentionType) public enum CommonAppChannelMentionType : Swift.Int {
+  case none
+  case atMe
+  case atMePlus
+  case atAll
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(ZMCommonAppChannelItem) public class CommonAppChannelItem : zChatComponent.ZMCommonAppBaseItem {
+  @objc public var mentionType: zChatComponent.CommonAppChannelMentionType
+  @objc public var iconType: Swift.String?
+  @objc public var sessionID: Swift.String?
+  @objc public var unreadCount: Swift.UInt
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMPTCommonAppChannelCell) @preconcurrency @_Concurrency.MainActor(unsafe) public class CommonAppChannelCell : zChatComponent.ZMPTCommonBaseCell {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var title: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var badgeCount: Swift.UInt {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var badgeInformativeText: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var iconImage: AppKit.NSImage? {
+    @objc get
+    @objc set
+  }
+  @objc override nonisolated dynamic public func cellFrame(for textContainer: AppKit.NSTextContainer, proposedLineFragment lineFrag: Foundation.NSRect, glyphPosition position: Foundation.NSPoint, characterIndex charIndex: Swift.Int) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(textCell string: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(imageCell image: AppKit.NSImage?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(ZMEmojiLabel) @_Concurrency.MainActor(unsafe) final public class EmojiLabel : AppKit.NSView {
+  @objc @_Concurrency.MainActor(unsafe) final public var fontSize: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var imageSize: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var customEmoji: zChatComponent.ZMCustomEmojiModel? {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var unicodeEmoji: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) final public func update(customEmoji: zChatComponent.ZMCustomEmojiModel?)
+  @objc @_Concurrency.MainActor(unsafe) final public func update(unicodeEmoji: Swift.String?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PureTextView : AppKit.NSTableCellView {
+  @_Concurrency.MainActor(unsafe) public var label: AppKit.NSTextField
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Swift.Character {
+  public var isEmoji: Swift.Bool {
+    get
+  }
+}
+extension Swift.String {
+  public var hasEmojis: Swift.Bool {
+    get
+  }
+  public var isEmojiOnly: Swift.Bool {
+    get
+  }
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public func hasEmojis() -> Swift.Bool
+  @objc dynamic public func isEmojiOnly() -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @objc(ZMAttachmentLabel) @_Concurrency.MainActor(unsafe) public class AttachmentLabel : ZoomKit.ZMLabel {
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var frame: Foundation.NSRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var bounds: Foundation.NSRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func setNeedsDisplay(_ invalidRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ dirtyRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension zChatComponent.AttachmentLabel : ZoomKit.ZMBaseTextProtocol {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func add(_ attachmentCell: ZoomKit.ZMBaseTextAttachmentCell, withFrame frame: CoreFoundation.CGRect)
+}
+@_inheritsConvenienceInitializers @objc(ZMStickyHeadersCollectionViewFlowLayout) final public class StickyHeadersCollectionViewFlowLayout : AppKit.NSCollectionViewFlowLayout {
+  @objc override final public func shouldInvalidateLayout(forBoundsChange newBounds: CoreFoundation.CGRect) -> Swift.Bool
+  @objc override final public func layoutAttributesForElements(in rect: CoreFoundation.CGRect) -> [AppKit.NSCollectionViewLayoutAttributes]
+  @objc override final public func layoutAttributesForSupplementaryView(ofKind elementKind: Swift.String, at indexPath: Foundation.IndexPath) -> AppKit.NSCollectionViewLayoutAttributes?
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMGiphyView) @_Concurrency.MainActor(unsafe) final public class GiphyView : ZoomKit.ZMBaseView {
+  @objc @_Concurrency.MainActor(unsafe) final public var searchField: AppKit.NSSearchField {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var scrollView: zChatComponent.ZMChatAlwaysOverlayScrollView {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public let collectionView: zChatComponent.ZMCollectionView
+  @objc @_Concurrency.MainActor(unsafe) final public let errorTextField: AppKit.NSTextField
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMCommonAppMeetingCardItem) public class CommonAppMeetingCardItem : zChatComponent.ZMCommonAppBaseItem {
+  @objc public var messageID: Swift.String?
+  @objc public var sessionID: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ZMPTCommonAppMeetingCardCell) @preconcurrency @_Concurrency.MainActor(unsafe) public class CommonAppMeetingCardCell : zChatComponent.ZMPTCommonBaseCell {
+  @objc(initWithMessageID:sessionID:) @_Concurrency.MainActor(unsafe) public init?(messageID: Swift.String, sessionID: Swift.String)
+  @objc override nonisolated dynamic public func cellFrame(for textContainer: AppKit.NSTextContainer, proposedLineFragment lineFrag: Foundation.NSRect, glyphPosition position: Foundation.NSPoint, characterIndex charIndex: Swift.Int) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView?)
+  @objc deinit
+}
+extension zChatComponent.CommonAppMeetingCardCell : zChatComponent.ZMViewAttachmentCellProtocol {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public var imageView: AppKit.NSView {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func cleanUp()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func attach(_ delegate: (any zChatComponent.ZMMessageCellViewDelegate)?, of cellView: zChatComponent.ZMBaseMessageCellView!)
+}
+extension zChatComponent.CommonAppMeetingCardCell : zChatComponent.ZMScheduleMeetingCardViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, joinMeeting sessionId: Swift.String, meetingNumber: Swift.Int, password: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, fromSession sessionId: Swift.String, openCMCchat subCMCSessionId: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, viewInCalendar calendarLink: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, copyInvitation joinURL: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, editMeeting sessionId: Swift.String, meetingNumber: Swift.Int, occurrenceTime: Swift.Int, meetingMasterEventId: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, deleteMeeting sessionId: Swift.String, meetingNumber: Swift.Int, occurrenceTime: Swift.Int, meetingMasterEventId: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, joinFromARoom sessionId: Swift.String, meetingNumber: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, moreParticipantsClicked meetingInfo: zChatComponent.ZMScheduleMeetingInfo)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scheduleMeetingCardView(_ scheduleMeetingCardView: zChatComponent.ZMScheduleMeetingCardView, isInMeeting meetingNumber: Swift.Int) -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMNoCustomEmojiFooter : ZoomKit.ZMBaseView, AppKit.NSCollectionViewElement {
+  @objc @_Concurrency.MainActor(unsafe) public var forceDarkMode: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var addEmojiWindowDidOpen: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMUserSignatureData) public class UserSignatureData : ObjectiveC.NSObject {
+  @objc(ZMUserSignatureDataDurationType) public enum DurationType : Swift.Int, Swift.RawRepresentable {
+    case always
+    case custom
+    case hours
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public var durationType: zChatComponent.UserSignatureData.DurationType
+  @objc public var content: Swift.String?
+  @objc public var calculatedContent: Foundation.NSAttributedString? {
+    @objc get
+  }
+  @objc public var huddleName: Swift.String?
+  @objc public var huddleDeepLink: Swift.String?
+  @objc public var isReminder: Swift.Bool
+  @objc public var start: Foundation.Date?
+  @objc public var end: Foundation.Date?
+  @objc public var duration: Swift.Double
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMSyncStickerView) @_Concurrency.MainActor(unsafe) final public class SyncStickerView : ZoomKit.ZMBaseView {
+  @objc @_Concurrency.MainActor(unsafe) final public let progressIndicator: AppKit.NSProgressIndicator
+  @objc @_Concurrency.MainActor(unsafe) final public let syncTip: AppKit.NSTextField
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public enum ZMFooterStatus : Swift.Int {
+  case normal
+  case loading
+  case error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol ZMLoadableFooter {
+  @objc func updateFooter(status: zChatComponent.ZMFooterStatus)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMViewMoreFooter : ZoomKit.ZMBaseView, AppKit.NSCollectionViewElement {
+  @objc @_Concurrency.MainActor(unsafe) public var forceDarkMode: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var viewMoreHandler: (() -> Swift.Void)?
+  @objc @_Concurrency.MainActor(unsafe) public var status: zChatComponent.ZMFooterStatus {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc deinit
+}
+extension zChatComponent.ZMViewMoreFooter : zChatComponent.ZMLoadableFooter {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func updateFooter(status: zChatComponent.ZMFooterStatus)
+}
+@objc public protocol ZMInviteConsentRequestViewControllerDelegate {
+  @objc(onSuccessfulConsentResponse:didConsent:) func onSuccessfulConsentResponse(sender: zChatComponent.ZMInviteConsentRequestViewController, didConsent: Swift.Bool)
+  @objc(onConsentRequestRemoval:sessionID:) func onConsentRequestRemoval(sender: zChatComponent.ZMInviteConsentRequestViewController, sessionID: Swift.String)
+}
+@objc @_Concurrency.MainActor(unsafe) public class ZMInviteConsentRequestViewController : AppKit.NSViewController {
+  @objc @_Concurrency.MainActor(unsafe) public var request: zChatComponent.ZMGroupInviteConsentRequestInfo?
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any zChatComponent.ZMInviteConsentRequestViewControllerDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var nibName: AppKit.NSNib.Name? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public init(request: zChatComponent.ZMGroupInviteConsentRequestInfo)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(ZMTextListView) @_Concurrency.MainActor(unsafe) public class TextListView : ZoomKit.ZMBaseView {
+  @objc @_Concurrency.MainActor(unsafe) public var itemTextColor: AppKit.NSColor?
+  @objc @_Concurrency.MainActor(unsafe) public var allText: [Swift.String] {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc deinit
+}
+extension zChatComponent.TextListView : AppKit.NSTableViewDelegate, AppKit.NSTableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfRows(in tableView: AppKit.NSTableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: AppKit.NSTableView, viewFor tableColumn: AppKit.NSTableColumn?, row: Swift.Int) -> AppKit.NSView?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: AppKit.NSTableView, heightOfRow row: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: AppKit.NSTableView, shouldEdit tableColumn: AppKit.NSTableColumn?, row: Swift.Int) -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @objc(ZMStickerView) @_Concurrency.MainActor(unsafe) public class StickerView : ZoomKit.ZMBaseView {
+  @objc @_Concurrency.MainActor(unsafe) public var scrollView: zChatComponent.ZMChatAlwaysOverlayScrollView {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public let collectionView: zChatComponent.ZMCollectionView
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZMAddStickerView) @_Concurrency.MainActor(unsafe) final public class AddStickerView : ZoomKit.ZMBaseView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc(ZMPTCommonAppCheckboxStyle) public enum CommonAppCheckboxStyle : Swift.Int {
+  case regular
+  case `switch`
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(ZMCommonAppCheckboxItem) public class CommonAppCheckboxItem : zChatComponent.ZMCommonAppBaseItem {
+  @objc public var eventID: Swift.String
+  @objc public var actionID: Swift.String
+  @objc public var style: zChatComponent.CommonAppCheckboxStyle
+  @objc public var numberOfItems: Swift.Int {
+    @objc get
+  }
+  @objc public func addItem(withValue value: Swift.String, text: Swift.String)
+  @objc public func selectItem(withValue value: Swift.String)
+  @objc(enumerateItemsUsingBlock:) public func enumerateItems(using block: (_ text: Swift.String, _ value: Swift.String, _ isSelected: Swift.Bool) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ZMPTCommonAppCheckboxCell) @preconcurrency @_Concurrency.MainActor(unsafe) public class CommonAppCheckboxCell : zChatComponent.ZMPTCommonBaseCell {
+  @objc @_Concurrency.MainActor(unsafe) public var messageTemplateIndex: Swift.Int
+  @objc @_Concurrency.MainActor(unsafe) public var eventID: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var actionID: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var groupID: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var value: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var style: zChatComponent.CommonAppCheckboxStyle
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc override nonisolated dynamic public func cellFrame(for textContainer: AppKit.NSTextContainer, proposedLineFragment lineFrag: Foundation.NSRect, glyphPosition position: Foundation.NSPoint, characterIndex charIndex: Swift.Int) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityLabel() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityValue() -> Any?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilitySubrole() -> AppKit.NSAccessibility.Subrole?
+  @objc deinit
+}
+@objc(ZMCommonAppTextAreaItem) public class CommonAppTextAreaItem : zChatComponent.ZMCommonAppBaseItem {
+  @objc final public let cxxItemWrapper: zChatComponent.ZMPTCommonAppTextAreaCxxItemWrapper
+  @objc public var sessionID: Swift.String?
+  @objc public var messageID: Swift.String?
+  @objc public var eventID: Swift.String?
+  @objc public var actionID: Swift.String?
+  @objc public var index: Swift.Int
+  @objc override dynamic public var text: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var value: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var placeholder: Swift.String {
+    @objc get
+  }
+  @objc(multiline) public var isMultiline: Swift.Bool {
+    @objc get
+  }
+  @objc public var maximumLength: Swift.Int {
+    @objc get
+  }
+  @objc public var commitHandler: ((Swift.String) -> Swift.Bool)?
+  @objc deinit
+  @objc(initWithCxxItemWrapper:) public init(cxxItemWrapper: zChatComponent.ZMPTCommonAppTextAreaCxxItemWrapper)
+  @objc public func markChanged()
+  @discardableResult
+  @objc public func commitChanges() -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc(ZMPTCommonAppTextAreaCell) @preconcurrency @_Concurrency.MainActor(unsafe) public class CommonAppTextAreaCell : zChatComponent.ZMPTCommonBaseCell {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var title: Swift.String {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var stringValue: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var textAreaItem: zChatComponent.CommonAppTextAreaItem? {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc override nonisolated dynamic public func cellFrame(for textContainer: AppKit.NSTextContainer, proposedLineFragment lineFrag: Foundation.NSRect, glyphPosition position: Foundation.NSPoint, characterIndex charIndex: Swift.Int) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView?)
+}
+extension zChatComponent.CommonAppTextAreaCell : zChatComponent.ZMViewAttachmentCellProtocol {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public var imageView: AppKit.NSView {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func cleanUp()
+}
+@objc public enum CenterVerticalAlignment : Swift.Int {
+  case left
+  case right
+  case center
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(ZMCenterVerticalLabel) @_Concurrency.MainActor(unsafe) final public class CenterVerticalLabel : AppKit.NSView {
+  @objc @_Concurrency.MainActor(unsafe) final public var stringValue: Swift.String {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var fontSize: CoreFoundation.CGFloat {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var color: AppKit.NSColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var alignment: zChatComponent.CenterVerticalAlignment
+  @objc @_Concurrency.MainActor(unsafe) final public var fontName: Swift.String?
+  @_Concurrency.MainActor(unsafe) final public var attributedStringValue: Foundation.NSAttributedString {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public func accessibilityLabel() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public func updateStringValue(_ stringValue: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) final public func updateFontSize(_ fontSize: CoreFoundation.CGFloat)
+  @objc @_Concurrency.MainActor(unsafe) final public func updateStringValue(_ stringValue: Swift.String?, fontSize: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) @objc override final public func draw(_ dirtyRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc override final public func hitTest(_ point: Foundation.NSPoint) -> AppKit.NSView?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public class ZMGroupInviteConsentRequestInfo : ObjectiveC.NSObject {
+  @objc public var sessionID: Swift.String
+  @objc public var sessionName: Swift.String
+  @objc public var orgName: Swift.String
+  @objc public var actionOwnerName: Swift.String
+  @objc public var autoTrustOrg: Swift.Bool
+  @objc public init(sessionID: Swift.String, sessionName: Swift.String, orgName: Swift.String, actionOwnerName: Swift.String, autoTrustOrg: Swift.Bool = false)
+  @objc convenience public init(sessionID: Swift.String, sessionName: Swift.String, orgName: Swift.String, actionOwnerName: Swift.String)
+  @objc deinit
+}
+extension zChatComponent.CommonAppAlertLevel : Swift.Equatable {}
+extension zChatComponent.CommonAppAlertLevel : Swift.Hashable {}
+extension zChatComponent.CommonAppAlertLevel : Swift.RawRepresentable {}
+extension zChatComponent.CommonAppChannelMentionType : Swift.Equatable {}
+extension zChatComponent.CommonAppChannelMentionType : Swift.Hashable {}
+extension zChatComponent.CommonAppChannelMentionType : Swift.RawRepresentable {}
+extension zChatComponent.UserSignatureData.DurationType : Swift.Equatable {}
+extension zChatComponent.UserSignatureData.DurationType : Swift.Hashable {}
+extension zChatComponent.ZMFooterStatus : Swift.Equatable {}
+extension zChatComponent.ZMFooterStatus : Swift.Hashable {}
+extension zChatComponent.ZMFooterStatus : Swift.RawRepresentable {}
+extension zChatComponent.CommonAppCheckboxStyle : Swift.Equatable {}
+extension zChatComponent.CommonAppCheckboxStyle : Swift.Hashable {}
+extension zChatComponent.CommonAppCheckboxStyle : Swift.RawRepresentable {}
+extension zChatComponent.CenterVerticalAlignment : Swift.Equatable {}
+extension zChatComponent.CenterVerticalAlignment : Swift.Hashable {}
+extension zChatComponent.CenterVerticalAlignment : Swift.RawRepresentable {}

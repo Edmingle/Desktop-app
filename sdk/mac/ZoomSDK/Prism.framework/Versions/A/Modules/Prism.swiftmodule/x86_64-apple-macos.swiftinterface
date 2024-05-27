@@ -1,0 +1,3014 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Prism
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AppKit
+import Carbon
+import Cocoa
+import DeveloperToolsSupport
+import Foundation
+@_exported import Prism
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension Prism.Color {
+  @objc public static let backgroundDefault: Prism.Color
+  @objc public static let backgroundNeutral: Prism.Color
+  @objc public static let borderComplementary: Prism.Color
+  @objc public static let borderError: Prism.Color
+  @objc public static let borderNeutral: Prism.Color
+  @objc public static let borderPrimary: Prism.Color
+  @objc public static let borderStrongComplementary: Prism.Color
+  @objc public static let borderStrongError: Prism.Color
+  @objc public static let borderStrongNeutral: Prism.Color
+  @objc public static let borderStrongPrimary: Prism.Color
+  @objc public static let borderStrongSuccess: Prism.Color
+  @objc public static let borderStrongSupplementary1: Prism.Color
+  @objc public static let borderStrongSupplementary2: Prism.Color
+  @objc public static let borderStrongWarning: Prism.Color
+  @objc public static let borderStubtleComplementary: Prism.Color
+  @objc public static let borderStubtleSuccess: Prism.Color
+  @objc public static let borderStubtleSupplementary1: Prism.Color
+  @objc public static let borderStubtleSupplementary2: Prism.Color
+  @objc public static let borderSubtleError: Prism.Color
+  @objc public static let borderSubtleNeutral: Prism.Color
+  @objc public static let borderSubtlePrimary: Prism.Color
+  @objc public static let borderSubtleWarning: Prism.Color
+  @objc public static let borderSuccess: Prism.Color
+  @objc public static let borderSupplementary1: Prism.Color
+  @objc public static let borderSupplementary2: Prism.Color
+  @objc public static let borderWarning: Prism.Color
+  @objc public static let componentBorder: Prism.Color
+  @objc public static let fillBlendStrongTransparent: Prism.Color
+  @objc public static let fillBlendSubtleTransparent: Prism.Color
+  @objc public static let fillBlendTransparent: Prism.Color
+  @objc public static let fillComplementary: Prism.Color
+  @objc public static let fillContraryStrongTransparent: Prism.Color
+  @objc public static let fillContrarySubtleTransparent: Prism.Color
+  @objc public static let fillContraryTransparent: Prism.Color
+  @objc public static let fillDefault: Prism.Color
+  @objc public static let fillError: Prism.Color
+  @objc public static let fillGlobalDarkTransparent: Prism.Color
+  @objc public static let fillGlobalError: Prism.Color
+  @objc public static let fillGlobalLightTransparent: Prism.Color
+  @objc public static let fillGlobalPrimary: Prism.Color
+  @objc public static let fillGlobalStrongDarkTransparent: Prism.Color
+  @objc public static let fillGlobalStrongLightTransparent: Prism.Color
+  @objc public static let fillGlobalSubtleDarkTransparent: Prism.Color
+  @objc public static let fillGlobalSubtleLightTransparent: Prism.Color
+  @objc public static let fillNeutral: Prism.Color
+  @objc public static let fillPrimary: Prism.Color
+  @objc public static let fillSubtleNeutral: Prism.Color
+  @objc public static let fillSubtlerComplementary: Prism.Color
+  @objc public static let fillSubtlerError: Prism.Color
+  @objc public static let fillSubtlerNeutral: Prism.Color
+  @objc public static let fillSubtlerPrimary: Prism.Color
+  @objc public static let fillSubtlerSuccess: Prism.Color
+  @objc public static let fillSubtlerSupplementary1: Prism.Color
+  @objc public static let fillSubtlerSupplementary2: Prism.Color
+  @objc public static let fillSubtlerWarning: Prism.Color
+  @objc public static let fillSuccess: Prism.Color
+  @objc public static let fillSupplementary1: Prism.Color
+  @objc public static let fillSupplementary2: Prism.Color
+  @objc public static let fillWarning: Prism.Color
+  @objc public static let iconComplementary: Prism.Color
+  @objc public static let iconError: Prism.Color
+  @objc public static let iconNeutral: Prism.Color
+  @objc public static let iconPrimary: Prism.Color
+  @objc public static let iconSuccess: Prism.Color
+  @objc public static let iconSupplementary1: Prism.Color
+  @objc public static let iconSupplementary2: Prism.Color
+  @objc public static let iconWarning: Prism.Color
+  @objc public static let inverseDefault: Prism.Color
+  @objc public static let inverseGlobalDefault: Prism.Color
+  @objc public static let inverseNeutral: Prism.Color
+  @objc public static let complementaryHovered: Prism.Color
+  @objc public static let complementaryPressed: Prism.Color
+  @objc public static let contraryStrongTransparentHovered: Prism.Color
+  @objc public static let contraryStrongTransparentPressed: Prism.Color
+  @objc public static let contrarySubtleTransparentHovered: Prism.Color
+  @objc public static let contrarySubtleTransparentPressed: Prism.Color
+  @objc public static let contraryTransparentHovered: Prism.Color
+  @objc public static let contraryTransparentPressed: Prism.Color
+  @objc public static let disable: Prism.Color
+  @objc public static let errorHovered: Prism.Color
+  @objc public static let errorPressed: Prism.Color
+  @objc public static let globalDarkTransparentHovered: Prism.Color
+  @objc public static let globalDarkTransparentPressed: Prism.Color
+  @objc public static let globalDisabled: Prism.Color
+  @objc public static let globalLightTransparentHovered: Prism.Color
+  @objc public static let globalLightTransparentPressed: Prism.Color
+  @objc public static let globalStrongDarkTransparentHovered: Prism.Color
+  @objc public static let globalStrongDarkTransparentPressed: Prism.Color
+  @objc public static let globalStrongLightTransparentHovered: Prism.Color
+  @objc public static let globalStrongLightTransparentPressed: Prism.Color
+  @objc public static let globalSubtleDarkTransparentHovered: Prism.Color
+  @objc public static let globalSubtleDarkTransparentPressed: Prism.Color
+  @objc public static let globalSubtleLightTransparentHovered: Prism.Color
+  @objc public static let globalSubtleLightTransparentPressed: Prism.Color
+  @objc public static let hover: Prism.Color
+  @objc public static let inactive: Prism.Color
+  @objc public static let neutralHovered: Prism.Color
+  @objc public static let neutralPressed: Prism.Color
+  @objc public static let press: Prism.Color
+  @objc public static let primaryHovered: Prism.Color
+  @objc public static let primaryPressed: Prism.Color
+  @objc public static let subtleComplementaryHovered: Prism.Color
+  @objc public static let subtleComplementaryPressed: Prism.Color
+  @objc public static let subtleDisabled: Prism.Color
+  @objc public static let subtleErrorDisabled: Prism.Color
+  @objc public static let subtleErrorHovered: Prism.Color
+  @objc public static let subtleErrorPressed: Prism.Color
+  @objc public static let subtleNeutralHovered: Prism.Color
+  @objc public static let subtleNeutralPressed: Prism.Color
+  @objc public static let subtlePrimaryDisabled: Prism.Color
+  @objc public static let subtlePrimaryHovered: Prism.Color
+  @objc public static let subtlePrimaryPressed: Prism.Color
+  @objc public static let subtleSuccessHovered: Prism.Color
+  @objc public static let subtleSuccessPressed: Prism.Color
+  @objc public static let subtleSupplementary1Hovered: Prism.Color
+  @objc public static let subtleSupplementary1Pressed: Prism.Color
+  @objc public static let subtleWarningHovered: Prism.Color
+  @objc public static let subtleWarningPressed: Prism.Color
+  @objc public static let successHovered: Prism.Color
+  @objc public static let successPressed: Prism.Color
+  @objc public static let supplementary1Hovered: Prism.Color
+  @objc public static let supplementary1Pressed: Prism.Color
+  @objc public static let supplementary2Hovered: Prism.Color
+  @objc public static let supplementary2Pressed: Prism.Color
+  @objc public static let sutbleSupplementary2Hovered: Prism.Color
+  @objc public static let sutbleSupplementary2Pressed: Prism.Color
+  @objc public static let warningHovered: Prism.Color
+  @objc public static let warningPressed: Prism.Color
+  @objc public static let textComplementary: Prism.Color
+  @objc public static let textError: Prism.Color
+  @objc public static let textGlobalStrongWarning: Prism.Color
+  @objc public static let textNeutral: Prism.Color
+  @objc public static let textPrimary: Prism.Color
+  @objc public static let textStrongComplementary: Prism.Color
+  @objc public static let textStrongError: Prism.Color
+  @objc public static let textStrongNeutral: Prism.Color
+  @objc public static let textStrongPrimary: Prism.Color
+  @objc public static let textStrongSuccess: Prism.Color
+  @objc public static let textStrongSupplementary1: Prism.Color
+  @objc public static let textStrongSupplementary2: Prism.Color
+  @objc public static let textStrongWarning: Prism.Color
+  @objc public static let textStrongerComplementary: Prism.Color
+  @objc public static let textStrongerError: Prism.Color
+  @objc public static let textStrongerNeutral: Prism.Color
+  @objc public static let textStrongerPrimary: Prism.Color
+  @objc public static let textStrongerSuccess: Prism.Color
+  @objc public static let textStrongerSupplementary1: Prism.Color
+  @objc public static let textStrongerSupplementary2: Prism.Color
+  @objc public static let textStrongerWarning: Prism.Color
+  @objc public static let textSuccess: Prism.Color
+  @objc public static let textSupplementary1: Prism.Color
+  @objc public static let textSupplementary2: Prism.Color
+  @objc public static let textWarning: Prism.Color
+  @objc public static let underlayDark: Prism.Color
+}
+extension AppKit.NSColor {
+  public struct Prism {
+    public static let clear: Prism.Color
+    public static let black: AppKit.NSColor
+    public static let white: AppKit.NSColor
+    public static let backgroundDefault: Prism.Color
+    public static let backgroundNeutral: Prism.Color
+    public static let borderComplementary: Prism.Color
+    public static let borderError: Prism.Color
+    public static let borderNeutral: Prism.Color
+    public static let borderPrimary: Prism.Color
+    public static let borderStrongComplementary: Prism.Color
+    public static let borderStrongError: Prism.Color
+    public static let borderStrongNeutral: Prism.Color
+    public static let borderStrongPrimary: Prism.Color
+    public static let borderStrongSuccess: Prism.Color
+    public static let borderStrongSupplementary1: Prism.Color
+    public static let borderStrongSupplementary2: Prism.Color
+    public static let borderStrongWarning: Prism.Color
+    public static let borderStubtleComplementary: Prism.Color
+    public static let borderStubtleSuccess: Prism.Color
+    public static let borderStubtleSupplementary1: Prism.Color
+    public static let borderStubtleSupplementary2: Prism.Color
+    public static let borderSubtleError: Prism.Color
+    public static let borderSubtleNeutral: Prism.Color
+    public static let borderSubtlePrimary: Prism.Color
+    public static let borderSubtleWarning: Prism.Color
+    public static let borderSuccess: Prism.Color
+    public static let borderSupplementary1: Prism.Color
+    public static let borderSupplementary2: Prism.Color
+    public static let borderWarning: Prism.Color
+    public static let componentBorder: Prism.Color
+    public static let fillBlendStrongTransparent: Prism.Color
+    public static let fillBlendSubtleTransparent: Prism.Color
+    public static let fillBlendTransparent: Prism.Color
+    public static let fillComplementary: Prism.Color
+    public static let fillContraryStrongTransparent: Prism.Color
+    public static let fillContrarySubtleTransparent: Prism.Color
+    public static let fillContraryTransparent: Prism.Color
+    public static let fillDefault: Prism.Color
+    public static let fillError: Prism.Color
+    public static let fillGlobalDarkTransparent: Prism.Color
+    public static let fillGlobalError: Prism.Color
+    public static let fillGlobalLightTransparent: Prism.Color
+    public static let fillGlobalPrimary: Prism.Color
+    public static let fillGlobalStrongDarkTransparent: Prism.Color
+    public static let fillGlobalStrongLightTransparent: Prism.Color
+    public static let fillGlobalSubtleDarkTransparent: Prism.Color
+    public static let fillGlobalSubtleLightTransparent: Prism.Color
+    public static let fillNeutral: Prism.Color
+    public static let fillPrimary: Prism.Color
+    public static let fillSubtleNeutral: Prism.Color
+    public static let fillSubtlerComplementary: Prism.Color
+    public static let fillSubtlerError: Prism.Color
+    public static let fillSubtlerNeutral: Prism.Color
+    public static let fillSubtlerPrimary: Prism.Color
+    public static let fillSubtlerSuccess: Prism.Color
+    public static let fillSubtlerSupplementary1: Prism.Color
+    public static let fillSubtlerSupplementary2: Prism.Color
+    public static let fillSubtlerWarning: Prism.Color
+    public static let fillSuccess: Prism.Color
+    public static let fillSupplementary1: Prism.Color
+    public static let fillSupplementary2: Prism.Color
+    public static let fillWarning: Prism.Color
+    public static let iconComplementary: Prism.Color
+    public static let iconError: Prism.Color
+    public static let iconNeutral: Prism.Color
+    public static let iconPrimary: Prism.Color
+    public static let iconSuccess: Prism.Color
+    public static let iconSupplementary1: Prism.Color
+    public static let iconSupplementary2: Prism.Color
+    public static let iconWarning: Prism.Color
+    public static let inverseDefault: Prism.Color
+    public static let inverseGlobalDefault: Prism.Color
+    public static let inverseNeutral: Prism.Color
+    public static let complementaryHovered: Prism.Color
+    public static let complementaryPressed: Prism.Color
+    public static let contraryStrongTransparentHovered: Prism.Color
+    public static let contraryStrongTransparentPressed: Prism.Color
+    public static let contrarySubtleTransparentHovered: Prism.Color
+    public static let contrarySubtleTransparentPressed: Prism.Color
+    public static let contraryTransparentHovered: Prism.Color
+    public static let contraryTransparentPressed: Prism.Color
+    public static let disable: Prism.Color
+    public static let errorHovered: Prism.Color
+    public static let errorPressed: Prism.Color
+    public static let globalDarkTransparentHovered: Prism.Color
+    public static let globalDarkTransparentPressed: Prism.Color
+    public static let globalDisabled: Prism.Color
+    public static let globalLightTransparentHovered: Prism.Color
+    public static let globalLightTransparentPressed: Prism.Color
+    public static let globalStrongDarkTransparentHovered: Prism.Color
+    public static let globalStrongDarkTransparentPressed: Prism.Color
+    public static let globalStrongLightTransparentHovered: Prism.Color
+    public static let globalStrongLightTransparentPressed: Prism.Color
+    public static let globalSubtleDarkTransparentHovered: Prism.Color
+    public static let globalSubtleDarkTransparentPressed: Prism.Color
+    public static let globalSubtleLightTransparentHovered: Prism.Color
+    public static let globalSubtleLightTransparentPressed: Prism.Color
+    public static let hover: Prism.Color
+    public static let inactive: Prism.Color
+    public static let neutralHovered: Prism.Color
+    public static let neutralPressed: Prism.Color
+    public static let press: Prism.Color
+    public static let primaryHovered: Prism.Color
+    public static let primaryPressed: Prism.Color
+    public static let subtleComplementaryHovered: Prism.Color
+    public static let subtleComplementaryPressed: Prism.Color
+    public static let subtleDisabled: Prism.Color
+    public static let subtleErrorDisabled: Prism.Color
+    public static let subtleErrorHovered: Prism.Color
+    public static let subtleErrorPressed: Prism.Color
+    public static let subtleNeutralHovered: Prism.Color
+    public static let subtleNeutralPressed: Prism.Color
+    public static let subtlePrimaryDisabled: Prism.Color
+    public static let subtlePrimaryHovered: Prism.Color
+    public static let subtlePrimaryPressed: Prism.Color
+    public static let subtleSuccessHovered: Prism.Color
+    public static let subtleSuccessPressed: Prism.Color
+    public static let subtleSupplementary1Hovered: Prism.Color
+    public static let subtleSupplementary1Pressed: Prism.Color
+    public static let subtleWarningHovered: Prism.Color
+    public static let subtleWarningPressed: Prism.Color
+    public static let successHovered: Prism.Color
+    public static let successPressed: Prism.Color
+    public static let supplementary1Hovered: Prism.Color
+    public static let supplementary1Pressed: Prism.Color
+    public static let supplementary2Hovered: Prism.Color
+    public static let supplementary2Pressed: Prism.Color
+    public static let sutbleSupplementary2Hovered: Prism.Color
+    public static let sutbleSupplementary2Pressed: Prism.Color
+    public static let warningHovered: Prism.Color
+    public static let warningPressed: Prism.Color
+    public static let textComplementary: Prism.Color
+    public static let textError: Prism.Color
+    public static let textGlobalStrongWarning: Prism.Color
+    public static let textNeutral: Prism.Color
+    public static let textPrimary: Prism.Color
+    public static let textStrongComplementary: Prism.Color
+    public static let textStrongError: Prism.Color
+    public static let textStrongNeutral: Prism.Color
+    public static let textStrongPrimary: Prism.Color
+    public static let textStrongSuccess: Prism.Color
+    public static let textStrongSupplementary1: Prism.Color
+    public static let textStrongSupplementary2: Prism.Color
+    public static let textStrongWarning: Prism.Color
+    public static let textStrongerComplementary: Prism.Color
+    public static let textStrongerError: Prism.Color
+    public static let textStrongerNeutral: Prism.Color
+    public static let textStrongerPrimary: Prism.Color
+    public static let textStrongerSuccess: Prism.Color
+    public static let textStrongerSupplementary1: Prism.Color
+    public static let textStrongerSupplementary2: Prism.Color
+    public static let textStrongerWarning: Prism.Color
+    public static let textSuccess: Prism.Color
+    public static let textSupplementary1: Prism.Color
+    public static let textSupplementary2: Prism.Color
+    public static let textWarning: Prism.Color
+    public static let underlayDark: Prism.Color
+  }
+}
+@objc(PZMPopover) public class Popover : Prism.Modal {
+  @objc public enum ArrowStyle : Swift.Int, Swift.RawRepresentable {
+    case top
+    case topRight
+    case topLeft
+    case bottom
+    case bottomRight
+    case bottomLeft
+    case left
+    case leftTop
+    case leftBottom
+    case right
+    case rightTop
+    case rightBottom
+    case none
+    public var isVertical: Swift.Bool {
+      get
+    }
+    public var isHorizontal: Swift.Bool {
+      get
+    }
+    public var isBottom: Swift.Bool {
+      get
+    }
+    public var isTop: Swift.Bool {
+      get
+    }
+    public var isLeft: Swift.Bool {
+      get
+    }
+    public var isRight: Swift.Bool {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init(body: Swift.String, arrowStyle: Prism.Popover.ArrowStyle = .none, decorations: [Prism.Modal.Decoration] = [], context: Any? = nil)
+  @available(swift, obsoleted: 0.1, renamed: "init(body:arrowStyle:decorations:context:)")
+  @objc(initWithBody:arrowStyle:decorations:context:) convenience public init(body: Swift.String, arrowStyle: Prism.Popover.ArrowStyle, _ocDecorations decorations: [Prism.Modal._PrismOCBridge_Decoration], context: Any? = nil)
+  @objc public var arrowStyle: Prism.Popover.ArrowStyle
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMCheckboxView) @_Concurrency.MainActor(unsafe) public class CheckboxView : Prism.InteractableView, Prism.Selectable {
+  @objc(PZMCheckboxViewState) public enum State : Swift.Int, Swift.RawRepresentable {
+    case selected
+    case partial
+    case deselected
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var state: Prism.CheckboxView.State {
+    @objc get
+    @objc set
+  }
+  @objc(PZMCheckboxItem) public class Item : ObjectiveC.NSObject {
+    @objc public var text: Swift.String
+    @objc public var children: [Prism.CheckboxView.Item]?
+    @objc public var icon: AppKit.NSImage?
+    @objc public var iconPopover: Prism.Popover?
+    @objc public var isSelected: Swift.Bool
+    @objc public var onStateChange: ((Prism.CheckboxView) -> Swift.Void)?
+    @objc public init(text: Swift.String, children: [Prism.CheckboxView.Item]? = nil, isSelected: Swift.Bool = false, onStateChange: ((Prism.CheckboxView) -> Swift.Void)? = nil)
+    @objc public init(text: Swift.String, children: [Prism.CheckboxView.Item]? = nil, icon: AppKit.NSImage, iconPopover: Prism.Popover, isSelected: Swift.Bool = false, onStateChange: ((Prism.CheckboxView) -> Swift.Void)? = nil)
+    @objc deinit
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var selected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cursorState: Prism.CursorState {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var text: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var onStateChange: ((Prism.CheckboxView) -> Swift.Void)?
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(withItem item: Prism.CheckboxView.Item)
+  @objc @_Concurrency.MainActor(unsafe) public init(withText text: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public func childCheckboxDidToggle(sender checkbox: Prism.CheckboxView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var wantsUpdateLayer: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityChildren() -> [Any]?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityValue() -> Any?
+  @objc deinit
+}
+@objc(PZMInvertible) public protocol Invertible {
+  @objc var inverted: Swift.Bool { get set }
+  @objc func invert()
+}
+@_hasMissingDesignatedInitializers public class Animation {
+  public init(withDuration duration: Swift.Double, timingFunction: QuartzCore.CAMediaTimingFunction? = nil, afterDelay: Swift.Double = 0, _ closure: @escaping () -> Swift.Void)
+  public func then(animateFor duration: Swift.Double, timingFunction: QuartzCore.CAMediaTimingFunction? = nil, isEager: Swift.Bool = false, _ closure: @escaping () -> Swift.Void) -> Prism.Animation
+  public func thenRepeat(times: Swift.Int, isEager: Swift.Bool = false) -> Prism.Animation
+  public func wait(for time: Swift.Double) -> Prism.Animation
+  public func waitOnce(for time: Swift.Double) -> Prism.Animation
+  public func thenInvoke(_ closure: @escaping () -> Swift.Void) -> Prism.Animation
+  public func run()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMChipGroupView) @_Concurrency.MainActor(unsafe) public class ChipGroupView : Prism.InteractableView, AppKit.NSCollectionViewDelegate, AppKit.NSCollectionViewDelegateFlowLayout, AppKit.NSCollectionViewDataSource {
+  @objc @_Concurrency.MainActor(unsafe) public init(items: Swift.Array<Swift.String>, selectedIndex: Swift.Int = 0, chipSize: Prism.ChipView.Size = .medium)
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: AppKit.NSCollectionView, itemForRepresentedObjectAt indexPath: Foundation.IndexPath) -> AppKit.NSCollectionViewItem
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: AppKit.NSCollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: AppKit.NSCollectionView, layout collectionViewLayout: AppKit.NSCollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> Foundation.NSSize
+  @objc deinit
+}
+public typealias ConstraintInsets = Foundation.NSEdgeInsets
+@objc(PZMRectEdge) public enum RectEdge : Swift.Int, Swift.RawRepresentable {
+  case top
+  case bottom
+  case left
+  case right
+  case center
+  case topLeft
+  case topRight
+  case bottomLeft
+  case bottomRight
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(PZMPasswordInputField) @_Concurrency.MainActor(unsafe) public class PasswordInputField : Prism.InputField, AppKit.NSTextFieldDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override public var readOnly: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var stringValue: Swift.String {
+    @objc get
+  }
+  @_hasMissingDesignatedInitializers @objc(PZMPasswordInputFieldPredicate) public class Predicate : ObjectiveC.NSObject {
+    final public let predicate: (Swift.String) -> Swift.Bool
+    final public let errorText: Swift.String
+    @objc public static func predicate(_ errorText: Swift.String, _ predicate: @escaping (Swift.String) -> Swift.Bool) -> Prism.PasswordInputField.Predicate
+    public func callAsFunction(_ input: Swift.String) -> Swift.Bool
+    @objc deinit
+  }
+  @_Concurrency.MainActor(unsafe) public init(header: Swift.String, placeholder: Swift.String, decorations: [Prism.InputField.Decoration], predicates: [Prism.PasswordInputField.Predicate] = [])
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:predicates:)")
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, placeholder: Swift.String, decorations: [Prism.InputField._PrismOCBridge_Decoration] = [], predicates: [Prism.PasswordInputField.Predicate] = [])
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:predicates:)")
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, placeholder: Swift.String, decorations: [Prism.InputField._PrismOCBridge_Decoration] = [])
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:predicates:)")
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, placeholder: Swift.String)
+  @objc deinit
+}
+extension AppKit.NSBezierPath {
+  public static func bezierPath(roundedRect rect: Foundation.NSRect, cornerRadii: [Prism.RectEdge : CoreFoundation.CGFloat]) -> AppKit.NSBezierPath
+}
+@_inheritsConvenienceInitializers @objc(PZMDialog) public class Dialog : ObjectiveC.NSObject {
+  @objc public var style: Prism.DialogViewController.Style
+  @objc public var body: Swift.String
+  @objc public var title: Swift.String?
+  @objc public var titleIcon: AppKit.NSImage?
+  @objc public var primaryAction: ((Prism.DialogViewController) -> Swift.Void)?
+  @objc public var primaryActionText: Swift.String?
+  @objc public var secondaryAction: ((Prism.DialogViewController) -> Swift.Void)?
+  @objc public var secondaryActionText: Swift.String?
+  @objc public var linkURL: Swift.String?
+  @objc public var linkText: Swift.String?
+  @objc public var footnote: Swift.String?
+  @objc public var checkboxText: Swift.String?
+  @objc public var showCloseButton: Swift.Bool
+  @objc public var closeButtonHandler: (() -> Swift.Void)?
+  @objc public init(style: Prism.DialogViewController.Style, body: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMCounterView) @_Concurrency.MainActor(unsafe) public class CounterView : Prism.View, Prism.Invertible {
+  @objc @_Concurrency.MainActor(unsafe) public var count: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var accessibilityCountDescription: Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc final override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var inverted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public func invert()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame _: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(count: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func encode(with coder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public class func makeCounterView(withCount count: Swift.Int) -> Prism.CounterView
+  @objc @_Concurrency.MainActor(unsafe) public func increment()
+  @objc @_Concurrency.MainActor(unsafe) public func decrement()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityChildren() -> [Any]?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func isAccessibilityElement() -> Swift.Bool
+  @objc deinit
+}
+@objc(PZMDirection) public enum Direction : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case down
+  case up
+  case left
+  case right
+  public init?(value: Foundation.NSNumber)
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [Prism.Direction]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [Prism.Direction] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(PZMView) @_Concurrency.MainActor(unsafe) open class View : AppKit.NSView, Prism.BaseView, Prism.CursorStateBindable {
+  @_Concurrency.MainActor(unsafe) @objc open var enableAnimation: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc open var forbidInteraction: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public func forbidInteractionInSubtree()
+  @_Concurrency.MainActor(unsafe) @objc public func enableInteractionInSubtree()
+  @_Concurrency.MainActor(unsafe) @objc open var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var hoveredBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var clickedBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var borderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var hoveredBorderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var clickedBorderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var forbidTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var cursorStateBinding: Prism.CursorStateBinding? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open func makeCursorStateBinding() -> Prism.CursorStateBinding?
+  @_Concurrency.MainActor(unsafe) public func setIntrinsicContentSize(_ size: Foundation.NSSize?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var cursorState: Prism.CursorState {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc open func cursorStateChanged(to state: Prism.CursorState)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var focusRingType: AppKit.NSFocusRingType {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseEntered(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseExited(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateTrackingAreas()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func hitTest(_ point: Foundation.NSPoint) -> AppKit.NSView?
+  @objc(highlightWithBackgroundColor:borderColor:for:) @_Concurrency.MainActor(unsafe) open func highlight(background backgroundColor: Prism.Color? = nil, border borderColor: Prism.Color? = nil, for duration: Swift.Double)
+}
+extension Foundation.NSDate : Swift.Comparable {
+  public static func < (lhs: Foundation.NSDate, rhs: Foundation.NSDate) -> Swift.Bool
+  public static func > (lhs: Foundation.NSDate, rhs: Foundation.NSDate) -> Swift.Bool
+}
+@objc(PZMMenuDelegate) public protocol MenuDelegate {
+  @objc optional func dropdownMenuWillDismiss(_ sender: Prism.Menu)
+  @objc optional func dropdownMenuDidDismiss(_ sender: Prism.Menu)
+  @objc optional func dropdownMenu(_ sender: Prism.Menu, didSelectItemAt index: Swift.Int)
+}
+@objc(PZMMenu) public class Menu : ObjectiveC.NSObject, Prism.MenuDelegate, AppKit.NSWindowDelegate {
+  @objc weak public var delegate: (any Prism.MenuDelegate)?
+  public enum Item {
+    case basic(label: Swift.String, action: (Prism.Menu.Item) -> Swift.Void, _: (image: AppKit.NSImage, in: Prism.Direction)? = nil)
+    case selectable(label: Swift.String, selected: Swift.Bool = false, checkmarkDirection: Prism.Direction = .right)
+    case checkbox(label: Swift.String, state: Prism.CheckboxView.State = .deselected, checkboxDirection: Prism.Direction = .right)
+    case section(title: Swift.String)
+    case parent(label: Swift.String, children: [Prism.Menu.Item], _: (image: AppKit.NSImage, in: Prism.Direction)? = nil, selectionHandler: ((Prism.Menu.Item, Swift.Int) -> Swift.Void)? = nil)
+    case divider
+  }
+  public var items: [Prism.Menu.Item]
+  @available(swift, deprecated: 0.1, renamed: "items")
+  @objc(items) public var _ocItems: [Prism.Menu._PrismOCBridge_Item] {
+    @objc get
+    @objc set
+  }
+  @objc public var desiredWidth: CoreFoundation.CGFloat
+  public init(items: [Prism.Menu.Item])
+  @available(swift, obsoleted: 0.1, renamed: "init(items:)")
+  @objc(initWithItems:) convenience public init(_ocItems: [Prism.Menu._PrismOCBridge_Item])
+  @available(swift, obsoleted: 0.1, renamed: "appear(adjacentTo:of:pinnedBy:inDirection:horizontalOffset:verticalOffset:)")
+  @available(*, deprecated, renamed: "appear(adjacentTo:of:pinnedBy:inDirection:horizontalOffset:verticalOffset:)")
+  @objc(appearWithAdjacentTo:ofView:pinnedBy:inDirection:horizontalOffset:verticalOffset:) public func _appear(adjacentTo edge: Prism.RectEdge, of view: Prism.View, pinnedBy: Prism.RectEdge, inDirection: Prism.Direction, horizontalOffset: Swift.Double = 0, verticalOffset: Swift.Double = 0)
+  @objc(appearAdjacentToEdge:ofView:pinnedBy:inDirection:horizontalOffset:verticalOffset:) public func appear(adjacentTo edge: Prism.RectEdge, of view: any Prism.BaseView, pinnedBy: Prism.RectEdge, inDirection: Prism.Direction, horizontalOffset: Swift.Double = 0, verticalOffset: Swift.Double = 0)
+  @objc public func dropdownMenuWillDismiss(_ menu: Prism.Menu)
+  @objc public func dropdownMenuDidDismiss(_ menu: Prism.Menu)
+  @objc public func dropdownMenu(_ sender: Prism.Menu, didSelectItemAt index: Swift.Int)
+  @_hasMissingDesignatedInitializers @objc(PZMMenuItem) public class _PrismOCBridge_Item : ObjectiveC.NSObject {
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @available(*, deprecated, renamed: "basic(label:action:image:direction:)")
+    @objc(itemWithLabel:action:) public static func _basic(label: Swift.String, action ocAction: @escaping (Prism.Menu._PrismOCBridge_Item) -> Swift.Void) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(basicItemWithLabel:action:image:direction:) public static func basic(label: Swift.String, action ocAction: @escaping (Prism.Menu._PrismOCBridge_Item) -> Swift.Void, image: AppKit.NSImage, direction: Prism.Direction) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(basicItemWithLabel:action:) public static func basic(label: Swift.String, action ocAction: @escaping (Prism.Menu._PrismOCBridge_Item) -> Swift.Void) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(selectableItemWithLabel:selected:checkmarkDirection:) public static func selectable(label: Swift.String, selected: Swift.Bool, checkmarkDirection: Prism.Direction) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(selectableItemWithLabel:) public static func selectable(label: Swift.String) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(checkboxItemWithLabel:state:checkboxDirection:) public static func checkbox(label: Swift.String, state: Prism.CheckboxView.State, checkboxDirection: Prism.Direction) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(checkboxItemWithLabel:state:) public static func checkbox(label: Swift.String, state: Prism.CheckboxView.State) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(checkboxItemWithLabel:) public static func checkbox(label: Swift.String) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(sectionItemWithTitle:) public static func section(title: Swift.String) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(parentItemWithLabel:children:image:direction:selectionHandler:) public static func parent(label: Swift.String, children: [Prism.Menu._PrismOCBridge_Item], image: AppKit.NSImage, direction: Prism.Direction, selectionHandler: ((Prism.Menu._PrismOCBridge_Item, Swift.Int) -> Swift.Void)? = nil) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(parentWithLabel:children:) public static func parent(label: Swift.String, children: [Prism.Menu._PrismOCBridge_Item]) -> Prism.Menu._PrismOCBridge_Item
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Item instead.")
+    @objc(dividerItem) public static func divider() -> Prism.Menu._PrismOCBridge_Item
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(PZMToolTip) public class ToolTip : ObjectiveC.NSObject {
+  @objc public var label: Swift.String
+  @objc public var key: Swift.String?
+  public var modifiers: [Prism.ModifierKey]
+  @objc public init(label: Swift.String, key: Swift.String? = nil)
+  public static func toolTip(withLabel label: Swift.String, key: Swift.String? = nil, keyModifiers: [Prism.ModifierKey]? = nil) -> Prism.ToolTip
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMHomeButton) @_Concurrency.MainActor(unsafe) public class HomeButton : Prism.InteractableView, Prism.BaseButton {
+  @_Concurrency.MainActor(unsafe) @objc public var action: (any Prism.BaseButton) -> Swift.Void {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var runActionOnMouseDown: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc(PZMBaseButtonStyle) public enum Style : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case normal
+    case highlighted
+    case destructive
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.HomeButton.Style]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.HomeButton.Style] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var forbidTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeKeyView: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var acceptsFirstResponder: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(label: Swift.String, style: Prism.HomeButton.Style, image: AppKit.NSImage, action: @escaping (any Prism.BaseButton) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc public func showProgressIndicator()
+  @_Concurrency.MainActor(unsafe) @objc public func hideProgressIndicator()
+  @_Concurrency.MainActor(unsafe) @objc final override public func isAccessibilityElement() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc final override public func isAccessibilityEnabled() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityChildren() -> [Any]?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(PZMInteractableView) @_Concurrency.MainActor(unsafe) open class InteractableView : Prism.View {
+  @objc @_Concurrency.MainActor(unsafe) open var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @available(*, deprecated, renamed: "enabled")
+  @objc @_Concurrency.MainActor(unsafe) public var isEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var toolTipModel: Prism.ToolTip?
+  @objc @_Concurrency.MainActor(unsafe) public var popoverModel: Prism.Popover?
+  @_Concurrency.MainActor(unsafe) @objc override open var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var toolTipKey: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var toolTip: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func isAccessibilityEnabled() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func isAccessibilityElement() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var acceptsFirstResponder: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var focusRingType: AppKit.NSFocusRingType {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func drawFocusRingMask()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var focusRingMaskBounds: Foundation.NSRect {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseEntered(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseExited(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeKeyView: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(PZMTableCellView) @_Concurrency.MainActor(unsafe) open class TableCellView : AppKit.NSTableCellView, Prism.BaseView, Prism.CursorStateBindable {
+  @_Concurrency.MainActor(unsafe) @objc open var enableAnimation: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open var propagatesKeyEvents: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var forbidInteraction: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public func forbidInteractionInSubtree()
+  @_Concurrency.MainActor(unsafe) @objc public func enableInteractionInSubtree()
+  @_Concurrency.MainActor(unsafe) @objc open var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var hoveredBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var clickedBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var borderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var hoveredBorderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var clickedBorderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc open var forbidTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var cursorStateBinding: Prism.CursorStateBinding? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public func makeCursorStateBinding() -> Prism.CursorStateBinding?
+  @_Concurrency.MainActor(unsafe) public func setIntrinsicContentSize(_ size: Foundation.NSSize?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var cursorState: Prism.CursorState {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc open func cursorStateChanged(to state: Prism.CursorState)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseEntered(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseExited(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateTrackingAreas()
+  @objc @_Concurrency.MainActor(unsafe) open var centerPoint: Foundation.NSPoint {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func hitTest(_ point: Foundation.NSPoint) -> AppKit.NSView?
+  @objc(highlightWithBackgroundColor:borderColor:for:) @_Concurrency.MainActor(unsafe) open func highlight(background backgroundColor: Prism.Color? = nil, border borderColor: Prism.Color? = nil, for duration: Swift.Double)
+}
+@_hasMissingDesignatedInitializers @objc(PZMPresenceIconView) @_Concurrency.MainActor(unsafe) public class PresenceIconView : Prism.View {
+  @objc @_Concurrency.MainActor(unsafe) public var presence: Prism.Presence {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(presence: Prism.Presence)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc deinit
+}
+@objc(PZMPresence) public enum Presence : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case online
+  case mobile
+  case away
+  case offline
+  case outOfOffice
+  case inMeeting
+  case inCall
+  case inCalendarEvent
+  case busy
+  case doNotDisturb
+  case blocked
+  case deactivated
+  public init?(value: Foundation.NSNumber)
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [Prism.Presence]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [Prism.Presence] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConstraintMakerEditable : Prism.ConstraintMakerPrioritizable {
+  @discardableResult
+  public func multipliedBy(_ amount: any Prism.ConstraintMultiplierTarget) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func dividedBy(_ amount: any Prism.ConstraintMultiplierTarget) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func offset(_ amount: any Prism.ConstraintOffsetTarget) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func inset(_ amount: any Prism.ConstraintInsetTarget) -> Prism.ConstraintMakerEditable
+  @objc deinit
+}
+extension Prism.LayoutConstraint {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+}
+extension Foundation.NSLocale {
+  @objc dynamic public var is12Hour: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var is24Hour: Swift.Bool {
+    @objc get
+  }
+}
+public func clamp<T>(_ value: T, minValue: T, maxValue: T) -> T where T : Swift.Comparable
+public func clamp<T>(_ value: T, in range: Swift.Range<T>) -> T where T : Swift.Comparable
+public func clamp<T>(_ value: T, in range: Swift.ClosedRange<T>) -> T where T : Swift.Comparable
+@_hasMissingDesignatedInitializers @objc(PZMLinkView) @_Concurrency.MainActor(unsafe) public class LinkView : Prism.InteractableView {
+  @objc(PZMLinkViewStyle) public enum Style : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case standalone
+    case inline
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.LinkView.Style]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.LinkView.Style] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var focusRingType: AppKit.NSFocusRingType {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(text: Swift.String, url: Foundation.URL, style: Prism.LinkView.Style = .standalone, fontSize: CoreFoundation.CGFloat = 14.0)
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(text: Swift.String, url: Foundation.URL, style: Prism.LinkView.Style = .standalone)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseEntered(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseExited(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @objc @_Concurrency.MainActor(unsafe) public func setURL(_ url: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var alignmentRectInsets: Foundation.NSEdgeInsets {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func alignmentRect(forFrame frame: Foundation.NSRect) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func frame(forAlignmentRect alignmentRect: Foundation.NSRect) -> Foundation.NSRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var firstBaselineAnchor: AppKit.NSLayoutYAxisAnchor {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var lastBaselineAnchor: AppKit.NSLayoutYAxisAnchor {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var baselineOffsetFromBottom: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var firstBaselineOffsetFromTop: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var lastBaselineOffsetFromBottom: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityChildren() -> [Any]?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMButton) @_Concurrency.MainActor(unsafe) public class Button : Prism.InteractableView, Prism.BaseButton {
+  @objc(PZMButtonStyle) public enum Style : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case primary
+    case secondary
+    case tertiary
+    case primaryDestructive
+    case secondaryDestructive
+    case tertiaryDestructive
+    public init?(value: Foundation.NSNumber)
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.Button.Style]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.Button.Style] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc(PZMButtonSize) public enum Size : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case small
+    case medium
+    public init?(value: Foundation.NSNumber)
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.Button.Size]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.Button.Size] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var action: (any Prism.BaseButton) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) @objc public var runActionOnMouseDown: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var label: Swift.String {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cursorState: Prism.CursorState {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var hoveredBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var clickedBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var wantsLayer: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public init(label: Swift.String, style: Prism.Button.Style, size: Prism.Button.Size, action: @escaping (any Prism.BaseButton) -> Swift.Void)
+  @objc @_Concurrency.MainActor(unsafe) public init(label: Swift.String, style: Prism.Button.Style, size: Prism.Button.Size, action: @escaping (any Prism.BaseButton) -> Swift.Void, trailingIcon: AppKit.NSImage)
+  @objc @_Concurrency.MainActor(unsafe) public init(label: Swift.String, style: Prism.Button.Style, size: Prism.Button.Size, action: @escaping (any Prism.BaseButton) -> Swift.Void, leadingIcon: AppKit.NSImage)
+  @objc @_Concurrency.MainActor(unsafe) public class func button(withLabel: Swift.String, style: Prism.Button.Style, size: Prism.Button.Size, action: @escaping (any Prism.BaseButton) -> Swift.Void) -> Prism.Button
+  @objc @_Concurrency.MainActor(unsafe) public class func button(withLabel: Swift.String, style: Prism.Button.Style, size: Prism.Button.Size, action: @escaping (any Prism.BaseButton) -> Swift.Void, leadingIcon: AppKit.NSImage) -> Prism.Button
+  @objc @_Concurrency.MainActor(unsafe) public class func button(withLabel: Swift.String, style: Prism.Button.Style, size: Prism.Button.Size, action: @escaping (any Prism.BaseButton) -> Swift.Void, trailingIcon: AppKit.NSImage) -> Prism.Button
+  @_Concurrency.MainActor(unsafe) @objc public func showProgressIndicator()
+  @_Concurrency.MainActor(unsafe) @objc public func hideProgressIndicator()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var wantsUpdateLayer: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityChildren() -> [Any]?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMPanel) @_Concurrency.MainActor(unsafe) public class Panel : AppKit.NSPanel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeKey: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var dismissWhenResigningKey: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
+  @objc deinit
+  @objc(appearAdjacentToEdge:ofView:pinnedBy:inDirection:horizontalOffset:verticalOffset:) @_Concurrency.MainActor(unsafe) public func appear(adjacentTo edge: Prism.RectEdge, of view: any Prism.BaseView, pinnedBy: Prism.RectEdge, inDirection: Prism.Direction, horizontalOffset: Swift.Double = 0, verticalOffset: Swift.Double = 0)
+}
+extension AppKit.NSAppearance {
+  public var isDarkMode: Swift.Bool {
+    get
+  }
+  public func performWithCurrentDrawingAppearance(block: () -> Swift.Void)
+}
+extension Prism.ConstraintMakerRelatable {
+  @discardableResult
+  public func equalToSuperview<T>(_ closure: (Prism.ConstraintView) -> T, _ file: Swift.String = #file, line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable where T : Prism.ConstraintRelatableTarget
+  @discardableResult
+  public func lessThanOrEqualToSuperview<T>(_ closure: (Prism.ConstraintView) -> T, _ file: Swift.String = #file, line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable where T : Prism.ConstraintRelatableTarget
+  @discardableResult
+  public func greaterThanOrEqualTo<T>(_ closure: (Prism.ConstraintView) -> T, _ file: Swift.String = #file, line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable where T : Prism.ConstraintRelatableTarget
+}
+@available(iOS 8.0, *)
+public struct ConstraintLayoutSupportDSL : Prism.ConstraintDSL {
+  public var target: Swift.AnyObject? {
+    get
+  }
+  public var top: Prism.ConstraintItem {
+    get
+  }
+  public var bottom: Prism.ConstraintItem {
+    get
+  }
+  public var height: Prism.ConstraintItem {
+    get
+  }
+}
+@available(*, deprecated, message: "Use ConstraintMakerPrioritizable instead.")
+public typealias ConstraintMakerPriortizable = Prism.ConstraintMakerPrioritizable
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConstraintMakerPrioritizable : Prism.ConstraintMakerFinalizable {
+  @discardableResult
+  public func priority(_ amount: Prism.ConstraintPriority) -> Prism.ConstraintMakerFinalizable
+  @discardableResult
+  public func priority(_ amount: any Prism.ConstraintPriorityTarget) -> Prism.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.required) instead.")
+  @discardableResult
+  public func priorityRequired() -> Prism.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.high) instead.")
+  @discardableResult
+  public func priorityHigh() -> Prism.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.medium) instead.")
+  @discardableResult
+  public func priorityMedium() -> Prism.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.low) instead.")
+  @discardableResult
+  public func priorityLow() -> Prism.ConstraintMakerFinalizable
+  @objc deinit
+}
+@objc(PZMSegmentedControlDelegate) public protocol SegmentedControlDelegate {
+  @objc optional func segmentedControl(_ control: Prism.SegmentedControl, didSelect item: Prism.SegmentedControl.Item)
+  @objc optional func segmentedControl(_ control: Prism.SegmentedControl, willSelect item: Prism.SegmentedControl.Item, newIndex: Swift.Int)
+}
+@_hasMissingDesignatedInitializers @objc(PZMSegmentedControl) @_Concurrency.MainActor(unsafe) public class SegmentedControl : Prism.InteractableView {
+  @objc @_Concurrency.MainActor(unsafe) public var delegate: (any Prism.SegmentedControlDelegate)?
+  @_inheritsConvenienceInitializers @objc(PZMSegmentedControlItem) public class Item : ObjectiveC.NSObject {
+    @objc public var label: Swift.String?
+    @objc public var icon: AppKit.NSImage?
+    @objc public var action: ((Prism.SegmentedControl) -> Swift.Void)?
+    @objc public static func item(withLabel label: Swift.String, action: ((Prism.SegmentedControl) -> Swift.Void)?) -> Prism.SegmentedControl.Item
+    @objc public static func item(withIcon icon: AppKit.NSImage, action: ((Prism.SegmentedControl) -> Swift.Void)?) -> Prism.SegmentedControl.Item
+    @objc public static func item(withLabel label: Swift.String, icon: AppKit.NSImage, action: ((Prism.SegmentedControl) -> Swift.Void)?) -> Prism.SegmentedControl.Item
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var currentSelection: Prism.SegmentedControl.Item {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var currentSelectionIndex: Swift.Int {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public func forbidInteractionInSubtree()
+  @_Concurrency.MainActor(unsafe) @objc override public func enableInteractionInSubtree()
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init?(items: [Prism.SegmentedControl.Item])
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @objc deinit
+}
+@objc(PZMOrientation) public enum Orientation : Swift.Int, Swift.RawRepresentable {
+  case horizontal
+  case vertical
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMIconButton) @_Concurrency.MainActor(unsafe) public class IconButton : Prism.InteractableView, Prism.BaseButton {
+  @objc(PZMIconButtonStyle) public enum Style : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case primary
+    case secondary
+    case tertiary
+    case overlay
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.IconButton.Style]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.IconButton.Style] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc(PZMIconButtonSize) public enum Size : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case small
+    case medium
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.IconButton.Size]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.IconButton.Size] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var selectable: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var selected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var action: (any Prism.BaseButton) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) @objc public var runActionOnMouseDown: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var image: AppKit.NSImage {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cursorState: Prism.CursorState {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var hoveredBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var clickedBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(image: AppKit.NSImage, style: Prism.IconButton.Style, size: Prism.IconButton.Size = .medium, action: @escaping (any Prism.BaseButton) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc public func showProgressIndicator()
+  @_Concurrency.MainActor(unsafe) @objc public func hideProgressIndicator()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @objc @_Concurrency.MainActor(unsafe) public func toggle()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityChildren() -> [Any]?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ConstraintMaker {
+  public var left: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var top: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var bottom: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var right: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var leading: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var trailing: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var width: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var height: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var centerX: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var centerY: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(*, deprecated, renamed: "lastBaseline")
+  public var baseline: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var lastBaseline: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var firstBaseline: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leftMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var rightMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var topMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var bottomMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leadingMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var trailingMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerXWithinMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerYWithinMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var edges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var horizontalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var verticalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalHorizontalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalVerticalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var size: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var center: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var margins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var directionalMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerWithinMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  final public let item: any Prism.LayoutConstraintItem
+  @objc deinit
+}
+public typealias ConstraintInterfaceLayoutDirection = AppKit.NSUserInterfaceLayoutDirection
+public struct ConstraintConfig {
+  public static var interfaceLayoutDirection: Prism.ConstraintInterfaceLayoutDirection
+}
+public protocol LayoutConstraintItem : AnyObject {
+}
+@available(iOS 9.0, macOS 10.11, *)
+extension AppKit.NSLayoutGuide : Prism.LayoutConstraintItem {
+}
+extension AppKit.NSView : Prism.LayoutConstraintItem {
+}
+@frozen @objc(PZMCursorState) public enum CursorState : Swift.Int, Swift.RawRepresentable {
+  case normal
+  case hovered
+  case clicked
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMNotifierView) @_Concurrency.MainActor(unsafe) public class NotifierView : Prism.View, Prism.Invertible {
+  @_Concurrency.MainActor(unsafe) @objc final override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var inverted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public func invert()
+  @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame _: Foundation.NSRect)
+  @objc deinit
+}
+public struct ConstraintViewDSL : Prism.ConstraintAttributesDSL {
+  @discardableResult
+  public func prepareConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void) -> [Prism.Constraint]
+  public func makeConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  public func remakeConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  public func updateConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  public func removeConstraints()
+  public var contentHuggingHorizontalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var contentHuggingVerticalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var contentCompressionResistanceHorizontalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var contentCompressionResistanceVerticalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var target: Swift.AnyObject? {
+    get
+  }
+}
+public typealias ConstraintView = AppKit.NSView
+extension AppKit.NSImage {
+  @objc dynamic public func tinted(_ color: Prism.Color) -> AppKit.NSImage
+  public struct Prism {
+    public static func image(forIdentifier identifier: Swift.String) -> AppKit.NSImage?
+  }
+  @available(swift, obsoleted: 0.1, message: "This is unavailable in Swift; use .Prism.image(withIdentifier:) instead.")
+  @objc(prismImageForIdentifier:) public static func _prismOCBridge_image(forIdentifier identifier: Swift.String) -> AppKit.NSImage?
+}
+extension AppKit.NSView {
+  @available(*, deprecated, renamed: "snp.left")
+  @_Concurrency.MainActor(unsafe) public var snp_left: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.top")
+  @_Concurrency.MainActor(unsafe) public var snp_top: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.right")
+  @_Concurrency.MainActor(unsafe) public var snp_right: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.bottom")
+  @_Concurrency.MainActor(unsafe) public var snp_bottom: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.leading")
+  @_Concurrency.MainActor(unsafe) public var snp_leading: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.trailing")
+  @_Concurrency.MainActor(unsafe) public var snp_trailing: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.width")
+  @_Concurrency.MainActor(unsafe) public var snp_width: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.height")
+  @_Concurrency.MainActor(unsafe) public var snp_height: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.centerX")
+  @_Concurrency.MainActor(unsafe) public var snp_centerX: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.centerY")
+  @_Concurrency.MainActor(unsafe) public var snp_centerY: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.baseline")
+  @_Concurrency.MainActor(unsafe) public var snp_baseline: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  @available(*, deprecated, renamed: "snp.lastBaseline")
+  @_Concurrency.MainActor(unsafe) public var snp_lastBaseline: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  @available(iOS, deprecated, renamed: "snp.firstBaseline")
+  @_Concurrency.MainActor(unsafe) public var snp_firstBaseline: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.leftMargin")
+  @_Concurrency.MainActor(unsafe) public var snp_leftMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.topMargin")
+  @_Concurrency.MainActor(unsafe) public var snp_topMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.rightMargin")
+  @_Concurrency.MainActor(unsafe) public var snp_rightMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.bottomMargin")
+  @_Concurrency.MainActor(unsafe) public var snp_bottomMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.leadingMargin")
+  @_Concurrency.MainActor(unsafe) public var snp_leadingMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.trailingMargin")
+  @_Concurrency.MainActor(unsafe) public var snp_trailingMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.centerXWithinMargins")
+  @_Concurrency.MainActor(unsafe) public var snp_centerXWithinMargins: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.centerYWithinMargins")
+  @_Concurrency.MainActor(unsafe) public var snp_centerYWithinMargins: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.edges")
+  @_Concurrency.MainActor(unsafe) public var snp_edges: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.size")
+  @_Concurrency.MainActor(unsafe) public var snp_size: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.center")
+  @_Concurrency.MainActor(unsafe) public var snp_center: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.margins")
+  @_Concurrency.MainActor(unsafe) public var snp_margins: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.centerWithinMargins")
+  @_Concurrency.MainActor(unsafe) public var snp_centerWithinMargins: Prism.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.prepareConstraints(_:)")
+  @_Concurrency.MainActor(unsafe) public func snp_prepareConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void) -> [Prism.Constraint]
+  @available(*, deprecated, renamed: "snp.makeConstraints(_:)")
+  @_Concurrency.MainActor(unsafe) public func snp_makeConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  @available(*, deprecated, renamed: "snp.remakeConstraints(_:)")
+  @_Concurrency.MainActor(unsafe) public func snp_remakeConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  @available(*, deprecated, renamed: "snp.updateConstraints(_:)")
+  @_Concurrency.MainActor(unsafe) public func snp_updateConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  @available(*, deprecated, renamed: "snp.removeConstraints()")
+  @_Concurrency.MainActor(unsafe) public func snp_removeConstraints()
+  @_Concurrency.MainActor(unsafe) public var snp: Prism.ConstraintViewDSL {
+    get
+  }
+}
+@objc(PZMSelectable) public protocol Selectable : Prism.BaseView {
+  @objc var selected: Swift.Bool { get set }
+}
+@_hasMissingDesignatedInitializers @objc(PZMChipView) @_Concurrency.MainActor(unsafe) public class ChipView : Prism.InteractableView, Prism.Selectable {
+  @objc(PZMChipViewSize) public enum Size : Swift.Int, Swift.RawRepresentable {
+    case small
+    case medium
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var selected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var hoveredBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var clickedBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@available(iOS 9.0, macOS 10.11, *)
+public struct ConstraintLayoutGuideDSL : Prism.ConstraintAttributesDSL {
+  @discardableResult
+  public func prepareConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void) -> [Prism.Constraint]
+  public func makeConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  public func remakeConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  public func updateConstraints(_ closure: (_ make: Prism.ConstraintMaker) -> Swift.Void)
+  public func removeConstraints()
+  public var target: Swift.AnyObject? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(PZMRadioGroupView) @_Concurrency.MainActor(unsafe) public class RadioGroupView : Prism.View {
+  @objc @_Concurrency.MainActor(unsafe) public var onSelectionChange: ((Prism.RadioGroupView, _ index: Swift.Int) -> Swift.Void)?
+  @objc @_Concurrency.MainActor(unsafe) public var currentSelection: Swift.Int {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(stringItems items: Swift.Array<Swift.String>, title: Swift.String? = nil, selectedIndex: Swift.Int = 0, alignment: AppKit.NSLayoutConstraint.Attribute = .centerX, onSelectionChange: ((Prism.RadioGroupView, _ index: Swift.Int) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) public init(items: [Prism.RadioButton.Item], title: Swift.String? = nil, selectedIndex: Swift.Int = 0, alignment: AppKit.NSLayoutConstraint.Attribute = .centerX, onSelectionChange: ((Prism.RadioGroupView, _ index: Swift.Int) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func prismRadioButtonDidSelect(sender: Prism.RadioButton)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityChildren() -> [Any]?
+  @objc deinit
+}
+@available(iOS 8.0, *)
+extension Prism.ConstraintLayoutSupport {
+  public var snp: Prism.ConstraintLayoutSupportDSL {
+    get
+  }
+}
+@objc(PZMModifierKey) public enum ModifierKey : Swift.Int, Swift.RawRepresentable {
+  case shift
+  case option
+  case command
+  case control
+  public var string: Swift.String {
+    get
+  }
+  public var keyValue: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class ConstraintItem {
+  @objc deinit
+}
+public func == (lhs: Prism.ConstraintItem, rhs: Prism.ConstraintItem) -> Swift.Bool
+@_hasMissingDesignatedInitializers @objc(PZMDropdownView) @_Concurrency.MainActor(unsafe) public class DropdownInputField : Prism.InputField, Prism.MenuDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override public var readOnly: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var items: [Prism.DropdownInputField.Item]
+  @objc @_Concurrency.MainActor(unsafe) public var selectedIndex: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc(PZMDropdownViewItem) public class Item : ObjectiveC.NSObject {
+    @objc final public let label: Swift.String
+    @objc public var action: ((Prism.DropdownInputField.Item) -> Swift.Void)?
+    @objc public var context: Any?
+    @objc public init(label: Swift.String, action: ((Prism.DropdownInputField.Item) -> Swift.Void)? = nil, context: Any? = nil)
+    @objc deinit
+  }
+  @_Concurrency.MainActor(unsafe) public init(header: Swift.String, items: [Prism.DropdownInputField.Item], selectedIndex: Swift.Int = 0, decorations: [Prism.InputField.Decoration] = [])
+  @available(swift, obsoleted: 0.1, renamed: "init(header:items:selectedIndex:decorations:)")
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, items: [Prism.DropdownInputField.Item], selectedIndex: Swift.Int, _ocDecorations decorations: [Prism.InputField._PrismOCBridge_Decoration] = [])
+  @_Concurrency.MainActor(unsafe) public func view(withTitle title: Swift.String, items: [Prism.DropdownInputField.Item]) -> Prism.DropdownInputField
+  @objc @_Concurrency.MainActor(unsafe) public func select(index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc public func dropdownMenuWillDismiss(_ sender: Prism.Menu)
+  @_Concurrency.MainActor(unsafe) @objc public func dropdownMenuDidDismiss(_ sender: Prism.Menu)
+  @_Concurrency.MainActor(unsafe) @objc public func dropdownMenu(_ sender: Prism.Menu, didSelectItemAt index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityChildren() -> [Any]?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityTitle() -> Swift.String?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class LayoutConstraint : AppKit.NSLayoutConstraint {
+  public var label: Swift.String? {
+    get
+    set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMAvatarView) @_Concurrency.MainActor(unsafe) public class AvatarView : Prism.View {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var translatesAutoresizingMaskIntoConstraints: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc(PZMAvatarViewSize) public enum Size : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case small
+    case normal
+    case medium
+    case large
+    public init?(value: Foundation.NSNumber)
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.AvatarView.Size]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.AvatarView.Size] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(label: Swift.String, image: AppKit.NSImage? = nil, size: Prism.AvatarView.Size = .small)
+  @objc(setLabel:image:) @_Concurrency.MainActor(unsafe) public func setLabel(_ label: Swift.String, image: AppKit.NSImage? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class Constraint {
+  final public var layoutConstraints: [Prism.LayoutConstraint]
+  final public var isActive: Swift.Bool {
+    get
+    set
+  }
+  @available(*, deprecated, renamed: "activate()")
+  final public func install()
+  @available(*, deprecated, renamed: "deactivate()")
+  final public func uninstall()
+  final public func activate()
+  final public func deactivate()
+  @discardableResult
+  final public func update(offset: any Prism.ConstraintOffsetTarget) -> Prism.Constraint
+  @discardableResult
+  final public func update(inset: any Prism.ConstraintInsetTarget) -> Prism.Constraint
+  @discardableResult
+  final public func update(priority: any Prism.ConstraintPriorityTarget) -> Prism.Constraint
+  @discardableResult
+  final public func update(priority: Prism.ConstraintPriority) -> Prism.Constraint
+  @available(*, deprecated, renamed: "update(offset:)")
+  final public func updateOffset(amount: any Prism.ConstraintOffsetTarget)
+  @available(*, deprecated, renamed: "update(inset:)")
+  final public func updateInsets(amount: any Prism.ConstraintInsetTarget)
+  @available(*, deprecated, renamed: "update(priority:)")
+  final public func updatePriority(amount: any Prism.ConstraintPriorityTarget)
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityRequired()
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityHigh()
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityMedium()
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityLow()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMSliderView) @_Concurrency.MainActor(unsafe) public class SliderView : Prism.InteractableView {
+  public enum Decoration {
+    case leadingLabel(Swift.String)
+    case trailingLabel(Swift.String)
+    case leadingImage(AppKit.NSImage)
+    case trailingImage(AppKit.NSImage)
+    case inputField
+    case step(count: Swift.Int)
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var stepped: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var showsValueToolTip: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var onValueChange: ((Prism.SliderView) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var frame: Foundation.NSRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var acceptsFirstResponder: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeKeyView: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func becomeFirstResponder() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override public var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cursorState: Prism.CursorState {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public init(withValue value: Swift.Double = 0.5, decorations: [Prism.SliderView.Decoration] = [], onValueChange: ((Prism.SliderView) -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 0.1, renamed: "init(withValue:decorations:onValueChange:)")
+  @objc(initWithValue:decorations:onValueChange:) @_Concurrency.MainActor(unsafe) convenience public init(withValue value: Swift.Double = 0.5, _ocDecorations decorations: [Prism.SliderView._PrismOCBridge_Decoration] = [], onValueChange: ((Prism.SliderView) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseDragged(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_hasMissingDesignatedInitializers @objc(PZMSliderViewDecoration) public class _PrismOCBridge_Decoration : ObjectiveC.NSObject {
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func leadingLabel(_ label: Swift.String) -> Prism.SliderView._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func trailingLabel(_ label: Swift.String) -> Prism.SliderView._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func leadingImage(_ image: AppKit.NSImage) -> Prism.SliderView._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func trailingImage(_ image: AppKit.NSImage) -> Prism.SliderView._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func inputField() -> Prism.SliderView._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func step(count: Swift.Int) -> Prism.SliderView._PrismOCBridge_Decoration
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc public protocol PrismCoreDelegate {
+  @objc func getMainWindow() -> AppKit.NSWindow?
+  @objc var enableKeyboardNavigation: Swift.Bool { get }
+}
+@_inheritsConvenienceInitializers @objc public class PrismCore : ObjectiveC.NSObject {
+  @objc public static func start(withDelegate delegate: any Prism.PrismCoreDelegate)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(PZMBaseView) public protocol BaseView : AppKit.NSView {
+  @objc var enableAnimation: Swift.Bool { get set }
+  @objc var forbidInteraction: Swift.Bool { get set }
+  @objc func forbidInteractionInSubtree()
+  @objc func enableInteractionInSubtree()
+  @objc var backgroundColor: Prism.Color? { get set }
+  @objc var hoveredBackgroundColor: Prism.Color? { get set }
+  @objc var clickedBackgroundColor: Prism.Color? { get set }
+  @objc var cornerRadius: CoreFoundation.CGFloat { get set }
+  @objc var borderWidth: CoreFoundation.CGFloat { get set }
+  @objc var borderColor: Prism.Color? { get set }
+  @objc var hoveredBorderColor: Prism.Color? { get set }
+  @objc var clickedBorderColor: Prism.Color? { get set }
+  @objc func cursorStateChanged(to state: Prism.CursorState)
+  @objc var requiresTracking: Swift.Bool { get set }
+  @objc var forbidTracking: Swift.Bool { get set }
+  @objc var cursorState: Prism.CursorState { get }
+  @objc var cursorStateBinding: Prism.CursorStateBinding? { get set }
+}
+extension Prism.BaseView {
+  public func point(at edge: Prism.RectEdge) -> Foundation.NSPoint
+  public var centerPoint: Foundation.NSPoint {
+    get
+  }
+  public var isVisible: Swift.Bool {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class ConstraintLayoutSupport {
+  @objc deinit
+}
+public protocol ConstraintMultiplierTarget {
+  var constraintMultiplierTargetValue: CoreFoundation.CGFloat { get }
+}
+extension Swift.Int : Prism.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.UInt : Prism.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.Float : Prism.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.Double : Prism.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension CoreFoundation.CGFloat : Prism.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(PZMInputField) @_Concurrency.MainActor(unsafe) public class InputField : Prism.View {
+  public enum Decoration : Swift.Hashable {
+    case required(Swift.Bool)
+    case information(Prism.Popover)
+    case link(label: Swift.String, Foundation.URL)
+    case help(Swift.String)
+    case counter(limit: Swift.Int)
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: Prism.InputField.Decoration, b: Prism.InputField.Decoration) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var readOnly: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_hasMissingDesignatedInitializers @objc(PZMInputFieldDecoration) public class _PrismOCBridge_Decoration : ObjectiveC.NSObject {
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func required(_ isRequired: Swift.Bool) -> Prism.InputField._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func information(popover: Prism.Popover) -> Prism.InputField._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func link(label: Swift.String, _ url: Foundation.URL) -> Prism.InputField._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func help(_ helpText: Swift.String) -> Prism.InputField._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func counter(limit: Swift.Int) -> Prism.InputField._PrismOCBridge_Decoration
+    @objc deinit
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc deinit
+}
+extension Foundation.Locale {
+  public var is12Hour: Swift.Bool {
+    get
+  }
+  public var is24Hour: Swift.Bool {
+    get
+  }
+}
+public protocol ConstraintRelatableTarget {
+}
+extension Swift.Int : Prism.ConstraintRelatableTarget {
+}
+extension Swift.UInt : Prism.ConstraintRelatableTarget {
+}
+extension Swift.Float : Prism.ConstraintRelatableTarget {
+}
+extension Swift.Double : Prism.ConstraintRelatableTarget {
+}
+extension CoreFoundation.CGFloat : Prism.ConstraintRelatableTarget {
+}
+extension CoreFoundation.CGSize : Prism.ConstraintRelatableTarget {
+}
+extension CoreFoundation.CGPoint : Prism.ConstraintRelatableTarget {
+}
+extension Foundation.NSEdgeInsets : Prism.ConstraintRelatableTarget {
+}
+extension Prism.ConstraintItem : Prism.ConstraintRelatableTarget {
+}
+extension AppKit.NSView : Prism.ConstraintRelatableTarget {
+}
+@available(iOS 9.0, macOS 10.11, *)
+extension AppKit.NSLayoutGuide : Prism.ConstraintRelatableTarget {
+}
+public protocol ConstraintDSL {
+  var target: Swift.AnyObject? { get }
+  func setLabel(_ value: Swift.String?)
+  func label() -> Swift.String?
+}
+extension Prism.ConstraintDSL {
+  public func setLabel(_ value: Swift.String?)
+  public func label() -> Swift.String?
+}
+public protocol ConstraintBasicAttributesDSL : Prism.ConstraintDSL {
+}
+extension Prism.ConstraintBasicAttributesDSL {
+  public var left: Prism.ConstraintItem {
+    get
+  }
+  public var top: Prism.ConstraintItem {
+    get
+  }
+  public var right: Prism.ConstraintItem {
+    get
+  }
+  public var bottom: Prism.ConstraintItem {
+    get
+  }
+  public var leading: Prism.ConstraintItem {
+    get
+  }
+  public var trailing: Prism.ConstraintItem {
+    get
+  }
+  public var width: Prism.ConstraintItem {
+    get
+  }
+  public var height: Prism.ConstraintItem {
+    get
+  }
+  public var centerX: Prism.ConstraintItem {
+    get
+  }
+  public var centerY: Prism.ConstraintItem {
+    get
+  }
+  public var edges: Prism.ConstraintItem {
+    get
+  }
+  public var directionalEdges: Prism.ConstraintItem {
+    get
+  }
+  public var horizontalEdges: Prism.ConstraintItem {
+    get
+  }
+  public var verticalEdges: Prism.ConstraintItem {
+    get
+  }
+  public var directionalHorizontalEdges: Prism.ConstraintItem {
+    get
+  }
+  public var directionalVerticalEdges: Prism.ConstraintItem {
+    get
+  }
+  public var size: Prism.ConstraintItem {
+    get
+  }
+  public var center: Prism.ConstraintItem {
+    get
+  }
+}
+public protocol ConstraintAttributesDSL : Prism.ConstraintBasicAttributesDSL {
+}
+extension Prism.ConstraintAttributesDSL {
+  @available(*, deprecated, renamed: "lastBaseline")
+  public var baseline: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var lastBaseline: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var firstBaseline: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leftMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var topMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var rightMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var bottomMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leadingMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var trailingMargin: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerXWithinMargins: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerYWithinMargins: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var margins: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var directionalMargins: Prism.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerWithinMargins: Prism.ConstraintItem {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConstraintMakerExtendable : Prism.ConstraintMakerRelatable {
+  public var left: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var top: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var bottom: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var right: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var leading: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var trailing: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var width: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var height: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var centerX: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var centerY: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(*, deprecated, renamed: "lastBaseline")
+  public var baseline: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var lastBaseline: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var firstBaseline: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leftMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var rightMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var topMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var bottomMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leadingMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var trailingMargin: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerXWithinMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerYWithinMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var edges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var horizontalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var verticalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalHorizontalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalVerticalEdges: Prism.ConstraintMakerExtendable {
+    get
+  }
+  public var size: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var margins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var directionalMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerWithinMargins: Prism.ConstraintMakerExtendable {
+    get
+  }
+  @objc deinit
+}
+@objc(PZMCheckboxGroupView) @_Concurrency.MainActor(unsafe) public class CheckboxGroupView : Prism.View {
+  @objc @_Concurrency.MainActor(unsafe) public init(items: [Prism.CheckboxView.Item], title: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMToggleView) @_Concurrency.MainActor(unsafe) public class ToggleView : Prism.InteractableView {
+  @objc(PZMToggleViewSize) public enum Size : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case small
+    case medium
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.ToggleView.Size]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.ToggleView.Size] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var boolValue: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var onToggle: ((Prism.ToggleView) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override open var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var hoveredBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var clickedBackgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(withSize size: Prism.ToggleView.Size = .medium, onToggle: ((Prism.ToggleView) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilitySubrole() -> AppKit.NSAccessibility.Subrole?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityRoleDescription() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityValue() -> Any?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func isAccessibilityElement() -> Swift.Bool
+  @objc deinit
+}
+public struct ConstraintPriority : Swift.ExpressibleByFloatLiteral, Swift.Equatable, Swift.Strideable {
+  public typealias FloatLiteralType = Swift.Float
+  public let value: Swift.Float
+  public init(floatLiteral value: Swift.Float)
+  public init(_ value: Swift.Float)
+  public static var required: Prism.ConstraintPriority {
+    get
+  }
+  public static var high: Prism.ConstraintPriority {
+    get
+  }
+  public static var medium: Prism.ConstraintPriority {
+    get
+  }
+  public static var low: Prism.ConstraintPriority {
+    get
+  }
+  public static func == (lhs: Prism.ConstraintPriority, rhs: Prism.ConstraintPriority) -> Swift.Bool
+  public func advanced(by n: Prism.ConstraintPriority.FloatLiteralType) -> Prism.ConstraintPriority
+  public func distance(to other: Prism.ConstraintPriority) -> Prism.ConstraintPriority.FloatLiteralType
+  public typealias Stride = Prism.ConstraintPriority.FloatLiteralType
+}
+extension CoreGraphics.CGPath {
+  public static func cgPath(roundedRect rect: Foundation.NSRect, cornerRadii: [Prism.RectEdge : CoreFoundation.CGFloat]) -> CoreGraphics.CGPath
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMWindow) @_Concurrency.MainActor(unsafe) public class Window : AppKit.NSWindow {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeKey: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public func showAlert(with options: Prism.Dialog)
+  @objc @_Concurrency.MainActor(unsafe) public func dismissAlert()
+  @objc @_Concurrency.MainActor(unsafe) public func showToast(forNotification notification: Prism.UserNotification)
+  @objc @_Concurrency.MainActor(unsafe) public func showBanner(forNotification notification: Prism.UserNotification)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var autorecalculatesKeyViewLoop: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(PZMBreadcrumbView) @_Concurrency.MainActor(unsafe) public class BreadcrumbView : Prism.View {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(PZMSteppedProgressIndicator) @_Concurrency.MainActor(unsafe) public class SteppedProgressIndicator : Prism.View {
+  @objc @_Concurrency.MainActor(unsafe) public init(withItems items: Swift.Array<Swift.String>, orientation: Prism.Orientation = .horizontal, activeIndex: Swift.Int = 0)
+  @objc @_Concurrency.MainActor(unsafe) public var minimumSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func setFrameSize(_ newSize: Foundation.NSSize)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public func increment()
+  @objc @_Concurrency.MainActor(unsafe) public func decrement()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMTextBadge) @_Concurrency.MainActor(unsafe) public class TextBadge : Prism.View, Prism.Invertible {
+  @objc(PZMTextBadgeStyle) public enum Style : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case primary
+    case uncategorized
+    case positive
+    case progress
+    case negative
+    case special
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.TextBadge.Style]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.TextBadge.Style] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var text: Swift.String {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var backgroundColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var borderColor: Prism.Color? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public var inverted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc public func invert()
+  @objc @_Concurrency.MainActor(unsafe) public init(text: Swift.String, style: Prism.TextBadge.Style)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame _: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func encode(with coder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public class func makeBetaBadge() -> Prism.TextBadge
+  @objc @_Concurrency.MainActor(unsafe) public class func makeNewBadge() -> Prism.TextBadge
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func accessibilityTitle() -> Swift.String?
+  @objc deinit
+}
+@objc(PZMSentiment) public enum Sentiment : Swift.Int, Swift.RawRepresentable {
+  case information
+  case success
+  case warning
+  case danger
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@available(macOS 10.11, *)
+public typealias ConstraintLayoutGuide = AppKit.NSLayoutGuide
+public protocol ConstraintOffsetTarget : Prism.ConstraintConstantTarget {
+}
+extension Swift.Int : Prism.ConstraintOffsetTarget {
+}
+extension Swift.UInt : Prism.ConstraintOffsetTarget {
+}
+extension Swift.Float : Prism.ConstraintOffsetTarget {
+}
+extension Swift.Double : Prism.ConstraintOffsetTarget {
+}
+extension CoreFoundation.CGFloat : Prism.ConstraintOffsetTarget {
+}
+@_hasMissingDesignatedInitializers @objc(PZMNumberInputField) @_Concurrency.MainActor(unsafe) public class NumberInputField : Prism.InputField, AppKit.NSTextFieldDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override public var readOnly: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var intValue: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var wantsUpdateLayer: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var onUpdate: ((Prism.NumberInputField, Swift.Double) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(header: Swift.String, decorations: [Prism.InputField.Decoration] = [], startingValue: Swift.Int = 0, range: Swift.Range<Swift.Int>? = nil, onUpdate: ((Prism.NumberInputField, Swift.Double) -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 0.1, renamed: "init(header:decorations:startingValue:range:onUpdate:)")
+  @objc(initWithHeader:decorations:startingValue:range:onUpdate:) @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, _ocDecorations decorations: [Prism.InputField._PrismOCBridge_Decoration], startingValue: Swift.Int, range: Foundation.NSRange, onUpdate: ((Prism.NumberInputField, Swift.Double) -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 0.1, renamed: "init(header:decorations:startingValue:onUpdate:)")
+  @objc(initWithHeader:decorations:startingValue:onUpdate:) @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, _ocDecorations decorations: [Prism.InputField._PrismOCBridge_Decoration], startingValue: Swift.Int, onUpdate: ((Prism.NumberInputField, Swift.Double) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc public func controlTextDidChange(_ obj: Foundation.Notification)
+  @_Concurrency.MainActor(unsafe) @objc public func control(_ control: AppKit.NSControl, textView: AppKit.NSTextView, doCommandBy commandSelector: ObjectiveC.Selector) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func controlTextDidEndEditing(_ obj: Foundation.Notification)
+  @_Concurrency.MainActor(unsafe) @objc public func control(_ control: AppKit.NSControl, didFailToValidatePartialString string: Swift.String, errorDescription error: Swift.String?)
+  @objc deinit
+}
+@objc(PZMModal) public class Modal : ObjectiveC.NSObject {
+  @objc public var body: Swift.String
+  public enum Decoration {
+    case title(Swift.String)
+    case link(label: Swift.String, Foundation.URL)
+    case closeButton
+    case primaryButton(Swift.String, (Any?) -> Swift.Void)
+    case secondaryButton(Swift.String, (Any?) -> Swift.Void)
+  }
+  @objc public var context: Any?
+  public var decorations: [Prism.Modal.Decoration]
+  @available(swift, deprecated: 0.1, renamed: "decorations")
+  @objc(decorations) public var _ocDecorations: [Prism.Modal._PrismOCBridge_Decoration] {
+    @objc get
+    @objc set
+  }
+  public init(body: Swift.String, decorations: [Prism.Modal.Decoration] = [], context: Any? = nil)
+  @available(swift, obsoleted: 0.1, renamed: "init(body:decorations:context:)")
+  @objc(initWithBody:decorations:context:) convenience public init(body: Swift.String, _ocDecorations decorations: [Prism.Modal._PrismOCBridge_Decoration], context: Any? = nil)
+  @objc public var containsInteractables: Swift.Bool {
+    @objc get
+  }
+  @_hasMissingDesignatedInitializers @objc(PZMModalDecoration) public class _PrismOCBridge_Decoration : ObjectiveC.NSObject {
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func title(_ label: Swift.String) -> Prism.Modal._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func link(label: Swift.String, _ url: Foundation.URL) -> Prism.Modal._PrismOCBridge_Decoration
+    @available(swift, obsoleted: 0.1, message: "Do not use this type directly in Swift; use Decoration instead.")
+    @objc public static func closeButton() -> Prism.Modal._PrismOCBridge_Decoration
+    @objc public static func primaryButton(withLabel label: Swift.String, _ action: @escaping (Any?) -> Swift.Void) -> Prism.Modal._PrismOCBridge_Decoration
+    @objc public static func secondaryButton(withLabel label: Swift.String, _ action: @escaping (Any?) -> Swift.Void) -> Prism.Modal._PrismOCBridge_Decoration
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(PZMTextInputFieldDelegate) public protocol TextInputFieldDelegate {
+  @objc optional func textInputField(_ sender: Prism.TextInputField, didUpdate text: Swift.String)
+  @objc optional func textInputField(_ sender: Prism.TextInputField, didChangePredicateValidationState success: Swift.Bool)
+}
+@_hasMissingDesignatedInitializers @objc(PZMTextInputField) @_Concurrency.MainActor(unsafe) public class TextInputField : Prism.InputField, AppKit.NSTextFieldDelegate {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any Prism.TextInputFieldDelegate)?
+  @objc @_Concurrency.MainActor(unsafe) public var hasError: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var readOnly: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var enabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  public enum Variant : Swift.Hashable {
+    case basic
+    case search
+    case prefixed(Swift.String)
+    case resizable
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: Prism.TextInputField.Variant, b: Prism.TextInputField.Variant) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_hasMissingDesignatedInitializers @objc(PZMTextInputFieldPredicate) public class Predicate : ObjectiveC.NSObject {
+    final public let predicate: (Swift.String) -> Swift.Bool
+    final public let errorText: Swift.String
+    @objc public static func predicate(_ errorText: Swift.String, _ predicate: @escaping (Swift.String) -> Swift.Bool) -> Prism.TextInputField.Predicate
+    public func callAsFunction(_ input: Swift.String) -> Swift.Bool
+    @objc deinit
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var predicates: [Prism.TextInputField.Predicate] {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public init(header: Swift.String, placeholder: Swift.String, decorations: [Prism.InputField.Decoration] = [], variant: Prism.TextInputField.Variant = .basic, predicates: [Prism.TextInputField.Predicate] = [], stringValue: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateLayer()
+  @_Concurrency.MainActor(unsafe) @objc public func controlTextDidChange(_ obj: Foundation.Notification)
+  @_Concurrency.MainActor(unsafe) @objc public func control(_ control: AppKit.NSControl, textView: AppKit.NSTextView, doCommandBy commandSelector: ObjectiveC.Selector) -> Swift.Bool
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:variant:)")
+  @objc(initSearchFieldWithHeader:placeholder:decorations:) @_Concurrency.MainActor(unsafe) convenience public init(searchFieldWithHeader header: Swift.String, placeholder: Swift.String, _ocDecorations decorations: [Prism.InputField._PrismOCBridge_Decoration] = [])
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:variant:)")
+  @objc(initResizableFieldWithHeader:placeholder:decorations:) @_Concurrency.MainActor(unsafe) convenience public init(resizableFieldWithHeader header: Swift.String, placeholder: Swift.String, _ocDecorations decorations: [Prism.InputField._PrismOCBridge_Decoration] = [])
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:variant:)")
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, placeholder: Swift.String, decorations: [Prism.InputField._PrismOCBridge_Decoration] = [], prefix: Swift.String)
+  @available(swift, obsoleted: 0.1, renamed: "init(header:placeholder:decorations:variant:)")
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(header: Swift.String, placeholder: Swift.String, decorations: [Prism.InputField._PrismOCBridge_Decoration] = [])
+  @objc @_Concurrency.MainActor(unsafe) public var stringValue: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+public protocol ConstraintConstantTarget {
+}
+extension CoreFoundation.CGPoint : Prism.ConstraintConstantTarget {
+}
+extension CoreFoundation.CGSize : Prism.ConstraintConstantTarget {
+}
+extension Foundation.NSEdgeInsets : Prism.ConstraintConstantTarget {
+}
+@objc public protocol CursorStateBindable : Prism.BaseView {
+  @objc var cursorStateBinding: Prism.CursorStateBinding? { get set }
+  @objc func makeCursorStateBinding() -> Prism.CursorStateBinding?
+}
+@_hasMissingDesignatedInitializers @objc(PZMCursorStateBinding) public class CursorStateBinding : ObjectiveC.NSObject {
+  @objc public var state: Prism.CursorState {
+    @objc get
+    @objc set
+  }
+  @objc weak public var view: (any Prism.CursorStateBindable)? {
+    get
+  }
+  @objc deinit
+}
+public protocol ConstraintPriorityTarget {
+  var constraintPriorityTargetValue: Swift.Float { get }
+}
+extension Swift.Int : Prism.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension Swift.UInt : Prism.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension Swift.Float : Prism.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension Swift.Double : Prism.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension CoreFoundation.CGFloat : Prism.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class ConstraintDescription {
+  @objc deinit
+}
+@objc(PZMUserNotification) public class UserNotification : Prism.Modal {
+  @objc public var sentiment: Prism.Sentiment
+  public init(body: Swift.String, sentiment: Prism.Sentiment, decorations: [Prism.Modal.Decoration] = [], context: Any? = nil)
+  @available(swift, obsoleted: 0.1, renamed: "init(body:sentiment:decorations:context:)")
+  @objc(initWithBody:sentiment:decorations:context:) convenience public init(body: Swift.String, sentiment: Prism.Sentiment, _odDecorations decorations: [Prism.Modal._PrismOCBridge_Decoration], context: Any? = nil)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMDialogViewController) @_Concurrency.MainActor(unsafe) public class DialogViewController : AppKit.NSViewController {
+  @objc(PZMDialogViewControllerStyle) public enum Style : Swift.Int, Swift.RawRepresentable {
+    case narrow
+    case wide
+    public init?(value: Foundation.NSNumber)
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var nibName: AppKit.NSNib.Name? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMChipGroupCollectionItem) @_Concurrency.MainActor(unsafe) public class ChipGroupCollectionItem : AppKit.NSCollectionViewItem {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var nibName: AppKit.NSNib.Name? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var storyboard: AppKit.NSStoryboard? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var nibBundle: Foundation.Bundle? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: AppKit.NSNib.Name?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @_Concurrency.MainActor(unsafe) public func chipSize() -> Foundation.NSSize?
+  @objc deinit
+}
+@objc(PZMBaseButton) public protocol BaseButton : Prism.InteractableView {
+  @objc var action: (any Prism.BaseButton) -> Swift.Void { get set }
+  @objc var runActionOnMouseDown: Swift.Bool { get set }
+  @objc func showProgressIndicator()
+  @objc func hideProgressIndicator()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PrismColor) public class Color : AppKit.NSColor {
+  @objc public var lightColor: AppKit.NSColor
+  @objc public var darkColor: AppKit.NSColor
+  @objc override dynamic public init()
+  @objc public init(lightColor: AppKit.NSColor, darkColor: AppKit.NSColor)
+  @objc override dynamic public func encode(with coder: Foundation.NSCoder)
+  @objc public class func color(copiedFrom color: Prism.Color) -> Prism.Color
+  @objc public class func color(withColor color: AppKit.NSColor) -> Prism.Color
+  @objc public class func color(withLight light: AppKit.NSColor, dark: AppKit.NSColor) -> Prism.Color
+  @objc public class func color(withLightHex lightHex: Swift.UInt, darkHex: Swift.UInt) -> Prism.Color
+  @objc public class func color(withLightHex light: Swift.UInt, lightAlpha: CoreFoundation.CGFloat, darkHex: Swift.UInt, darkAlpha: CoreFoundation.CGFloat) -> Prism.Color
+  @objc public class func color(lightRed: CoreFoundation.CGFloat, lightGreen: CoreFoundation.CGFloat, lightBlue: CoreFoundation.CGFloat, lightAlpha: CoreFoundation.CGFloat, darkRed: CoreFoundation.CGFloat, darkGreen: CoreFoundation.CGFloat, darkBlue: CoreFoundation.CGFloat, darkAlpha: CoreFoundation.CGFloat) -> Prism.Color
+  public var currentAppearanceColor: AppKit.NSColor {
+    get
+  }
+  @objc override dynamic public var colorSpace: AppKit.NSColorSpace {
+    @objc get
+  }
+  @objc override dynamic public func set()
+  @objc override dynamic public func setFill()
+  @objc override dynamic public func setStroke()
+  @objc override dynamic public var type: AppKit.NSColor.ColorType {
+    @objc get
+  }
+  @objc override dynamic public func usingType(_ type: AppKit.NSColor.ColorType) -> AppKit.NSColor?
+  @objc override dynamic public func getComponents(_ components: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>)
+  @objc override dynamic public var cgColor: CoreGraphics.CGColor {
+    @objc get
+  }
+  @objc override dynamic public var numberOfComponents: Swift.Int {
+    @objc get
+  }
+  @objc override dynamic public func withAlphaComponent(_ alpha: CoreFoundation.CGFloat) -> Prism.Color
+  @objc override dynamic public func usingColorSpace(_ space: AppKit.NSColorSpace) -> Prism.Color?
+  @objc override dynamic public var redComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var greenComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var blueComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var alphaComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public func getRed(_ red: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, green: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, blue: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, alpha: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?)
+  @objc override dynamic public var hueComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var saturationComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var brightnessComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public func getHue(_ hue: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, saturation: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, brightness: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, alpha: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?)
+  @objc override dynamic public var whiteComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var cyanComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var magentaComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var yellowComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public var blackComponent: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc override dynamic public func getCyan(_ cyan: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, magenta: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, yellow: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, black: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?, alpha: Swift.UnsafeMutablePointer<CoreFoundation.CGFloat>?)
+  @objc deinit
+}
+public enum PrismError : Swift.Error {
+  case runtimeError(Swift.String)
+}
+@_hasMissingDesignatedInitializers public class ConstraintMakerFinalizable {
+  @discardableResult
+  public func labeled(_ label: Swift.String) -> Prism.ConstraintMakerFinalizable
+  public var constraint: Prism.Constraint {
+    get
+  }
+  @objc deinit
+}
+@objc(PZMAvatarGroupView) @_Concurrency.MainActor(unsafe) public class AvatarGroupView : Prism.View {
+  @_inheritsConvenienceInitializers @objc(PZMAvatarGroupViewItem) public class Item : ObjectiveC.NSObject {
+    public var label: Swift.String
+    public var image: AppKit.NSImage?
+    public var accessibilityLabel: Swift.String
+    public var accessibilityRole: Swift.String
+    public var userData: Any?
+    public var identifier: Any?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var translatesAutoresizingMaskIntoConstraints: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc(PZMAvatarGroupViewSize) public enum Size : Swift.Int, Swift.RawRepresentable, Swift.CaseIterable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+    case small
+    case normal
+    case medium
+    public init?(value: Foundation.NSNumber)
+    public var description: Swift.String {
+      get
+    }
+    public var debugDescription: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.Int)
+    public typealias AllCases = [Prism.AvatarGroupView.Size]
+    public typealias RawValue = Swift.Int
+    public static var allCases: [Prism.AvatarGroupView.Size] {
+      get
+    }
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public var aAvatarWasClicked: ((Prism.AvatarGroupView, Prism.AvatarGroupView.Item, Swift.Int) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public var numberWasClicked: ((Prism.AvatarGroupView, Swift.Int) -> Swift.Void)?
+  @objc @_Concurrency.MainActor(unsafe) public init(size: Prism.AvatarGroupView.Size, max: Swift.Int = 5)
+  @objc @_Concurrency.MainActor(unsafe) public var users: Swift.Array<Prism.AvatarGroupView.Item> {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var numberButtonAccessibilityLabel: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var numberButtonAccessibilityRole: Swift.String
+  @objc @_Concurrency.MainActor(unsafe) public var userNumber: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func removeFromSuperview()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @objc deinit
+}
+@available(iOS 9.0, macOS 10.11, *)
+extension AppKit.NSLayoutGuide {
+  public var snp: Prism.ConstraintLayoutGuideDSL {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(PZMRadioButton) @_Concurrency.MainActor(unsafe) public class RadioButton : Prism.InteractableView, Prism.Selectable {
+  @objc(PZMRadioButtonItem) public class Item : ObjectiveC.NSObject {
+    @objc public var text: Swift.String
+    @objc public var icon: AppKit.NSImage?
+    @objc public var iconPopover: Prism.Popover?
+    @objc public init(_ text: Swift.String)
+    @objc public init(text: Swift.String, icon: AppKit.NSImage, iconPopover: Prism.Popover)
+    @objc deinit
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var onSelect: ((Prism.RadioButton) -> Swift.Void)?
+  @objc @_Concurrency.MainActor(unsafe) public var text: Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc public var selected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var cursorState: Prism.CursorState {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var requiresTracking: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(text: Swift.String, isSelected: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) public init(item: Prism.RadioButton.Item, isSelected: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func mouseUp(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func keyDown(with event: AppKit.NSEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: Foundation.NSSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityRole() -> AppKit.NSAccessibility.Role?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityTitle() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityChildren() -> [Any]?
+  @_Concurrency.MainActor(unsafe) @objc final override public func accessibilityValue() -> Any?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ConstraintMakerRelatable {
+  @discardableResult
+  public func equalTo(_ other: any Prism.ConstraintRelatableTarget, _ file: Swift.String = #file, _ line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func equalToSuperview(_ file: Swift.String = #file, _ line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func lessThanOrEqualTo(_ other: any Prism.ConstraintRelatableTarget, _ file: Swift.String = #file, _ line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func lessThanOrEqualToSuperview(_ file: Swift.String = #file, _ line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func greaterThanOrEqualTo(_ other: any Prism.ConstraintRelatableTarget, _ file: Swift.String = #file, line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable
+  @discardableResult
+  public func greaterThanOrEqualToSuperview(_ file: Swift.String = #file, line: Swift.UInt = #line) -> Prism.ConstraintMakerEditable
+  @objc deinit
+}
+public protocol ConstraintInsetTarget : Prism.ConstraintConstantTarget {
+}
+extension Swift.Int : Prism.ConstraintInsetTarget {
+}
+extension Swift.UInt : Prism.ConstraintInsetTarget {
+}
+extension Swift.Float : Prism.ConstraintInsetTarget {
+}
+extension Swift.Double : Prism.ConstraintInsetTarget {
+}
+extension CoreFoundation.CGFloat : Prism.ConstraintInsetTarget {
+}
+extension Foundation.NSEdgeInsets : Prism.ConstraintInsetTarget {
+}
+extension Prism.Popover.ArrowStyle : Swift.Equatable {}
+extension Prism.Popover.ArrowStyle : Swift.Hashable {}
+extension Prism.CheckboxView.State : Swift.Equatable {}
+extension Prism.CheckboxView.State : Swift.Hashable {}
+extension Prism.RectEdge : Swift.Equatable {}
+extension Prism.RectEdge : Swift.Hashable {}
+extension Prism.Direction : Swift.Equatable {}
+extension Prism.Direction : Swift.Hashable {}
+extension Prism.HomeButton.Style : Swift.Equatable {}
+extension Prism.HomeButton.Style : Swift.Hashable {}
+extension Prism.Presence : Swift.Equatable {}
+extension Prism.Presence : Swift.Hashable {}
+extension Prism.LinkView.Style : Swift.Equatable {}
+extension Prism.LinkView.Style : Swift.Hashable {}
+extension Prism.Button.Style : Swift.Equatable {}
+extension Prism.Button.Style : Swift.Hashable {}
+extension Prism.Button.Size : Swift.Equatable {}
+extension Prism.Button.Size : Swift.Hashable {}
+extension Prism.Orientation : Swift.Equatable {}
+extension Prism.Orientation : Swift.Hashable {}
+extension Prism.IconButton.Style : Swift.Equatable {}
+extension Prism.IconButton.Style : Swift.Hashable {}
+extension Prism.IconButton.Size : Swift.Equatable {}
+extension Prism.IconButton.Size : Swift.Hashable {}
+extension Prism.CursorState : Swift.Equatable {}
+extension Prism.CursorState : Swift.Hashable {}
+extension Prism.CursorState : Swift.Sendable {}
+extension Prism.ChipView.Size : Swift.Equatable {}
+extension Prism.ChipView.Size : Swift.Hashable {}
+extension Prism.ModifierKey : Swift.Equatable {}
+extension Prism.ModifierKey : Swift.Hashable {}
+extension Prism.AvatarView.Size : Swift.Equatable {}
+extension Prism.AvatarView.Size : Swift.Hashable {}
+extension Prism.ToggleView.Size : Swift.Equatable {}
+extension Prism.ToggleView.Size : Swift.Hashable {}
+extension Prism.TextBadge.Style : Swift.Equatable {}
+extension Prism.TextBadge.Style : Swift.Hashable {}
+extension Prism.Sentiment : Swift.Equatable {}
+extension Prism.Sentiment : Swift.Hashable {}
+extension Prism.DialogViewController.Style : Swift.Equatable {}
+extension Prism.DialogViewController.Style : Swift.Hashable {}
+extension Prism.AvatarGroupView.Size : Swift.Equatable {}
+extension Prism.AvatarGroupView.Size : Swift.Hashable {}

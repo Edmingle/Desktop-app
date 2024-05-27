@@ -1,0 +1,6 @@
+framework module ZoomUnit {
+  umbrella header "ZoomUnit.h"
+  export *
+
+  module * { export * }
+}

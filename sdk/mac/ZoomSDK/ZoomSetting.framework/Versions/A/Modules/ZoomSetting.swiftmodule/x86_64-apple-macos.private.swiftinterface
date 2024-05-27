@@ -1,0 +1,357 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZoomSetting
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AppKit
+import Cocoa
+import Foundation
+import Prism
+import Swift
+@_exported import ZoomSetting
+import ZoomUnit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMSWhereSignCellView : AppKit.NSTableCellView {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: (any ZoomSetting.ZMSWhereSignCellDelegate)?
+  @_Concurrency.MainActor(unsafe) public var cellRow: Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) public func refreshInfo(viewInfo: ZoomSetting.ZMSWhereSignViewModel?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class ZMDiagnosticDataCenter : ObjectiveC.NSObject {
+  @objc public static let share: ZoomSetting.ZMDiagnosticDataCenter
+  @objc final public var overallInfo: ZoomSetting.ZMDiagnosticOverallInfo?
+  @objc final public var zDiagnosticInfoArray: [ZoomSetting.ZMDiagnosticInfo]?
+  @objc final public var moreInfoTipsStr: Swift.String?
+  @objc final public var currentInfoMode: ZoomSetting.ZMDiagnosticInfoMode
+  @objc final public var preInfoMode: ZoomSetting.ZMDiagnosticInfoMode
+  @objc final public var diagnosticBaseViewWSize: Foundation.NSSize
+  @objc final public var overallListViewWidth: CoreFoundation.CGFloat
+  @objc final public var overallListViewHeight: CoreFoundation.CGFloat
+  @objc final public var overallInfoHeadViewHeight: CoreFoundation.CGFloat
+  @objc final public var enableDiagnostic: Swift.Bool
+  @objc final public var showBandWidthView: Swift.Bool
+  @objc final public var grayAttri: Swift.Dictionary<Foundation.NSAttributedString.Key, ObjectiveC.NSObject>? {
+    @objc get
+    @objc set
+  }
+  @objc final public var blackAttri: Swift.Dictionary<Foundation.NSAttributedString.Key, ObjectiveC.NSObject>? {
+    @objc get
+    @objc set
+  }
+  @objc final public var redAttri: Swift.Dictionary<Foundation.NSAttributedString.Key, ObjectiveC.NSObject>? {
+    @objc get
+    @objc set
+  }
+  @objc final public var orangeAttri: Swift.Dictionary<Foundation.NSAttributedString.Key, ObjectiveC.NSObject>? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc final public func updateInfoArray(_ array: [ZoomSetting.ZMDiagnosticInfo], mode: ZoomSetting.ZMDiagnosticInfoMode)
+  @objc final public func resetInfoMode(needRefresh: Swift.Bool)
+  final public func mediaListViewHeight() -> CoreFoundation.CGFloat
+  @objc final public func dynamicOverallListHeight() -> Swift.Float
+  @objc deinit
+}
+@objc public protocol ZMDiagnosticBottomActionViewDelegate {
+  @objc optional func bottomActionViewSendReport()
+  @objc optional func bottomActionViewRunTestMeeting()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMDiagnosticBottomActionView : ZoomKit.ZMStackView {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any ZoomSetting.ZMDiagnosticBottomActionViewDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) public func setupUI()
+  @objc deinit
+}
+@objc public enum ZMDiagnosticInfoMode : Swift.Int {
+  case infoModeOverall
+  case infoModeAudio
+  case infoModeVideo
+  case infoModeScreenShare
+  case infoModePhone
+  case infoModeNull
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class ZMDiagnosticInfo : ObjectiveC.NSObject {
+  @objc public var needUpdate: Swift.Bool
+  @objc public var title: Foundation.NSAttributedString?
+  @objc public var sendInfo: Foundation.NSAttributedString?
+  @objc public var receiveInfo: Foundation.NSAttributedString?
+  @objc public var isHeader: Swift.Bool
+  @objc public var isDynamicHeight: Swift.Bool
+  @objc public var dynamicHeight: CoreFoundation.CGFloat
+  @objc public var showWiFiStats: Swift.Bool
+  @objc public var moreInfoTipsStr: Swift.String?
+  @objc public func setTitleLabel(_ title: Swift.String?)
+  @objc public func setSendInfoLabel(_ sendInfo: Swift.String?)
+  @objc public func updateInfoHeight()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ZMDiagnosticOverallInfo : ObjectiveC.NSObject {
+  @objc public var cpuCoreNumber: Swift.Int
+  @objc public var cpuFrequency: Swift.Float
+  @objc public var cpuZoomUsage: Swift.Float
+  @objc public var cpuOverallUsage: Swift.Float
+  @objc public var memorySize: Swift.Int
+  @objc public var memoryZoomUsage: Swift.Int
+  @objc public var memoryOverallUsage: Swift.Int
+  @objc public var bandwidthSend: Swift.Int
+  @objc public var bandwidthReceive: Swift.Int
+  @objc public var networkType: Swift.String?
+  @objc public var proxy: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ZMSettingStatisticPhoneInfo : ObjectiveC.NSObject {
+  @objc public var registerServerIPPortString: Swift.String?
+  @objc public var registerIDString: Swift.String?
+  @objc public var localNetworkInterfaceString: Swift.String?
+  @objc public var peerNumberString: Swift.String?
+  @objc public var localIPPortString: Swift.String?
+  @objc public var remoteIPPortString: Swift.String?
+  @objc public var packetSendString: Swift.String?
+  @objc public var packetReceiveString: Swift.String?
+  @objc public var frequencySendString: Swift.String?
+  @objc public var frequencyReceiveString: Swift.String?
+  @objc public var packetLossSendString: Swift.String?
+  @objc public var packetLossReceiveString: Swift.String?
+  @objc public var packetLossAverageMaxSendString: Swift.String?
+  @objc public var packetLossAverageMaxReceiveString: Swift.String?
+  @objc public var jitterSendString: Swift.String?
+  @objc public var jitterReceiveString: Swift.String?
+  @objc public var bandwidthSendString: Swift.String?
+  @objc public var bandwidthReceiveString: Swift.String?
+  @objc public var networkDelayString: Swift.String?
+  @objc public var codecUsedSendString: Swift.String?
+  @objc public var codecUsedReceiveString: Swift.String?
+  @objc public var switchInfoString: Swift.String?
+  @objc public var survivabilityStatus: Swift.String?
+  @objc public var registerServerIPs: [Swift.String]?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ZMMTNavigationTheme : ObjectiveC.NSObject {
+  @objc public var bar: ZoomKit.ZMPigment?
+  @objc public var normalItem: ZoomKit.ZMPigment?
+  @objc public var hoverItem: ZoomKit.ZMPigment?
+  @objc public var selectedItem: ZoomKit.ZMPigment?
+  @objc public func setTheme(_ theme: ZoomSetting.ZMMTNavigationTheme)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum ZMEncryptIdentityType : Swift.Int {
+  case Email
+  case PhoneNum
+  case ExtensionNum
+  case AccountDomain
+  case AccountId
+  case FingerPrint
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum ZMEncryptUnReviewedType : Swift.Int {
+  case None
+  case KeyOnly
+  case DeviceOnly
+  case IdentityOnly
+  case KeyAndDevice
+  case IdentityAndOther
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum ZMEncryptInfoType : Swift.Int {
+  case Group_Device
+  case Group_Devices
+  case Group_NewDevice
+  case Group_OtherDevices
+  case Group_Account
+  case Group_History
+  case Group_Key
+  case Group_Keys
+  case Group_AccountChange
+  case Group_ReviewActivity
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class ZMEncryptStoreData : ObjectiveC.NSObject {
+  @objc public var seqno: Swift.Int
+  @objc public var deviceIds: [Swift.String]?
+  @objc public var isInSetting: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ZMSAccountDeviceViewModel : ObjectiveC.NSObject {
+  @objc public var deviceID: Swift.String
+  @objc public var resouce: Swift.String
+  @objc public var deviceName: Swift.String
+  @objc public var icon: AppKit.NSImage
+  @objc public var descriptionStr: Swift.String
+  @objc public var presenceImage: AppKit.NSImage
+  @objc public var status: Swift.String
+  @objc public var buttonHelpString: Swift.String
+  @objc public var actionEnabled: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ZMSWhereSignViewModel : ObjectiveC.NSObject {
+  @objc public var image: AppKit.NSImage {
+    @objc get
+  }
+  @objc public var deviceIdentifier: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var deviceType: Swift.String
+  @objc public var deviceName: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var deviceHardware: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var os: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var location: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var lastLoginTime: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var currentSession: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class ZMSettingStatisticsTool : ObjectiveC.NSObject {
+  @objc public static func bandwidthWidthInfo(bandwidthSend: Swift.Int, bandwidthReceive: Swift.Int) -> Swift.String
+  @objc public static func getNetWorkStringByType(_ type: Swift.Int) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ZMDiagnosticInfoListView : AppKit.NSView, AppKit.NSTableViewDelegate, AppKit.NSTableViewDataSource {
+  @_Concurrency.MainActor(unsafe) final public var showVertical: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) public init(frame frameRect: Foundation.NSRect, mode: ZoomSetting.ZMDiagnosticInfoMode)
+  @objc deinit
+}
+extension ZoomSetting.ZMDiagnosticInfoListView {
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfRows(in tableView: AppKit.NSTableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: AppKit.NSTableView, heightOfRow row: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: AppKit.NSTableView, shouldSelect tableColumn: AppKit.NSTableColumn?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: AppKit.NSTableView, viewFor tableColumn: AppKit.NSTableColumn?, row: Swift.Int) -> AppKit.NSView?
+}
+extension ZoomSetting.ZMDiagnosticInfoListView {
+  @objc @_Concurrency.MainActor(unsafe) final public func updateInfo()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMSAccountWhereSignListView : ZoomKit.ZMBaseView, AppKit.NSTableViewDataSource, AppKit.NSTableViewDelegate, ZoomSetting.ZMSWhereSignCellDelegate {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any ZoomSetting.ZMSDeviceManagementDelegate)?
+  @objc @_Concurrency.MainActor(unsafe) public var signOutAllButton: Prism.Button
+  @objc @_Concurrency.MainActor(unsafe) public var refreshButton: AppKit.NSButton?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) public func updateSignDeviceInfo(infos: [ZoomSetting.ZMSWhereSignViewModel])
+  @objc @_Concurrency.MainActor(unsafe) public func currentDeviceInfo(row: Swift.Int) -> ZoomSetting.ZMSWhereSignViewModel
+  @_Concurrency.MainActor(unsafe) @objc public func numberOfRows(in tableView: AppKit.NSTableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, heightOfRow row: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, shouldSelect tableColumn: AppKit.NSTableColumn?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func selectionShouldChange(in tableView: AppKit.NSTableView) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, viewFor tableColumn: AppKit.NSTableColumn?, row: Swift.Int) -> AppKit.NSView?
+  @objc @_Concurrency.MainActor(unsafe) public func refreshEncryptButton(_ show: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func cellSignOutButtonDidClick(row: Swift.Int, isSignOut: Swift.Bool)
+  @objc deinit
+}
+@objc public protocol ZMSDeviceManagementDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func deviceManagementSignOutClick(row: Swift.Int, isSignOut: Swift.Bool)
+  @objc func deviceManagementRefreshClick()
+  @objc func deviceManagementSignOutAllSession()
+  @objc func deviceManagementEncryptButtonClick()
+}
+public protocol ZMSWhereSignCellDelegate : ObjectiveC.NSObjectProtocol {
+  func cellSignOutButtonDidClick(row: Swift.Int, isSignOut: Swift.Bool)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ZMDiagnosticoOverallInfoView : AppKit.NSView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) final public func setupUI()
+  @objc deinit
+}
+extension ZoomSetting.ZMDiagnosticoOverallInfoView {
+  @objc @_Concurrency.MainActor(unsafe) final public func overallInfoViewWidth() -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) final public func updateOverallCPUInfo(textBlackColor: AppKit.NSColor, textGrayColor: AppKit.NSColor)
+  @objc @_Concurrency.MainActor(unsafe) final public func updateOverallMemoryInfo(textBlackColor: AppKit.NSColor, textGrayColor: AppKit.NSColor)
+  @objc @_Concurrency.MainActor(unsafe) final public func updateInfo()
+  @objc @_Concurrency.MainActor(unsafe) final public func updateBandWidtInfo(_ info: Swift.String, showBindInfo: Swift.Bool)
+}
+extension ZoomSetting.ZMDiagnosticoOverallInfoView {
+  @_Concurrency.MainActor(unsafe) final public func setCpuInfoTextFieldContent(_ content: Foundation.NSAttributedString?)
+  @_Concurrency.MainActor(unsafe) final public func setMemoryInfoTextFieldContent(_ content: Foundation.NSAttributedString?)
+  @_Concurrency.MainActor(unsafe) final public func setZoomCPUUsageTextFieldContent(_ theUsage: Swift.Float)
+  @_Concurrency.MainActor(unsafe) final public func setZoomMemoryUsageTextFieldContent(_ memoryZoomUsage: Swift.Float, sysMemory memorySize: Swift.Float)
+  @_Concurrency.MainActor(unsafe) final public func setOverallCPUUsageTextFieldContent(_ theUsage: Swift.Float)
+  @_Concurrency.MainActor(unsafe) final public func setOverallMemoryUsageTextFieldContent(_ memoryOverallUsage: Swift.Float, sysMemory memorySize: Swift.Float)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) final public class ZMDiagnosticBandWidthView : ZoomKit.ZMBaseView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) final public func bandWidthViewSize() -> Foundation.NSSize
+  @objc @_Concurrency.MainActor(unsafe) final public func updateInfo(_ info: Swift.String, showBindInfo: Swift.Bool)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ZMDiagnosticProcessBar : AppKit.NSView {
+  @_Concurrency.MainActor(unsafe) final public func refreshStatus(usage: Swift.Float)
+  @_Concurrency.MainActor(unsafe) @objc override final public func draw(_ dirtyRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc override final public class func accessibilityIsIgnored() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func accessibilityLabel() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override final public func accessibilityRoleDescription() -> Swift.String?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ZMDiagnosticoMediaInfoView : AppKit.NSView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc @_Concurrency.MainActor(unsafe) final public func updateInfo()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMSLabel : ZoomKit.ZMLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMSettingWindowContentView : AppKit.NSView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ dirtyRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isFlipped: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension ZoomSetting.ZMDiagnosticInfoMode : Swift.Equatable {}
+extension ZoomSetting.ZMDiagnosticInfoMode : Swift.Hashable {}
+extension ZoomSetting.ZMDiagnosticInfoMode : Swift.RawRepresentable {}
+extension ZoomSetting.ZMEncryptIdentityType : Swift.Equatable {}
+extension ZoomSetting.ZMEncryptIdentityType : Swift.Hashable {}
+extension ZoomSetting.ZMEncryptIdentityType : Swift.RawRepresentable {}
+extension ZoomSetting.ZMEncryptUnReviewedType : Swift.Equatable {}
+extension ZoomSetting.ZMEncryptUnReviewedType : Swift.Hashable {}
+extension ZoomSetting.ZMEncryptUnReviewedType : Swift.RawRepresentable {}
+extension ZoomSetting.ZMEncryptInfoType : Swift.Equatable {}
+extension ZoomSetting.ZMEncryptInfoType : Swift.Hashable {}
+extension ZoomSetting.ZMEncryptInfoType : Swift.RawRepresentable {}

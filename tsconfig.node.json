@@ -1,0 +1,11 @@
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
+  "include": ["electron.vite.config.*", "lib/*.js", "electron/main/**/*", "electron/preload/**/*", "lib/zoom_sdk.js"],
+  "compilerOptions": {
+    "outDir": "/out",
+    "composite": true,
+    "allowJs": true,
+    "types": ["electron-vite/node"]
+  },
+  "exclude": ["out/**/*"]
+}

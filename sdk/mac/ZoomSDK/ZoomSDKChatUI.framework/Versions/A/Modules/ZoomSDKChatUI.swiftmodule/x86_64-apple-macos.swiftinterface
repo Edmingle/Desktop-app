@@ -1,0 +1,89 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZoomSDKChatUI
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AppKit
+import Carbon
+import ChatUISwiftHeader
+import Cocoa
+import Foundation
+import Swift
+@_exported import SwiftZoomKit
+@_exported import ZoomKit
+import ZoomSetting
+@_exported import ZoomUnit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import zChatComponent
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class ZMSipKYCReminderView : ZoomKit.ZMBaseView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func commonInit()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layout()
+  @objc @_Concurrency.MainActor(unsafe) public func updateUI(with error: Swift.String, url: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame frameRect: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class ZMLanguageUtil : ObjectiveC.NSObject {
+  @objc public class func syncUpLanguageSetting()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ZMSharedSpaceViewMorePopoverController) @_Concurrency.MainActor(unsafe) public class SharedSpaceViewMorePopoverController : ZoomKit.ZMBaseViewController, AppKit.NSTableViewDelegate, AppKit.NSTableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var nibName: AppKit.NSNib.Name? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var nibBundle: Foundation.Bundle? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public func showPopover(forSpace space: ChatUISwiftHeader.ZMSharedSpaceInfo, inView view: AppKit.NSView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @objc @_Concurrency.MainActor(unsafe) public func tableCell(didClick sender: AppKit.NSTableCellView)
+  @_Concurrency.MainActor(unsafe) @objc public func numberOfRows(in tableView: AppKit.NSTableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, viewFor tableColumn: AppKit.NSTableColumn?, row: Swift.Int) -> AppKit.NSView?
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, objectValueFor tableColumn: AppKit.NSTableColumn?, row: Swift.Int) -> Any?
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, rowViewForRow row: Swift.Int) -> AppKit.NSTableRowView?
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, shouldSelectRow row: Swift.Int) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: AppKit.NSTableView, heightOfRow row: Swift.Int) -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func tableView(_ tableView: AppKit.NSTableView, unhoverRow _row: Foundation.NSNumber)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func tableView(_ tableView: AppKit.NSTableView, hoverRow _row: Foundation.NSNumber)
+  @objc deinit
+}
+@objc(ZMNavigateHistoryType) public enum NavigateHistoryType : Swift.Int {
+  case sessionID
+  case searchKeyword
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(ZMNavigateHistoryItem) final public class NavigateHistoryItem : ObjectiveC.NSObject {
+  @objc final public let type: ZoomSDKChatUI.NavigateHistoryType
+  @objc final public let value: Swift.String
+  @objc final public let modifier: Swift.String?
+  @objc final public let context: Swift.String?
+  @objc public init(type: ZoomSDKChatUI.NavigateHistoryType, value: Swift.String, modifier: Swift.String? = nil, context: Swift.String? = nil)
+  @objc public init(type: ZoomSDKChatUI.NavigateHistoryType, value: Swift.String)
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
+  @objc final public func isEqualToItem(_ item: ZoomSDKChatUI.NavigateHistoryItem?) -> Swift.Bool
+  @objc deinit
+}
+extension ZoomSetting.ZMDownloadViewType : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension ZoomSetting.ZMDownloadResult : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class ZMClipsPTMessageMgr : ObjectiveC.NSObject {
+  @objc public class func process(messageStr: Foundation.NSString?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ZoomSDKChatUI.NavigateHistoryType : Swift.Equatable {}
+extension ZoomSDKChatUI.NavigateHistoryType : Swift.Hashable {}
+extension ZoomSDKChatUI.NavigateHistoryType : Swift.RawRepresentable {}

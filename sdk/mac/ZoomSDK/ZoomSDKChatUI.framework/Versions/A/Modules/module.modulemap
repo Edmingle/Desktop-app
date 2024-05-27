@@ -1,0 +1,4 @@
+framework module ZoomSDKChatUI {
+  header "zChatUI-Swift.h"
+  requires objc
+}
