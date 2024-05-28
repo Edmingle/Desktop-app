@@ -1,7 +1,8 @@
-appId: com.electron.app
-productName: electron-app
+appId: com.edmingle.aldineedu
+productName: aldine-ca
 directories:
   buildResources: build
+  output: dist
 files:
   - "!**/.vscode/*"
   - "!src/*"
@@ -12,7 +13,10 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: electron-app
+  icon: src/assets/images/dockLogo.png
+  verifyUpdateCodeSignature: false
+  publisherName: edmingle
+  executableName: aldine-ca
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -39,5 +43,5 @@ appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
 publish:
-  provider: generic
-  url: https://example.com/auto-updates
+  provider: github
+  releaseType: release

@@ -11,6 +11,7 @@
     "composite": true,
     "outDir": "/out",
     "jsx": "react-jsx",
+    "noImplicitReturns": false,
     "allowJs": true,
     "baseUrl": ".",
     "paths": {

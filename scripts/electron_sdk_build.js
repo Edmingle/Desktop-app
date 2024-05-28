@@ -1,4 +1,4 @@
-const { execSync } = require("child_process");
+import { execSync } from "child_process";
 
 execSync("node scripts/utils/check_node_modules_installed.js", {
   stdio: [0, 1, 2],

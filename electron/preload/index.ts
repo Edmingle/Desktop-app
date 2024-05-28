@@ -5,11 +5,8 @@ import os from "os";
 // Custom APIs for renderer
 const api = {
   getOs: () => os.platform(),
-  requestRunningApps: () => ipcRenderer.send("request-running-apps"),
-  onRunningAppsUpdate: (callback) =>
-    ipcRenderer.on("running-apps-update", (event, data) => callback(data)),
   deeplinks: (callback) =>
-    ipcRenderer.on("deep-link-data", (event, data) => {
+    ipcRenderer.on("deep-link-data", (_event, data) => {
       callback(data);
     }),
 };

@@ -16,9 +16,10 @@ export const Dashboard = () => {
 
   const getZoomKeys = async () => {
     try {
+      setIsLoading(true);
       const response = await NetworkManager.getKeys();
       if (response.data.code === 200) {
-        const { Auth, Setting } = zoomSdkModule;
+        const { Auth, Meeting, Setting } = zoomSdkModule;
         getResultDesc(
           "AuthWithJwtToken",
           Auth.AuthWithJwtToken(response.data.zoom_keys.sdk_jwt_key),
@@ -27,11 +28,15 @@ export const Dashboard = () => {
         zoomSettingVideo.Setting_EnableVideoMirrorEffect({
           zn_bEnable: true,
         });
+        getResultDesc("StopRecording", Meeting.StopRecording());
+        getResultDesc("StopCloudRecording", Meeting.StopCloudRecording());
         zoomSettingVideo.Setting_EnableHDVideo({ bEnable: true });
       }
     } catch (error: any) {
       console.log("Error is: ", error);
       message.error(error?.response?.data?.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -50,7 +55,8 @@ export const Dashboard = () => {
     }
   };
 
-  const checkBackgroundRunningApps = (item) => {
+  const joinButtonClick = (item) => {
+    getZoomKeys();
     joinClass(item);
   };
 
@@ -102,7 +108,6 @@ export const Dashboard = () => {
   };
 
   useEffect(() => {
-    getZoomKeys();
     getTodaysClass();
   }, []);
 
@@ -502,7 +507,7 @@ export const Dashboard = () => {
                   <Button
                     className="dashboard_join_class_btn"
                     disabled={btnText === "JOIN NOW" ? false : true}
-                    onClick={() => checkBackgroundRunningApps(item)}
+                    onClick={() => joinButtonClick(item)}
                     type="primary"
                   >
                     {btnText}

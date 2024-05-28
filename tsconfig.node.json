@@ -5,6 +5,7 @@
     "outDir": "/out",
     "composite": true,
     "allowJs": true,
+    "noImplicitReturns": false,
     "types": ["electron-vite/node"]
   },
   "exclude": ["out/**/*"]

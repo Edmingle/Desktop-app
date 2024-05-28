@@ -1,11 +1,12 @@
-import { app, shell, BrowserWindow, ipcMain } from "electron";
+import { app, shell, BrowserWindow, dialog } from "electron";
 import {
   initialize,
   enable as remoteEnable,
 } from "@electron/remote/main/index.js";
 import { join } from "path";
 import { exec } from "child_process";
-import { electronApp, optimizer, is } from "@electron-toolkit/utils";
+// import find from "find-process";
+import { optimizer, is } from "@electron-toolkit/utils";
 
 import { ZoomSDK } from "../../lib/zoom_sdk";
 import icon from "../../resources/icon.png?asset";
@@ -46,13 +47,13 @@ if (ret == "SDKERR_SUCCESS") {
 (app as any).platform = platform;
 (app as any).arch = arch;
 
-// // https://gist.github.com/fdlmdark/134dc069d09354bd808224ed9991c40c
-// (app as any).commandLine.appendSwitch(
-//   "disable-features",
-//   "IOSurfaceCapturer,DesktopCaptureMacV2",
-// );
-// // https://github.com/electron/electron/issues/19880#issuecomment-1748902513
-// (app as any).commandLine.appendSwitch("enable-features", "ScreenCaptureKitMac");
+// https://gist.github.com/fdlmdark/134dc069d09354bd808224ed9991c40c
+(app as any).commandLine.appendSwitch(
+  "disable-features",
+  "IOSurfaceCapturer,DesktopCaptureMacV2",
+);
+// https://github.com/electron/electron/issues/19880#issuecomment-1748902513
+(app as any).commandLine.appendSwitch("enable-features", "ScreenCaptureKitMac");
 
 let mainWindow: BrowserWindow;
 
@@ -77,7 +78,7 @@ function createWindow(): void {
     title: "Aldine CA",
     height: 600,
     width: 1000,
-    fullscreen: false, // Change it to true
+    fullscreen: true, // Change it to true
     center: true,
     hasShadow: true,
     icon,
@@ -85,7 +86,7 @@ function createWindow(): void {
       contextIsolation: false,
       nodeIntegration: true,
       devTools: true,
-      preload: join(__dirname, "../preload/index.mjs"),
+      preload: join(__dirname, "../preload/index.cjs"),
       sandbox: false,
     },
   });
@@ -107,7 +108,7 @@ function createWindow(): void {
   if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
     mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"]);
   } else {
-    mainWindow.loadFile(join(__dirname, "../index.html"));
+    mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
   }
 
   mainWindow.on("close", () => {
@@ -122,25 +123,20 @@ function createWindow(): void {
 
 app.on("will-quit", () => {
   zoomSdk.CleanUPSDK();
-  localStorage.clear();
-  app.quit();
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
 
-app.on("browser-window-created", (e, win) => {
+app.on("browser-window-created", (_e, win) => {
   win.center();
 });
 
-app.on("web-contents-created", (e, webContents) => {
+app.on("web-contents-created", (_e, webContents) => {
   remoteEnable(webContents);
 });
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  // Set app user model id for windows
-  electronApp.setAppUserModelId("com.electron");
-
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
   // see https://github.com/alex8088/electron-toolkit/tree/master/packages/utils
@@ -148,9 +144,34 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window);
   });
 
-  ipcMain.on("request-running-apps", (event) => {
-    getRunningApps(event.sender);
-  });
+  if (process.platform === "darwin") {
+    setInterval(() => {
+      exec(
+        'pgrep -l "QuickTime Player|obs|Snagit|Camtasia|ScreenFlow|screencapture|ffmpeg|vlc|teams|google chrome|firefox"',
+        (error, stdout) => {
+          if (error) {
+            console.error(`Error executing command: ${error}`);
+            return;
+          }
+          const runningApps = stdout
+            .split("\n")
+            .filter(Boolean)
+            .map((line) => line.split(" ")[1]);
+          if (runningApps.length > 0) {
+            dialog.showErrorBox(
+              "Permission deined",
+              "You are not allowed to capture this screen because of this application is running " +
+                stdout,
+            );
+            const zoomSdkModule = (app as any).zoomSdkModule;
+            if (zoomSdkModule) {
+              zoomSdkModule.Meeting.LeaveMeeting();
+            }
+          }
+        },
+      );
+    }, 7000);
+  }
 
   createWindow();
 
@@ -169,20 +190,6 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
-
-const getRunningApps = (win) => {
-  exec(
-    `osascript -e 'tell application "System Events" to get name of every process whose background only is false' && osascript -e 'if application "screencaptureui" is running then return ",screencaptureui"'`,
-    (err, stdout, stderr) => {
-      if (err) {
-        console.error(`Access denied Error: ${err}`, stderr);
-        return;
-      }
-      console.log(stdout);
-      win.send("running-apps-update", stdout);
-    },
-  );
-};
 
 if (isDevelopment) {
   if (process.platform === "win32") {
