@@ -18,9 +18,9 @@
     "serve": "node scripts/electron_sdk_serve.js",
     "postinstall": "electron-builder install-app-deps",
     "build:unpack": "npm run build && electron-builder --dir",
-    "build:win": "npm run build && electron-builder --win --config",
-    "build:mac": "electron-vite build && electron-builder --mac --config",
-    "build:linux": "electron-vite build && electron-builder --linux --config"
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "electron-vite build && electron-builder --mac",
+    "build:linux": "electron-vite build && electron-builder --linux"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.0",
@@ -53,6 +53,33 @@
     "react-dom": "^18.2.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12"
+  },
+  "build": {
+    "appId": "com.edmingle.aldineedu",
+    "copyright": "Copyright edmingle.com",
+    "productName": "Aldine CA",
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    },
+    "mac": {
+      "icon": "./src/assets/images/dockLogo.png",
+      "type": "distribution",
+      "strictVerify": false,
+      "hardenedRuntime": false
+    },
+    "win": {
+      "icon": "./src/assets/images/dockLogo.png",
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "edmingle"
+    },
+    "nsis": {
+      "installerIcon": "./src/assets/images/dockLogo.png"
+    },
+    "directories": {
+      "output": "dist",
+      "buildResources": "src/assets"
+    }
   },
   "repository": "https://github.com/Edmingle/Desktop-app",
   "homepage": "https://github.com/Edmingle/Desktop-app",

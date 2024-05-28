@@ -122,7 +122,6 @@ function createWindow(): void {
 (global as any).platform = platform;
 
 app.on("will-quit", () => {
-  zoomSdk.CleanUPSDK();
   if (process.platform !== "darwin") {
     app.quit();
   }
