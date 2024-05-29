@@ -1,4 +1,4 @@
-import { Button, message, notification, Spin } from "antd";
+import { Button, notification, Spin } from "antd";
 import { useEffect, useState } from "react";
 import "../css/Login.css";
 import "../css/dashboard.css";
@@ -14,12 +14,12 @@ export const Dashboard = () => {
   const remote = window.require("@electron/remote");
   const zoomSdkModule = remote.app.zoomSdkModule;
 
-  const getZoomKeys = async () => {
+  const getZoomKeys = async (item) => {
     try {
       setIsLoading(true);
       const response = await NetworkManager.getKeys();
       if (response.data.code === 200) {
-        const { Auth, Meeting, Setting } = zoomSdkModule;
+        const { Auth, Setting } = zoomSdkModule;
         getResultDesc(
           "AuthWithJwtToken",
           Auth.AuthWithJwtToken(response.data.zoom_keys.sdk_jwt_key),
@@ -28,13 +28,14 @@ export const Dashboard = () => {
         zoomSettingVideo.Setting_EnableVideoMirrorEffect({
           zn_bEnable: true,
         });
-        getResultDesc("StopRecording", Meeting.StopRecording());
-        getResultDesc("StopCloudRecording", Meeting.StopCloudRecording());
         zoomSettingVideo.Setting_EnableHDVideo({ bEnable: true });
+        setTimeout(async () => {
+          await joinClass(item);
+        }, 500);
       }
     } catch (error: any) {
       console.log("Error is: ", error);
-      message.error(error?.response?.data?.message);
+      // message.error(error?.response?.data?.message);
     } finally {
       setIsLoading(false);
     }
@@ -55,9 +56,8 @@ export const Dashboard = () => {
     }
   };
 
-  const joinButtonClick = (item) => {
-    getZoomKeys();
-    joinClass(item);
+  const joinButtonClick = async (item) => {
+    await getZoomKeys(item);
   };
 
   const getResultDesc = (
@@ -103,7 +103,7 @@ export const Dashboard = () => {
       }
     } catch (error: any) {
       console.log("Error is: ", error);
-      message.error(error?.response?.data?.message);
+      // message.error(error?.response?.data?.message);
     }
   };
 

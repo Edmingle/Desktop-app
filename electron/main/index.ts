@@ -72,13 +72,16 @@ if (platform === "win32") {
   }
 }
 
+let interval;
+
 function createWindow(): void {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     title: "Aldine CA",
     height: 600,
     width: 1000,
-    fullscreen: true, // Change it to true
+    fullscreen: true,
+    minimizable: true,
     center: true,
     hasShadow: true,
     icon,
@@ -96,6 +99,12 @@ function createWindow(): void {
 
   mainWindow.on("ready-to-show", () => {
     mainWindow.show();
+  });
+
+  mainWindow.on("minimize", (e) => {
+    e.preventDefault();
+    clearInterval(interval);
+    checkForScreenCaptureApps();
   });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -143,34 +152,8 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window);
   });
 
-  if (process.platform === "darwin") {
-    setInterval(() => {
-      exec(
-        'pgrep -l "QuickTime Player|obs|Snagit|Camtasia|ScreenFlow|screencapture|ffmpeg|vlc|teams|google chrome|firefox"',
-        (error, stdout) => {
-          if (error) {
-            console.error(`Error executing command: ${error}`);
-            return;
-          }
-          const runningApps = stdout
-            .split("\n")
-            .filter(Boolean)
-            .map((line) => line.split(" ")[1]);
-          if (runningApps.length > 0) {
-            dialog.showErrorBox(
-              "Permission deined",
-              "You are not allowed to capture this screen because of this application is running " +
-                stdout,
-            );
-            const zoomSdkModule = (app as any).zoomSdkModule;
-            if (zoomSdkModule) {
-              zoomSdkModule.Meeting.LeaveMeeting();
-            }
-          }
-        },
-      );
-    }, 7000);
-  }
+  clearInterval(interval);
+  checkForScreenCaptureApps();
 
   createWindow();
 
@@ -180,6 +163,38 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
+
+const checkForScreenCaptureApps = () => {
+  if (process.platform === "darwin") {
+    let isDailogShowed = false;
+    interval = setInterval(() => {
+      exec(
+        'pgrep -l "QuickTime Player|obs|Snagit|Camtasia|ScreenFlow|screencapture|ffmpeg|vlc|teams|firefox"',
+        (error, stdout) => {
+          if (error) {
+            return;
+          }
+          const runningApps = stdout
+            .split("\n")
+            .filter(Boolean)
+            .map((line) => line.split(" ")[1]);
+          if (runningApps.length > 0 && !isDailogShowed) {
+            dialog.showErrorBox(
+              "Permission deined",
+              "You are not allowed to capture this screen because of this application is running " +
+                stdout,
+            );
+            isDailogShowed = true;
+            const zoomSdkModule = (app as any).zoomSdkModule;
+            if (zoomSdkModule) {
+              zoomSdkModule.Meeting.LeaveMeeting();
+            }
+          }
+        },
+      );
+    }, 1000);
+  }
+};
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
