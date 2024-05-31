@@ -11,6 +11,8 @@ export const Dashboard = () => {
   const [isLoding, setIsLoading] = useState(true);
   const [, contextHolder] = notification.useNotification();
 
+  const electron = window.require("electron");
+  const ipcRenderer = electron.ipcRenderer;
   const remote = window.require("@electron/remote");
   const zoomSdkModule = remote.app.zoomSdkModule;
 
@@ -35,7 +37,6 @@ export const Dashboard = () => {
       }
     } catch (error: any) {
       console.log("Error is: ", error);
-      // message.error(error?.response?.data?.message);
     } finally {
       setIsLoading(false);
     }
@@ -77,6 +78,7 @@ export const Dashboard = () => {
 
   const joinClass = async (item) => {
     try {
+      setIsLoading(true);
       const response = await NetworkManager.joinClass({ classId: item[0] });
       if (response.data.code === 200) {
         const { Meeting } = zoomSdkModule;
@@ -100,15 +102,43 @@ export const Dashboard = () => {
             isdirectsharedesktop: false,
           }),
         );
+
+        setInterval(() => {
+          (window as any).api.requestRunningApps();
+        }, 1000);
+        // dialog.showErrorBox(
+        //   "Permission deined",
+        //   "You are not allowed to capture this screen because of this application is running " +
+        //     res.data,
+        // );
+        // const zoomSdkModule = (app as any).zoomSdkModule;
+        // if (zoomSdkModule) {
+        //   zoomSdkModule.Meeting.LeaveMeeting();
+        // }
       }
     } catch (error: any) {
       console.log("Error is: ", error);
-      // message.error(error?.response?.data?.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getTodaysClass();
+
+    ipcRenderer.on("on-window-minimize", () => {
+      setInterval(() => {
+        (window as any).api.requestRunningApps();
+      }, 1000);
+    });
+
+    setInterval(() => {
+      (window as any).api.requestRunningApps();
+    }, 1000);
+
+    (window as any).api.onRunningAppsUpdate((data) => {
+      console.log(data);
+    });
   }, []);
 
   if (isLoding) {

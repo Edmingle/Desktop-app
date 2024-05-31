@@ -1,16 +1,15 @@
-import { app, shell, BrowserWindow, dialog } from "electron";
+import { app, shell, BrowserWindow, ipcMain } from "electron";
 import {
   initialize,
   enable as remoteEnable,
 } from "@electron/remote/main/index.js";
 import { join } from "path";
-import { exec } from "child_process";
-// import find from "find-process";
 import { optimizer, is } from "@electron-toolkit/utils";
 
 import { ZoomSDK } from "../../lib/zoom_sdk";
 import icon from "../../resources/icon.png?asset";
 import { ZoomSDKError } from "../../lib/settings";
+import { checkScreenCaptureTools } from "./screen-capture";
 
 const { platform, arch } = process;
 const isDevelopment = process.env.NODE_ENV !== "production";
@@ -52,8 +51,6 @@ if (ret == "SDKERR_SUCCESS") {
   "disable-features",
   "IOSurfaceCapturer,DesktopCaptureMacV2",
 );
-// https://github.com/electron/electron/issues/19880#issuecomment-1748902513
-(app as any).commandLine.appendSwitch("enable-features", "ScreenCaptureKitMac");
 
 let mainWindow: BrowserWindow;
 
@@ -71,8 +68,6 @@ if (platform === "win32") {
     });
   }
 }
-
-let interval;
 
 function createWindow(): void {
   // Create the browser window.
@@ -94,7 +89,7 @@ function createWindow(): void {
     },
   });
 
-  mainWindow.setContentProtection(true);
+  mainWindow.setContentProtection(false);
   // mainWindow.webContents.openDevTools();
 
   mainWindow.on("ready-to-show", () => {
@@ -103,8 +98,7 @@ function createWindow(): void {
 
   mainWindow.on("minimize", (e) => {
     e.preventDefault();
-    clearInterval(interval);
-    checkForScreenCaptureApps();
+    mainWindow.webContents.send("on-window-minimize");
   });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -144,6 +138,7 @@ app.on("web-contents-created", (_e, webContents) => {
   remoteEnable(webContents);
 });
 
+app.dock.setIcon(icon);
 app.whenReady().then(() => {
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
@@ -151,9 +146,6 @@ app.whenReady().then(() => {
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window);
   });
-
-  clearInterval(interval);
-  checkForScreenCaptureApps();
 
   createWindow();
 
@@ -164,37 +156,14 @@ app.whenReady().then(() => {
   });
 });
 
-const checkForScreenCaptureApps = () => {
-  if (process.platform === "darwin") {
-    let isDailogShowed = false;
-    interval = setInterval(() => {
-      exec(
-        'pgrep -l "QuickTime Player|obs|Snagit|Camtasia|ScreenFlow|screencapture|ffmpeg|vlc|teams|firefox"',
-        (error, stdout) => {
-          if (error) {
-            return;
-          }
-          const runningApps = stdout
-            .split("\n")
-            .filter(Boolean)
-            .map((line) => line.split(" ")[1]);
-          if (runningApps.length > 0 && !isDailogShowed) {
-            dialog.showErrorBox(
-              "Permission deined",
-              "You are not allowed to capture this screen because of this application is running " +
-                stdout,
-            );
-            isDailogShowed = true;
-            const zoomSdkModule = (app as any).zoomSdkModule;
-            if (zoomSdkModule) {
-              zoomSdkModule.Meeting.LeaveMeeting();
-            }
-          }
-        },
-      );
-    }, 1000);
-  }
-};
+async function getRunningApps(win: Electron.WebContents) {
+  const res = await checkScreenCaptureTools();
+  win.send("running-apps-update", res);
+}
+
+ipcMain.on("request-running-apps", async (event) => {
+  await getRunningApps(event.sender);
+});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

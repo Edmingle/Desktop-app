@@ -63,18 +63,24 @@
       "releaseType": "release"
     },
     "mac": {
-      "icon": "./src/assets/images/dockLogo.png",
+      "icon": "resources/icon.png",
       "type": "distribution",
       "strictVerify": false,
-      "hardenedRuntime": false
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
+    },
+    "dmg": {
+      "sign": false
     },
     "win": {
-      "icon": "./src/assets/images/dockLogo.png",
+      "icon": "resources/icon.ico",
       "verifyUpdateCodeSignature": false,
       "publisherName": "edmingle"
     },
     "nsis": {
-      "installerIcon": "./src/assets/images/dockLogo.png"
+      "installerIcon": "resources/icon.ico"
     },
     "directories": {
       "output": "dist",
