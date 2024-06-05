@@ -58,33 +58,54 @@
     "appId": "com.edmingle.aldineedu",
     "copyright": "Copyright edmingle.com",
     "productName": "Aldine CA",
+    "forceCodeSigning": false,
     "publish": {
       "provider": "github",
       "releaseType": "release"
     },
+    "snap": false,
     "mac": {
       "icon": "resources/icon.png",
       "type": "distribution",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": null,
       "strictVerify": false,
       "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": "entitlements.mac.plist",
-      "entitlementsInherit": "entitlements.mac.plist"
+      "gatekeeperAssess": false
     },
     "dmg": {
       "sign": false
     },
     "win": {
       "icon": "resources/icon.ico",
-      "verifyUpdateCodeSignature": false,
+      "signingHashAlgorithms": [
+        "sha256"
+      ],
+      "certificateFile": "certificate.pfx",
+      "certificatePassword": "aldine-ca",
+      "target": [
+        "nsis",
+        "zip"
+      ],
       "publisherName": "edmingle"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "tar.gz"
+      ]
     },
     "nsis": {
       "installerIcon": "resources/icon.ico"
     },
     "directories": {
       "output": "dist",
-      "buildResources": "src/assets"
+      "buildResources": "resources"
     }
   },
   "repository": "https://github.com/Edmingle/Desktop-app",

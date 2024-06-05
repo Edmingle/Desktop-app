@@ -9,12 +9,37 @@ import { ZoomSDKError } from "../../lib/settings.js";
 export const Dashboard = () => {
   const [classData, setClassData] = useState([]);
   const [isLoding, setIsLoading] = useState(true);
-  const [, contextHolder] = notification.useNotification();
+  // const [classId, setClassId] = useState<number | undefined>();
+  const [appInterval, setAppInterval] = useState<NodeJS.Timeout>();
+  // const [runningApps, setRunningApps] = useState<string[]>([]);
+  const [isMeetingRunning, setIsMeetingRunning] = useState(false);
+  const [api, contextHolder] = notification.useNotification();
 
   const electron = window.require("electron");
   const ipcRenderer = electron.ipcRenderer;
   const remote = window.require("@electron/remote");
   const zoomSdkModule = remote.app.zoomSdkModule;
+
+  const showDialog = () => {
+    const runningApps = localStorage.getItem("RN");
+    if (isMeetingRunning) {
+      // show dialog and leave meeting
+      const { Meeting } = zoomSdkModule;
+      api.info({
+        message: `Notification`,
+        description: `Please close these apps to continue with the live class: ${runningApps && JSON.parse(runningApps).toString()}, if not, you will leave the class in some moments.`,
+        placement: "topRight",
+      });
+      Meeting.LeaveMeeting();
+    } else {
+      // show dialog about closing the apps
+      api.info({
+        message: `Notification`,
+        description: `Please close these apps to join the live class: ${runningApps && JSON.parse(runningApps).toString()}`,
+        placement: "topRight",
+      });
+    }
+  };
 
   const getZoomKeys = async (item) => {
     try {
@@ -31,9 +56,18 @@ export const Dashboard = () => {
           zn_bEnable: true,
         });
         zoomSettingVideo.Setting_EnableHDVideo({ bEnable: true });
+
         setTimeout(async () => {
-          await joinClass(item);
-        }, 500);
+          const runningApps = localStorage.getItem("RN");
+          if (runningApps && JSON.parse(runningApps).length > 0) {
+            showDialog();
+          } else {
+            if (!isMeetingRunning) {
+              // join the meeting
+              await joinClass(item);
+            }
+          }
+        }, 1500);
       }
     } catch (error: any) {
       console.log("Error is: ", error);
@@ -58,6 +92,8 @@ export const Dashboard = () => {
   };
 
   const joinButtonClick = async (item) => {
+    (window as any).api.requestRunningApps();
+    // setClassId(item[0]);
     await getZoomKeys(item);
   };
 
@@ -82,6 +118,7 @@ export const Dashboard = () => {
       const response = await NetworkManager.joinClass({ classId: item[0] });
       if (response.data.code === 200) {
         const { Meeting } = zoomSdkModule;
+        console.log(Meeting);
         if (!remote.app.pipeParams) {
           const pipeParams = {
             videoPipeName: "videoPipeDemo",
@@ -91,7 +128,7 @@ export const Dashboard = () => {
           };
           Meeting.SetPipeName(pipeParams);
         }
-        getResultDesc(
+        const res = getResultDesc(
           "JoinMeeting",
           Meeting.JoinMeeting({
             meetingnum: parseInt(response.data.join_id),
@@ -103,18 +140,15 @@ export const Dashboard = () => {
           }),
         );
 
-        setInterval(() => {
-          (window as any).api.requestRunningApps();
-        }, 1000);
-        // dialog.showErrorBox(
-        //   "Permission deined",
-        //   "You are not allowed to capture this screen because of this application is running " +
-        //     res.data,
-        // );
-        // const zoomSdkModule = (app as any).zoomSdkModule;
-        // if (zoomSdkModule) {
-        //   zoomSdkModule.Meeting.LeaveMeeting();
-        // }
+        if (res === "SDKERR_SUCCESS") {
+          setIsMeetingRunning(true);
+
+          setAppInterval(
+            setInterval(() => {
+              (window as any).api.requestRunningApps();
+            }, 1000),
+          );
+        }
       }
     } catch (error: any) {
       console.log("Error is: ", error);
@@ -123,22 +157,32 @@ export const Dashboard = () => {
     }
   };
 
+  const handleRunningAppsUpdate = (res) => {
+    const filteredApps = res.data
+      .filter((a) => a !== "ContinuityCaptu" && a !== "ScreenTimeAgent")
+      .filter((a, i) => res.data.indexOf(a) === i);
+    console.log(filteredApps);
+    localStorage.setItem("RN", JSON.stringify(filteredApps));
+    // setRunningApps(filteredApps);
+  };
+
   useEffect(() => {
     getTodaysClass();
 
     ipcRenderer.on("on-window-minimize", () => {
-      setInterval(() => {
-        (window as any).api.requestRunningApps();
-      }, 1000);
+      setAppInterval(
+        setInterval(() => {
+          (window as any).api.requestRunningApps();
+        }, 1000),
+      );
     });
 
-    setInterval(() => {
-      (window as any).api.requestRunningApps();
-    }, 1000);
+    (window as any).api.onRunningAppsUpdate(handleRunningAppsUpdate);
 
-    (window as any).api.onRunningAppsUpdate((data) => {
-      console.log(data);
-    });
+    () => {
+      clearInterval(appInterval);
+      localStorage.removeItem("RN");
+    };
   }, []);
 
   if (isLoding) {

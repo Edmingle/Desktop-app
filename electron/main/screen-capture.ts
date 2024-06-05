@@ -82,8 +82,8 @@ export function checkScreenCaptureTools(): Promise<{
           .filter(Boolean)
           .map((line) => line.split(" ")[1]);
         if (runningApps.length > 0) {
-          // console.log("Screen capture tool detected on macOS:", stdout);
-          resolve({ status: true, data: stdout });
+          // console.log("Screen capture tool detected on macOS:", runningApps);
+          resolve({ status: true, data: runningApps });
         }
 
         resolve({ status: false });
