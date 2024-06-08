@@ -81,11 +81,6 @@
     },
     "win": {
       "icon": "resources/icon.ico",
-      "signingHashAlgorithms": [
-        "sha256"
-      ],
-      "certificateFile": "certificate.pfx",
-      "certificatePassword": "aldine-ca",
       "target": [
         "nsis",
         "zip"
@@ -95,9 +90,7 @@
     "linux": {
       "target": [
         "AppImage",
-        "deb",
-        "rpm",
-        "tar.gz"
+        "deb"
       ]
     },
     "nsis": {
