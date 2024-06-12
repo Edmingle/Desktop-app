@@ -29,14 +29,12 @@ export function checkScreenCaptureTools(): Promise<{
     "Movavi",
     "TechSmith Capture",
     "Debut",
-    // Browsers
     "Google Chrome",
     "Firefox",
     "Safari",
     "Microsoft Edge",
     "Opera",
     "Brave Browser",
-    // Messaging Apps
     "Slack",
     "Microsoft Teams",
     "Skype",
@@ -45,6 +43,14 @@ export function checkScreenCaptureTools(): Promise<{
     "Google Meet",
     "WhatsApp",
     "Telegram",
+    "Lightshot Screenshot",
+    "Skitch",
+    "Screenium",
+    "Capto",
+    "CloudApp",
+    "Droplr",
+    "Gyazo",
+    "Recordit",
   ];
 
   const windowsApps = [
@@ -67,13 +73,11 @@ export function checkScreenCaptureTools(): Promise<{
     "Greenshot.exe",
     "Captura.exe",
     "GameBar.exe",
-    // Browsers
     "chrome.exe",
     "firefox.exe",
     "msedge.exe",
     "opera.exe",
     "brave.exe",
-    // Messaging Apps
     "slack.exe",
     "Teams.exe",
     "Skype.exe",
@@ -82,6 +86,17 @@ export function checkScreenCaptureTools(): Promise<{
     "Meet.exe",
     "WhatsApp.exe",
     "Telegram.exe",
+    "lightshot.exe",
+    "Skitch.exe",
+    "Screenium.exe",
+    "Capto.exe",
+    "CloudApp.exe",
+    "Droplr.exe",
+    "Gyazo.exe",
+    "Recordit.exe",
+    "ApowerREC.exe",
+    "Dxtory.exe",
+    "Action.exe",
   ];
 
   const linuxApps = [
@@ -103,13 +118,11 @@ export function checkScreenCaptureTools(): Promise<{
     "flameshot",
     "gnome-screenshot",
     "spectacle",
-    // Browsers
     "chrome",
     "firefox",
     "microsoft-edge",
     "opera",
     "brave",
-    // Messaging Apps
     "slack",
     "teams",
     "skype",
@@ -118,6 +131,9 @@ export function checkScreenCaptureTools(): Promise<{
     "meet",
     "whatsapp",
     "telegram",
+    "xvidcap",
+    "SimpleScreenRecorder",
+    "OBS Studio",
   ];
 
   return new Promise((resolve) => {
