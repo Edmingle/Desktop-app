@@ -22,13 +22,31 @@ export function checkScreenCaptureTools(): Promise<{
     "Monosnap",
     "VLC",
     "AnyDesk",
+    "Slack",
     "teams",
     "Skype",
     "Movavi Screen Recorder",
     "Movavi",
     "TechSmith Capture",
     "Debut",
+    // Browsers
+    "Google Chrome",
+    "Firefox",
+    "Safari",
+    "Microsoft Edge",
+    "Opera",
+    "Brave Browser",
+    // Messaging Apps
+    "Slack",
+    "Microsoft Teams",
+    "Skype",
+    "zoom.us",
+    "Discord",
+    "Google Meet",
+    "WhatsApp",
+    "Telegram",
   ];
+
   const windowsApps = [
     "SnippingTool.exe",
     "ScreenSketch.exe",
@@ -49,7 +67,23 @@ export function checkScreenCaptureTools(): Promise<{
     "Greenshot.exe",
     "Captura.exe",
     "GameBar.exe",
+    // Browsers
+    "chrome.exe",
+    "firefox.exe",
+    "msedge.exe",
+    "opera.exe",
+    "brave.exe",
+    // Messaging Apps
+    "slack.exe",
+    "Teams.exe",
+    "Skype.exe",
+    "Zoom.exe",
+    "Discord.exe",
+    "Meet.exe",
+    "WhatsApp.exe",
+    "Telegram.exe",
   ];
+
   const linuxApps = [
     "obs",
     "kazam",
@@ -69,6 +103,21 @@ export function checkScreenCaptureTools(): Promise<{
     "flameshot",
     "gnome-screenshot",
     "spectacle",
+    // Browsers
+    "chrome",
+    "firefox",
+    "microsoft-edge",
+    "opera",
+    "brave",
+    // Messaging Apps
+    "slack",
+    "teams",
+    "skype",
+    "zoom",
+    "discord",
+    "meet",
+    "whatsapp",
+    "telegram",
   ];
 
   return new Promise((resolve) => {

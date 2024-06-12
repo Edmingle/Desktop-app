@@ -9,9 +9,6 @@ import { ZoomSDKError } from "../../lib/settings.js";
 export const Dashboard = () => {
   const [classData, setClassData] = useState([]);
   const [isLoding, setIsLoading] = useState(true);
-  // const [classId, setClassId] = useState<number | undefined>();
-  const [appInterval, setAppInterval] = useState<NodeJS.Timeout>();
-  // const [runningApps, setRunningApps] = useState<string[]>([]);
   const [isMeetingRunning, setIsMeetingRunning] = useState(false);
   const [api, contextHolder] = notification.useNotification();
 
@@ -19,24 +16,50 @@ export const Dashboard = () => {
   const ipcRenderer = electron.ipcRenderer;
   const remote = window.require("@electron/remote");
   const zoomSdkModule = remote.app.zoomSdkModule;
+  const browserWindow = remote.app.browserWindow;
 
-  const showDialog = () => {
-    const runningApps = localStorage.getItem("RN");
+  let appInterval: any;
+  let pollInterval: any;
+  let isDialogShowd = false;
+
+  const showDialog = (runningApps, isMeetingRunning) => {
     if (isMeetingRunning) {
       // show dialog and leave meeting
+      browserWindow[0].focus();
       const { Meeting } = zoomSdkModule;
       api.info({
         message: `Notification`,
-        description: `Please close these apps to continue with the live class: ${runningApps && JSON.parse(runningApps).toString()}, if not, you will leave the class in some moments.`,
-        placement: "topRight",
+        description: `Please close these apps to continue with the live class: ${runningApps}, if not, you will leave the class in 10 seconds`,
+        placement: "top",
+        duration: 60000,
+        closable: true,
       });
-      Meeting.LeaveMeeting();
+      isDialogShowd = true;
+      setTimeout(() => {
+        const runningApps = localStorage.getItem("RN");
+        console.log("runningApps after 10 seconds: ", runningApps);
+        if (runningApps && JSON.parse(runningApps).length > 0) {
+          Meeting.LeaveMeeting();
+          clearIntervalsAndState();
+          api.info({
+            message: `Notification`,
+            description: `You have left the class. please close other applications that can record screens and join again.`,
+            placement: "topRight",
+            duration: 10000,
+            closable: true,
+          });
+        } else {
+          isDialogShowd = false;
+        }
+      }, 10000);
     } else {
       // show dialog about closing the apps
       api.info({
         message: `Notification`,
-        description: `Please close these apps to join the live class: ${runningApps && JSON.parse(runningApps).toString()}`,
+        description: `Please close these apps to join the live class: ${runningApps}`,
         placement: "topRight",
+        duration: 10000,
+        closable: true,
       });
     }
   };
@@ -49,7 +72,7 @@ export const Dashboard = () => {
         const { Auth, Setting } = zoomSdkModule;
         getResultDesc(
           "AuthWithJwtToken",
-          Auth.AuthWithJwtToken(response.data.zoom_keys.sdk_jwt_key),
+          Auth.AuthWithJwtToken(response.data.zoom_keys.sdk_jwt_key)
         );
         const zoomSettingVideo = Setting.GetVideoSetting();
         zoomSettingVideo.Setting_EnableVideoMirrorEffect({
@@ -60,7 +83,7 @@ export const Dashboard = () => {
         setTimeout(async () => {
           const runningApps = localStorage.getItem("RN");
           if (runningApps && JSON.parse(runningApps).length > 0) {
-            showDialog();
+            showDialog(runningApps, false);
           } else {
             if (!isMeetingRunning) {
               // join the meeting
@@ -93,17 +116,16 @@ export const Dashboard = () => {
 
   const joinButtonClick = async (item) => {
     (window as any).api.requestRunningApps();
-    // setClassId(item[0]);
     await getZoomKeys(item);
   };
 
   const getResultDesc = (
     api: string,
     value: any,
-    compare = (a: number, b: number) => a == b,
+    compare = (a: number, b: number) => a == b
   ) => {
     const result = Object.keys(ZoomSDKError).find((k) =>
-      compare(ZoomSDKError[k], value),
+      compare(ZoomSDKError[k], value)
     );
     const tip = `${api}: ${result}`;
     if (value != ZoomSDKError.SDKERR_SUCCESS) {
@@ -115,10 +137,10 @@ export const Dashboard = () => {
   const joinClass = async (item) => {
     try {
       setIsLoading(true);
+      isDialogShowd = false;
       const response = await NetworkManager.joinClass({ classId: item[0] });
       if (response.data.code === 200) {
         const { Meeting } = zoomSdkModule;
-        console.log(Meeting);
         if (!remote.app.pipeParams) {
           const pipeParams = {
             videoPipeName: "videoPipeDemo",
@@ -137,17 +159,39 @@ export const Dashboard = () => {
             isvideooff: false,
             isaudiooff: false,
             isdirectsharedesktop: false,
-          }),
+          })
         );
 
         if (res === "SDKERR_SUCCESS") {
           setIsMeetingRunning(true);
 
-          setAppInterval(
-            setInterval(() => {
-              (window as any).api.requestRunningApps();
-            }, 1000),
-          );
+          // Set up an interval to request running apps every second
+          appInterval = setInterval(() => {
+            (window as any).api.requestRunningApps();
+          }, 1000);
+
+          // Add timeout cause it takes time to get/set the meeting id after joining.
+          setTimeout(() => {
+            // Poll meeting status every second
+            pollInterval = setInterval(() => {
+              const meetingInfo = Meeting.GetMeetingInfo();
+              const meetingId = meetingInfo.GetMeetingID();
+              if (!meetingId) {
+                console.log("No meeting is running");
+                clearIntervalsAndState();
+              } else {
+                console.log("Meeting is running with ID:", meetingId);
+                const runningApps = localStorage.getItem("RN");
+                if (
+                  !isDialogShowd &&
+                  runningApps &&
+                  JSON.parse(runningApps).length > 0
+                ) {
+                  showDialog(runningApps, true);
+                }
+              }
+            }, 1000);
+          }, 1500);
         }
       }
     } catch (error: any) {
@@ -159,29 +203,35 @@ export const Dashboard = () => {
 
   const handleRunningAppsUpdate = (res) => {
     const filteredApps = res.data
-      .filter((a) => a !== "ContinuityCaptu" && a !== "ScreenTimeAgent")
-      .filter((a, i) => res.data.indexOf(a) === i);
+      .filter((a, i) => res.data.indexOf(a) === i)
+      .filter((a) => a !== "ContinuityCaptu" && a !== "ScreenTimeAgent");
     console.log(filteredApps);
     localStorage.setItem("RN", JSON.stringify(filteredApps));
-    // setRunningApps(filteredApps);
+  };
+
+  const clearIntervalsAndState = () => {
+    clearInterval(appInterval);
+    clearInterval(pollInterval);
+    localStorage.removeItem("RN");
+    setIsMeetingRunning(false);
   };
 
   useEffect(() => {
     getTodaysClass();
 
     ipcRenderer.on("on-window-minimize", () => {
-      setAppInterval(
-        setInterval(() => {
-          (window as any).api.requestRunningApps();
-        }, 1000),
-      );
+      appInterval = setInterval(() => {
+        (window as any).api.requestRunningApps();
+      }, 1000);
     });
 
     (window as any).api.onRunningAppsUpdate(handleRunningAppsUpdate);
 
     () => {
-      clearInterval(appInterval);
-      localStorage.removeItem("RN");
+      const { Meeting } = zoomSdkModule;
+
+      Meeting.LeaveMeeting();
+      clearIntervalsAndState();
     };
   }, []);
 

@@ -17,10 +17,10 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 const getResultDesc = (
   api: string,
   value: any,
-  compare = (a: number, b: number) => a == b,
+  compare = (a: number, b: number) => a == b
 ) => {
   const result = Object.keys(ZoomSDKError).find((k) =>
-    compare(ZoomSDKError[k], value),
+    compare(ZoomSDKError[k], value)
   );
   const tip = `${api}: ${result}`;
   if (value != ZoomSDKError.SDKERR_SUCCESS) {
@@ -49,7 +49,7 @@ if (ret == "SDKERR_SUCCESS") {
 // https://gist.github.com/fdlmdark/134dc069d09354bd808224ed9991c40c
 (app as any).commandLine.appendSwitch(
   "disable-features",
-  "IOSurfaceCapturer,DesktopCaptureMacV2",
+  "IOSurfaceCapturer,DesktopCaptureMacV2"
 );
 
 let mainWindow: BrowserWindow;
@@ -120,6 +120,8 @@ function createWindow(): void {
       zoomSdkModule.Meeting.LeaveMeeting();
     }
   });
+
+  (app as any).browserWindow = BrowserWindow.getAllWindows();
 }
 
 (global as any).platform = platform;
