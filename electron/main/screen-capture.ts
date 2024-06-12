@@ -160,20 +160,37 @@ export function checkScreenCaptureTools(): Promise<{
         .join(" & ");
 
       exec(commands, (_err, stdout) => {
-        if (stdout && !stdout.includes("No tasks are running")) {
-          console.log("Screen capture tool detected on Windows:", stdout);
-          resolve({ status: true });
+        // Filter out lines that do not contain valid task information
+        const taskLines = stdout
+          .split("\n")
+          .filter((line) => line.includes(".exe"));
+
+        // Extract the process names
+        const runningApps = taskLines
+          .map((line) => {
+            const match = line.match(/^(.+?\.exe)/);
+            return match ? match[1].trim() : null;
+          })
+          .filter(Boolean);
+
+        if (runningApps.length > 0) {
+          console.log("Screen capture tool detected on Windows:", runningApps);
+          resolve({ status: true, data: runningApps });
         }
 
         resolve({ status: false });
       });
     } else if (process.platform === "linux") {
       // Linux specific command
-      const command = `ps aux | grep -i '${linuxApps.join("\\|")}' | grep -v grep`;
+      const command = `pgrep -l ${linuxApps.join("\\|")}`;
       exec(command, (_err, stdout) => {
-        if (stdout) {
-          console.log("Screen capture tool detected on Linux:", stdout);
-          resolve({ status: true });
+        const runningApps = stdout
+          .split("\n")
+          .filter(Boolean)
+          .map((line) => line.split(" ")[1]);
+        if (runningApps.length > 0) {
+          // console.log("Screen capture tool detected on Linux:", stdout);
+          resolve({ status: true, data: runningApps });
         }
 
         resolve({ status: false });
