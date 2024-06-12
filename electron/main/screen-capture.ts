@@ -147,7 +147,6 @@ export function checkScreenCaptureTools(): Promise<{
           .filter(Boolean)
           .map((line) => line.split(" ")[1]);
         if (runningApps.length > 0) {
-          // console.log("Screen capture tool detected on macOS:", runningApps);
           resolve({ status: true, data: runningApps });
         }
 
@@ -160,21 +159,11 @@ export function checkScreenCaptureTools(): Promise<{
         .join(" & ");
 
       exec(commands, (_err, stdout) => {
-        // Filter out lines that do not contain valid task information
-        const taskLines = stdout
-          .split("\n")
-          .filter((line) => line.includes(".exe"));
-
-        // Extract the process names
-        const runningApps = taskLines
-          .map((line) => {
-            const match = line.match(/^(.+?\.exe)/);
-            return match ? match[1].trim() : null;
-          })
-          .filter(Boolean);
-
-        if (runningApps.length > 0) {
-          console.log("Screen capture tool detected on Windows:", runningApps);
+        if (stdout && !stdout.includes("No tasks are running")) {
+          const runningApps = stdout
+            .split("\n")
+            .filter((line) => line.includes(".exe"))
+            .map((line) => line.trim().split(/\s+/)[0]);
           resolve({ status: true, data: runningApps });
         }
 
@@ -189,7 +178,6 @@ export function checkScreenCaptureTools(): Promise<{
           .filter(Boolean)
           .map((line) => line.split(" ")[1]);
         if (runningApps.length > 0) {
-          // console.log("Screen capture tool detected on Linux:", stdout);
           resolve({ status: true, data: runningApps });
         }
 
