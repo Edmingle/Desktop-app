@@ -29,7 +29,7 @@ export const Dashboard = () => {
       const { Meeting } = zoomSdkModule;
       api.info({
         message: `Notification`,
-        description: `Please close these apps to continue with the live class: ${runningApps}, if not, you will leave the class in 10 seconds`,
+        description: `Please close these apps to continue with the live class: ${runningApps}, if not, you will leave the class in 2 seconds`,
         placement: "top",
         duration: 60000,
         closable: true,
@@ -37,7 +37,7 @@ export const Dashboard = () => {
       isDialogShowd = true;
       setTimeout(() => {
         const runningApps = localStorage.getItem("RN");
-        console.log("runningApps after 10 seconds: ", runningApps);
+        console.log("runningApps after 2 seconds: ", runningApps);
         if (runningApps && JSON.parse(runningApps).length > 0) {
           Meeting.LeaveMeeting();
           clearIntervalsAndState();
@@ -51,7 +51,7 @@ export const Dashboard = () => {
         } else {
           isDialogShowd = false;
         }
-      }, 10000);
+      }, 2000);
     } else {
       // show dialog about closing the apps
       api.info({
@@ -191,7 +191,7 @@ export const Dashboard = () => {
                 }
               }
             }, 1000);
-          }, 1500);
+          }, 3000);
         }
       }
     } catch (error: any) {
@@ -202,11 +202,15 @@ export const Dashboard = () => {
   };
 
   const handleRunningAppsUpdate = (res) => {
-    const filteredApps = res.data
-      .filter((a, i) => res.data.indexOf(a) === i)
-      .filter((a) => a !== "ContinuityCaptu" && a !== "ScreenTimeAgent");
-    console.log(filteredApps);
-    localStorage.setItem("RN", JSON.stringify(filteredApps));
+    if (res.status) {
+      const filteredApps = res.data
+        .filter((a, i) => res.data.indexOf(a) === i)
+        .filter((a) => a !== "ContinuityCaptu" && a !== "ScreenTimeAgent");
+      console.log(filteredApps.join(", "));
+      localStorage.setItem("RN", JSON.stringify(filteredApps));
+    } else {
+      localStorage.setItem("RN", JSON.stringify([]));
+    }
   };
 
   const clearIntervalsAndState = () => {

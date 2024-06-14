@@ -83,13 +83,13 @@ function createWindow(): void {
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
-      devTools: true,
+      devTools: false,
       preload: join(__dirname, "../preload/index.cjs"),
       sandbox: false,
     },
   });
 
-  mainWindow.setContentProtection(false);
+  mainWindow.setContentProtection(true);
   // mainWindow.webContents.openDevTools();
 
   mainWindow.on("ready-to-show", () => {
